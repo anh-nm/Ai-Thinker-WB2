@@ -3,22 +3,21 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
-# 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
-# 143 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
 
-# 143 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
-typedef int ptrdiff_t;
-# 209 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
-typedef unsigned int size_t;
-# 321 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
-typedef int wchar_t;
-# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-# 49 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 1
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h" 1
+
+
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h" 1 3 4
 # 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h" 3 4
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint-gcc.h" 1 3 4
+# 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint-gcc.h" 3 4
+
 # 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint-gcc.h" 3 4
 typedef signed char int8_t;
 
@@ -80,585 +79,30 @@ typedef unsigned int uintptr_t;
 typedef long long int intmax_t;
 typedef long long unsigned int uintmax_t;
 # 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h" 2 3 4
-# 50 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-
-
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 1
-# 74 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h" 1
-# 127 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h"
-
-# 127 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h"
-unsigned long get_cpu_freq(void);
-unsigned long get_timer_freq(void);
-uint64_t get_timer_value(void);
-# 75 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 2
-# 57 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/projdefs.h" 1
-# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/projdefs.h"
-typedef void (*TaskFunction_t)( void * );
-# 60 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 1
-# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/deprecated_definitions.h" 1
-# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
-
-
-
-
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h" 1
-# 62 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-typedef uint32_t StackType_t;
-typedef int32_t BaseType_t;
-typedef uint32_t UBaseType_t;
-typedef uint32_t TickType_t;
-# 84 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-extern void vTaskSwitchContext( void );
-extern void vEnvironmentCall( uint32_t exception );
-# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-extern void vTaskEnterCritical( void );
-extern void vTaskExitCritical( void );
-# 152 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-BaseType_t xPortIsInsideInterrupt( void );
-# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
-# 99 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/mpu_wrappers.h" 1
-# 100 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
-# 117 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
-  StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters ) ;
-
-
-
-
-typedef struct HeapRegion
-{
- uint8_t *pucStartAddress;
- size_t xSizeInBytes;
-} HeapRegion_t;
-# 139 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
-void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) ;
-
-
-
-
-
-void *pvPortMalloc( size_t xSize ) ;
-void *pvPortCalloc(size_t numElements, size_t sizeOfElement); ;
-void *pvPortRealloc(void *pv, size_t xSize) ;
-void vPortFree( void *pv ) ;
-void vPortInitialiseBlocks( void ) ;
-size_t xPortGetFreeHeapSize( void ) ;
-size_t xPortGetMinimumEverFreeHeapSize( void ) ;
-
-
-
-
-
-BaseType_t xPortStartScheduler( void ) ;
-
-
-
-
-
-
-void vPortEndScheduler( void ) ;
-# 63 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-# 1044 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-struct xSTATIC_LIST_ITEM
-{
-
-
-
- TickType_t xDummy2;
- void *pvDummy3[ 4 ];
-
-
-
-};
-typedef struct xSTATIC_LIST_ITEM StaticListItem_t;
-
-
-struct xSTATIC_MINI_LIST_ITEM
-{
-
-
-
- TickType_t xDummy2;
- void *pvDummy3[ 2 ];
-};
-typedef struct xSTATIC_MINI_LIST_ITEM StaticMiniListItem_t;
-
-
-typedef struct xSTATIC_LIST
-{
-
-
-
- UBaseType_t uxDummy2;
- void *pvDummy3;
- StaticMiniListItem_t xDummy4;
-
-
-
-} StaticList_t;
-# 1095 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_TCB
-{
- void *pxDummy1;
-
-
-
- StaticListItem_t xDummy3[ 2 ];
- UBaseType_t uxDummy5;
- void *pxDummy6;
- uint8_t ucDummy7[ ( 16 ) ];
-
-
-
-
-  UBaseType_t uxDummy9;
-
-
-  UBaseType_t uxDummy10[ 2 ];
-
-
-  UBaseType_t uxDummy12[ 2 ];
-
-
-
-
-
-  void *pvDummy15[ 1 ];
-
-        void *pvDummy15_1[ 1 ];
-# 1133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-  uint32_t ulDummy18;
-  uint8_t ucDummy19;
-
-
-  uint8_t uxDummy20;
-# 1146 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-} StaticTask_t;
-# 1162 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_QUEUE
-{
- void *pvDummy1[ 3 ];
-
- union
- {
-  void *pvDummy2;
-  UBaseType_t uxDummy2;
- } u;
-
- StaticList_t xDummy3[ 2 ];
- UBaseType_t uxDummy4[ 3 ];
- uint8_t ucDummy5[ 2 ];
-
-
-  uint8_t ucDummy6;
-
-
-
-
-
-
-
-  UBaseType_t uxDummy8;
-  uint8_t ucDummy9;
-
-
-} StaticQueue_t;
-typedef StaticQueue_t StaticSemaphore_t;
-# 1206 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_EVENT_GROUP
-{
- TickType_t xDummy1;
- StaticList_t xDummy2;
-
-
-  UBaseType_t uxDummy3;
-
-
-
-   uint8_t ucDummy4;
-
-
-} StaticEventGroup_t;
-# 1235 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_TIMER
-{
- void *pvDummy1;
- StaticListItem_t xDummy2;
- TickType_t xDummy3;
- void *pvDummy5;
- TaskFunction_t pvDummy6;
-
-  UBaseType_t uxDummy7;
-
- uint8_t ucDummy8;
-
-} StaticTimer_t;
-# 1263 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_STREAM_BUFFER
-{
- size_t uxDummy1[ 4 ];
- void * pvDummy2[ 3 ];
- uint8_t ucDummy3;
-
-  UBaseType_t uxDummy4;
-
-} StaticStreamBuffer_t;
-
-
-typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 2 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
-# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h" 1
-# 139 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-struct xLIST;
-struct xLIST_ITEM
-{
-
- TickType_t xItemValue;
- struct xLIST_ITEM * pxNext;
- struct xLIST_ITEM * pxPrevious;
- void * pvOwner;
- struct xLIST * pvContainer;
-
-};
-typedef struct xLIST_ITEM ListItem_t;
-
-struct xMINI_LIST_ITEM
-{
-
- TickType_t xItemValue;
- struct xLIST_ITEM * pxNext;
- struct xLIST_ITEM * pxPrevious;
-};
-typedef struct xMINI_LIST_ITEM MiniListItem_t;
-
-
-
-
-typedef struct xLIST
-{
-
- volatile UBaseType_t uxNumberOfItems;
- ListItem_t * pxIndex;
- MiniListItem_t xListEnd;
-
-} List_t;
-# 345 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-void vListInitialise( List_t * const pxList ) ;
-# 356 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-void vListInitialiseItem( ListItem_t * const pxItem ) ;
-# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
-# 390 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
-# 405 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
-UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) ;
-# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 2
-# 69 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-struct tskTaskControlBlock;
-typedef struct tskTaskControlBlock* TaskHandle_t;
-
-
-
-
-
-typedef BaseType_t (*TaskHookFunction_t)( void * );
-
-
-typedef enum
-{
- eRunning = 0,
- eReady,
- eBlocked,
- eSuspended,
- eDeleted,
- eInvalid
-} eTaskState;
-
-
-typedef enum
-{
- eNoAction = 0,
- eSetBits,
- eIncrement,
- eSetValueWithOverwrite,
- eSetValueWithoutOverwrite
-} eNotifyAction;
-
-
-
-
-typedef struct xTIME_OUT
-{
- BaseType_t xOverflowCount;
- TickType_t xTimeOnEntering;
-} TimeOut_t;
-
-
-
-
-typedef struct xMEMORY_REGION
-{
- void *pvBaseAddress;
- uint32_t ulLengthInBytes;
- uint32_t ulParameters;
-} MemoryRegion_t;
-
-
-
-
-typedef struct xTASK_PARAMETERS
-{
- TaskFunction_t pvTaskCode;
- const char * const pcName;
- uint16_t usStackDepth;
- void *pvParameters;
- UBaseType_t uxPriority;
- StackType_t *puxStackBuffer;
- MemoryRegion_t xRegions[ 1 ];
-
-
-
-} TaskParameters_t;
-
-
-
-typedef struct xTASK_STATUS
-{
- TaskHandle_t xHandle;
- const char *pcTaskName;
- UBaseType_t xTaskNumber;
- eTaskState eCurrentState;
- UBaseType_t uxCurrentPriority;
- UBaseType_t uxBasePriority;
- uint32_t ulRunTimeCounter;
- StackType_t *pxStackBase;
- uint16_t usStackHighWaterMark;
-} TaskStatus_t;
-
-
-typedef enum
-{
- eAbortSleep = 0,
- eStandardSleep,
- eNoTasksWaitingTimeout
-} eSleepModeStatus;
-# 330 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
- BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-       const char * const pcName,
-       const uint16_t usStackDepth,
-       void * const pvParameters,
-       UBaseType_t uxPriority,
-       TaskHandle_t * const pxCreatedTask ) ;
-# 446 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
- TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
-         const char * const pcName,
-         const uint32_t ulStackDepth,
-         void * const pvParameters,
-         UBaseType_t uxPriority,
-         StackType_t * const puxStackBuffer,
-         StaticTask_t * const pxTaskBuffer ) ;
-# 665 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskAllocateMPURegions( TaskHandle_t xTask, const MemoryRegion_t * const pxRegions ) ;
-# 706 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelete( TaskHandle_t xTaskToDelete ) ;
-# 758 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelay( const TickType_t xTicksToDelay ) ;
-# 817 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement ) ;
-# 842 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskAbortDelay( TaskHandle_t xTask ) ;
-# 889 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) ;
-
-
-
-
-
-
-
-UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) ;
-# 915 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-eTaskState eTaskGetState( TaskHandle_t xTask ) ;
-# 971 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskGetInfo( TaskHandle_t xTask, TaskStatus_t *pxTaskStatus, BaseType_t xGetFreeStackSpace, eTaskState eState ) ;
-# 1013 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPrioritySet( TaskHandle_t xTask, UBaseType_t uxNewPriority ) ;
-# 1064 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskSuspend( TaskHandle_t xTaskToSuspend ) ;
-# 1113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskResume( TaskHandle_t xTaskToResume ) ;
-# 1142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) ;
-# 1175 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskStartScheduler( void ) ;
-# 1231 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskEndScheduler( void ) ;
-# 1282 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskSuspendAll( void ) ;
-# 1336 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskResumeAll( void ) ;
-# 1351 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetTickCount( void ) ;
-BaseType_t xTaskGetTickCount2( TickType_t *ticks, BaseType_t *overflow ) ;
-# 1368 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetTickCountFromISR( void ) ;
-# 1382 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetNumberOfTasks( void ) ;
-# 1395 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-char *pcTaskGetName( TaskHandle_t xTaskToQuery ) ;
-# 1411 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-TaskHandle_t xTaskGetHandle( const char *pcNameToQuery ) ;
-# 1438 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) ;
-# 1465 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-uint16_t uxTaskGetStackHighWaterMark2( TaskHandle_t xTask ) ;
-# 1513 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
- void vTaskSetThreadLocalStoragePointer( TaskHandle_t xTaskToSet, BaseType_t xIndex, void *pvValue ) ;
- void *pvTaskGetThreadLocalStoragePointer( TaskHandle_t xTaskToQuery, BaseType_t xIndex ) ;
-
-
-
-
-
-
-        typedef void (*TlsDeleteCallbackFunction_t)( int, void * );
-
-
-
-
-        UBaseType_t vTaskSetThreadLocalStoragePointerAndDelCallback( TaskHandle_t xTaskToSet, BaseType_t xIndex, void *pvValue, TlsDeleteCallbackFunction_t pvDelCallback);
-# 1541 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask, void *pvParameter ) ;
-# 1550 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-TaskHandle_t xTaskGetIdleTaskHandle( void ) ;
-# 1649 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t * const pulTotalRunTime ) ;
-UBaseType_t xAddTasksToAllList( void ) ;
-List_t * pxTaskGetAllList( void ) ;
-# 1698 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskList( char * pcWriteBuffer ) ;
-# 1752 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskGetRunTimeStats( char *pcWriteBuffer ) ;
-# 1782 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetIdleRunTimeCounter( void ) ;
-# 1863 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue ) ;
-# 1954 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken ) ;
-# 2031 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait ) ;
-# 2132 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken ) ;
-# 2201 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait ) ;
-# 2217 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskNotifyStateClear( TaskHandle_t xTask );
-# 2238 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskIncrementTick( void ) ;
-# 2271 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksToWait ) ;
-void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait ) ;
-# 2285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPlaceOnEventListRestricted( List_t * const pxEventList, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) ;
-# 2311 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) ;
-void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, const TickType_t xItemValue ) ;
-# 2322 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
- void vTaskSwitchContext( void ) ;
-
-
-
-
-
-TickType_t uxTaskResetEventItemValue( void ) ;
-
-
-
-
-TaskHandle_t xTaskGetCurrentTaskHandle( void ) ;
-
-
-
-
-void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-
-
-
-
-
-BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait ) ;
-
-
-
-
-
-void vTaskMissedYield( void ) ;
-
-
-
-
-
-BaseType_t xTaskGetSchedulerState( void ) ;
-
-
-
-
-
-BaseType_t xTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) ;
-
-
-
-
-
-BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) ;
-# 2378 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPriorityDisinheritAfterTimeout( TaskHandle_t const pxMutexHolder, UBaseType_t uxHighestPriorityWaitingTask ) ;
-
-
-
-
-UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) ;
-
-
-
-
-
-void vTaskSetTaskNumber( TaskHandle_t xTask, const UBaseType_t uxHandle ) ;
-# 2399 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-void vTaskStepTick( const TickType_t xTicksToJump ) ;
-void vTaskStepTickSafe( const TickType_t xTicksToJump ) ;
-# 2416 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
-eSleepModeStatus eTaskConfirmSleepModeStatus( void ) ;
-
-
-
-
-
-TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
-
-
-
-
-
-void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 3 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h" 2
+
+
+# 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h"
+typedef struct _gpio_ctx_desc {
+    struct _gpio_ctx_desc *next;
+    void (*gpio_handler)(void *);
+    void *arg;
+
+    uint8_t gpioPin;
+    uint8_t intCtrlMod;
+    uint8_t intTrgMod;
+} gpio_ctx_t;
+
+int bl_gpio_enable_output(uint8_t pin, uint8_t pullup, uint8_t pulldown);
+int bl_gpio_enable_input(uint8_t pin, uint8_t pullup, uint8_t pulldown);
+int bl_gpio_output_set(uint8_t pin, uint8_t value);
+int bl_gpio_input_get(uint8_t pin, uint8_t *value);
+int bl_gpio_input_get_value(uint8_t pin);
+int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
+void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
+void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
+void bl_gpio_register(gpio_ctx_t *pstnode);
+# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -743,9 +187,15 @@ typedef unsigned int __uintptr_t;
 # 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/cdefs.h" 2 3
 
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
+# 209 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
+typedef unsigned int size_t;
 # 48 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/cdefs.h" 2 3
 # 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 2 3
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
+# 143 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 321 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 3 4
+typedef int wchar_t;
 # 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 2 3
 
 
@@ -1951,507 +1401,655 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 1 3
-# 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
+# 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
-# 18 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
+# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
+# 56 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 1
+# 74 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h" 1
+# 127 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h"
 
+# 127 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h"
+unsigned long get_cpu_freq(void);
+unsigned long get_timer_freq(void);
+uint64_t get_timer_value(void);
+# 75 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 2
+# 57 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
 
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 1 3
-# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
-struct __locale_t;
-typedef struct __locale_t *locale_t;
-# 21 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
 
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/projdefs.h" 1
+# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/projdefs.h"
+typedef void (*TaskFunction_t)( void * );
+# 60 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
 
 
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 1 3
-# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 3
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 1
+# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/deprecated_definitions.h" 1
+# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
 
 
-int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
-void bcopy(const void *, void *, size_t);
-void bzero(void *, size_t);
 
 
-void explicit_bzero(void *, size_t);
 
 
-int ffs(int) __attribute__((__const__));
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h" 1
+# 62 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
+typedef uint32_t StackType_t;
+typedef int32_t BaseType_t;
+typedef uint32_t UBaseType_t;
+typedef uint32_t TickType_t;
+# 84 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
+extern void vTaskSwitchContext( void );
+extern void vEnvironmentCall( uint32_t exception );
+# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
+extern void vTaskEnterCritical( void );
+extern void vTaskExitCritical( void );
+# 152 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
+BaseType_t xPortIsInsideInterrupt( void );
+# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
+# 99 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/mpu_wrappers.h" 1
+# 100 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h" 2
+# 117 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
+  StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters ) ;
 
 
-int ffsl(long) __attribute__((__const__));
-int ffsll(long long) __attribute__((__const__));
-int fls(int) __attribute__((__const__));
-int flsl(long) __attribute__((__const__));
-int flsll(long long) __attribute__((__const__));
 
 
-char *index(const char *, int) __attribute__((__pure__));
-char *rindex(const char *, int) __attribute__((__pure__));
-
-int strcasecmp(const char *, const char *) __attribute__((__pure__));
-int strncasecmp(const char *, const char *, size_t) __attribute__((__pure__));
-
-
-int strcasecmp_l (const char *, const char *, locale_t);
-int strncasecmp_l (const char *, const char *, size_t, locale_t);
-
-
-# 25 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
-
-
-
-
-void * memchr (const void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void * memcpy (void *restrict, const void *restrict, size_t);
-void * memmove (void *, const void *, size_t);
-void * memset (void *, int, size_t);
-char *strcat (char *restrict, const char *restrict);
-char *strchr (const char *, int);
-int strcmp (const char *, const char *);
-int strcoll (const char *, const char *);
-char *strcpy (char *restrict, const char *restrict);
-size_t strcspn (const char *, const char *);
-char *strerror (int);
-size_t strlen (const char *);
-char *strncat (char *restrict, const char *restrict, size_t);
-int strncmp (const char *, const char *, size_t);
-char *strncpy (char *restrict, const char *restrict, size_t);
-char *strpbrk (const char *, const char *);
-char *strrchr (const char *, int);
-size_t strspn (const char *, const char *);
-char *strstr (const char *, const char *);
-
-char *strtok (char *restrict, const char *restrict);
-
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-
-int strcoll_l (const char *, const char *, locale_t);
-char *strerror_l (int, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-
-
-int timingsafe_bcmp (const void *, const void *, size_t);
-int timingsafe_memcmp (const void *, const void *, size_t);
-
-
-void * memccpy (void *restrict, const void *restrict, int, size_t);
-
-
-void * mempcpy (void *, const void *, size_t);
-void * memmem (const void *, size_t, const void *, size_t);
-void * memrchr (const void *, int, size_t);
-void * rawmemchr (const void *, int);
-
-
-char *stpcpy (char *restrict, const char *restrict);
-char *stpncpy (char *restrict, const char *restrict, size_t);
-
-
-char *strcasestr (const char *, const char *);
-char *strchrnul (const char *, int);
-
-
-char *strdup (const char *) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
-
-char *_strdup_r (struct _reent *, const char *);
-
-char *strndup (const char *, size_t) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
-
-char *_strndup_r (struct _reent *, const char *, size_t);
-
-
-
-
-
-
-char *strerror_r (int, char *, size_t);
-# 112 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
-char * _strerror_r (struct _reent *, int, int, int *);
-
-
-size_t strlcat (char *, const char *, size_t);
-size_t strlcpy (char *, const char *, size_t);
-
-
-size_t strnlen (const char *, size_t);
-
-
-char *strsep (char **, const char *);
-
-
-char *strnstr(const char *, const char *, size_t) __attribute__((__pure__));
-
-
-
-char *strlwr (char *);
-char *strupr (char *);
-
-
-
-char *strsignal (int __signo);
-
-
-
-
-
-
-
-int strverscmp (const char *, const char *);
-# 172 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
-char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/string.h" 1 3
-# 15 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/string.h" 3
-static __inline unsigned long __libc_detect_null(unsigned long w)
+typedef struct HeapRegion
 {
-  unsigned long mask = 0x7f7f7f7f;
-  if (sizeof (long) == 8)
-    mask = ((mask << 16) << 16) | mask;
-  return ~(((w & mask) + mask) | w | mask);
-}
-# 176 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
+ uint8_t *pucStartAddress;
+ size_t xSizeInBytes;
+} HeapRegion_t;
+# 139 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/portable.h"
+void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) ;
 
 
-# 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h" 1
-# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/event_type_code.h" 1
-# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h" 2
-# 102 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
 
-# 102 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-typedef struct {
 
-    uint32_t time;
 
-    uint16_t type;
+void *pvPortMalloc( size_t xSize ) ;
+void *pvPortCalloc(size_t numElements, size_t sizeOfElement); ;
+void *pvPortRealloc(void *pv, size_t xSize) ;
+void vPortFree( void *pv ) ;
+void vPortInitialiseBlocks( void ) ;
+size_t xPortGetFreeHeapSize( void ) ;
+size_t xPortGetMinimumEverFreeHeapSize( void ) ;
 
-    uint16_t code;
 
-    unsigned long value;
 
-    unsigned long extra;
-} input_event_t;
 
 
-typedef void (*aos_event_cb)(input_event_t *event, void *private_data);
+BaseType_t xPortStartScheduler( void ) ;
 
-typedef void (*aos_call_t)(void *arg);
 
-typedef void (*aos_poll_call_t)(int fd, void *arg);
-# 131 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_register_event_filter(uint16_t type, aos_event_cb cb, void *priv);
-# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_unregister_event_filter(uint16_t type, aos_event_cb cb, void *priv);
-# 153 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_post_event(uint16_t type, uint16_t code, unsigned long value);
-# 164 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_poll_read_fd(int fd, aos_poll_call_t action, void *param);
-# 173 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-void aos_cancel_poll_read_fd(int fd, aos_poll_call_t action, void *param);
-# 184 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_post_delayed_action(int ms, aos_call_t action, void *arg);
-# 193 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-void aos_cancel_delayed_action(int ms, aos_call_t action, void *arg);
-# 206 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_schedule_call(aos_call_t action, void *arg);
 
-typedef void *aos_loop_t;
 
 
 
+void vPortEndScheduler( void ) ;
+# 63 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
+# 1044 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+struct xSTATIC_LIST_ITEM
+{
 
 
 
-aos_loop_t aos_loop_init(void);
+ TickType_t xDummy2;
+ void *pvDummy3[ 4 ];
 
 
 
+};
+typedef struct xSTATIC_LIST_ITEM StaticListItem_t;
 
 
+struct xSTATIC_MINI_LIST_ITEM
+{
 
-aos_loop_t aos_current_loop(void);
 
 
+ TickType_t xDummy2;
+ void *pvDummy3[ 2 ];
+};
+typedef struct xSTATIC_MINI_LIST_ITEM StaticMiniListItem_t;
 
 
-void aos_loop_run(void);
+typedef struct xSTATIC_LIST
+{
 
 
 
+ UBaseType_t uxDummy2;
+ void *pvDummy3;
+ StaticMiniListItem_t xDummy4;
 
-void aos_loop_exit(void);
 
 
+} StaticList_t;
+# 1095 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+typedef struct xSTATIC_TCB
+{
+ void *pxDummy1;
 
 
-void aos_loop_destroy(void);
-# 248 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-int aos_loop_schedule_call(aos_loop_t *loop, aos_call_t action, void *arg);
-# 261 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-void *aos_loop_schedule_work(int ms, aos_call_t action, void *arg1,
-                             aos_call_t fini_cb, void *arg2);
-# 271 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
-void aos_cancel_work(void *work, aos_call_t action, void *arg1);
-# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h" 1
 
+ StaticListItem_t xDummy3[ 2 ];
+ UBaseType_t uxDummy5;
+ void *pxDummy6;
+ uint8_t ucDummy7[ ( 16 ) ];
 
 
 
 
+  UBaseType_t uxDummy9;
 
 
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
-# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h" 2
-# 22 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    typedef struct
-    {
-        void *hdl;
-    } aos_hdl_t;
+  UBaseType_t uxDummy10[ 2 ];
 
-    typedef aos_hdl_t aos_task_t;
-    typedef aos_hdl_t aos_mutex_t;
-    typedef aos_hdl_t aos_sem_t;
-    typedef aos_hdl_t aos_queue_t;
-    typedef aos_hdl_t aos_timer_t;
-    typedef aos_hdl_t aos_work_t;
 
-    typedef struct
-    {
-        void *hdl;
-        void *stk;
-    } aos_workqueue_t;
+  UBaseType_t uxDummy12[ 2 ];
 
-    typedef unsigned int aos_task_key_t;
 
 
 
 
-    void aos_reboot(void);
+  void *pvDummy15[ 1 ];
 
+        void *pvDummy15_1[ 1 ];
+# 1133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+  uint32_t ulDummy18;
+  uint8_t ucDummy19;
 
 
+  uint8_t uxDummy20;
+# 1146 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+} StaticTask_t;
+# 1162 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+typedef struct xSTATIC_QUEUE
+{
+ void *pvDummy1[ 3 ];
 
+ union
+ {
+  void *pvDummy2;
+  UBaseType_t uxDummy2;
+ } u;
 
+ StaticList_t xDummy3[ 2 ];
+ UBaseType_t uxDummy4[ 3 ];
+ uint8_t ucDummy5[ 2 ];
 
-    int aos_get_hz(void);
 
+  uint8_t ucDummy6;
 
 
 
 
 
-    const char *aos_version_get(void);
-# 71 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_task_new(const char *name, void (*fn)(void *), void *arg,
-                     int stack_size);
-# 89 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_task_new_ext(aos_task_t *task, const char *name, void (*fn)(void *),
-                         void *arg, int stack_size, int prio);
 
 
+  UBaseType_t uxDummy8;
+  uint8_t ucDummy9;
 
 
+} StaticQueue_t;
+typedef StaticQueue_t StaticSemaphore_t;
+# 1206 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+typedef struct xSTATIC_EVENT_GROUP
+{
+ TickType_t xDummy1;
+ StaticList_t xDummy2;
 
 
-    void aos_task_exit(int code);
+  UBaseType_t uxDummy3;
 
 
 
+   uint8_t ucDummy4;
 
 
+} StaticEventGroup_t;
+# 1235 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+typedef struct xSTATIC_TIMER
+{
+ void *pvDummy1;
+ StaticListItem_t xDummy2;
+ TickType_t xDummy3;
+ void *pvDummy5;
+ TaskFunction_t pvDummy6;
 
-    const char *aos_task_name(void);
-# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_task_key_create(aos_task_key_t *key);
+  UBaseType_t uxDummy7;
 
+ uint8_t ucDummy8;
 
+} StaticTimer_t;
+# 1263 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
+typedef struct xSTATIC_STREAM_BUFFER
+{
+ size_t uxDummy1[ 4 ];
+ void * pvDummy2[ 3 ];
+ uint8_t ucDummy3;
 
+  UBaseType_t uxDummy4;
 
+} StaticStreamBuffer_t;
 
 
-    void aos_task_key_delete(aos_task_key_t key);
-# 130 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_task_setspecific(aos_task_key_t key, void *vp);
+typedef StaticStreamBuffer_t StaticMessageBuffer_t;
+# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h" 1
+# 139 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+struct xLIST;
+struct xLIST_ITEM
+{
 
+ TickType_t xItemValue;
+ struct xLIST_ITEM * pxNext;
+ struct xLIST_ITEM * pxPrevious;
+ void * pvOwner;
+ struct xLIST * pvContainer;
 
+};
+typedef struct xLIST_ITEM ListItem_t;
 
+struct xMINI_LIST_ITEM
+{
 
+ TickType_t xItemValue;
+ struct xLIST_ITEM * pxNext;
+ struct xLIST_ITEM * pxPrevious;
+};
+typedef struct xMINI_LIST_ITEM MiniListItem_t;
 
 
-    void *aos_task_getspecific(aos_task_key_t key);
-# 148 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_mutex_new(aos_mutex_t *mutex);
 
 
+typedef struct xLIST
+{
 
+ volatile UBaseType_t uxNumberOfItems;
+ ListItem_t * pxIndex;
+ MiniListItem_t xListEnd;
 
+} List_t;
+# 345 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+void vListInitialise( List_t * const pxList ) ;
+# 356 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+void vListInitialiseItem( ListItem_t * const pxItem ) ;
+# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
+# 390 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
+# 405 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h"
+UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) ;
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 2
+# 69 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+struct tskTaskControlBlock;
+typedef struct tskTaskControlBlock* TaskHandle_t;
 
 
 
-    void aos_mutex_free(aos_mutex_t *mutex);
-# 167 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_mutex_lock(aos_mutex_t *mutex, unsigned int timeout);
-# 177 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_mutex_unlock(aos_mutex_t *mutex);
-# 186 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_mutex_is_valid(aos_mutex_t *mutex);
-# 197 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_sem_new(aos_sem_t *sem, int count);
 
 
+typedef BaseType_t (*TaskHookFunction_t)( void * );
 
 
+typedef enum
+{
+ eRunning = 0,
+ eReady,
+ eBlocked,
+ eSuspended,
+ eDeleted,
+ eInvalid
+} eTaskState;
 
 
+typedef enum
+{
+ eNoAction = 0,
+ eSetBits,
+ eIncrement,
+ eSetValueWithOverwrite,
+ eSetValueWithoutOverwrite
+} eNotifyAction;
 
-    void aos_sem_free(aos_sem_t *sem);
-# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_sem_wait(aos_sem_t *sem, unsigned int timeout);
 
 
 
+typedef struct xTIME_OUT
+{
+ BaseType_t xOverflowCount;
+ TickType_t xTimeOnEntering;
+} TimeOut_t;
 
 
 
 
-    void aos_sem_signal(aos_sem_t *sem);
-# 233 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_sem_is_valid(aos_sem_t *sem);
+typedef struct xMEMORY_REGION
+{
+ void *pvBaseAddress;
+ uint32_t ulLengthInBytes;
+ uint32_t ulParameters;
+} MemoryRegion_t;
 
 
 
 
+typedef struct xTASK_PARAMETERS
+{
+ TaskFunction_t pvTaskCode;
+ const char * const pcName;
+ uint16_t usStackDepth;
+ void *pvParameters;
+ UBaseType_t uxPriority;
+ StackType_t *puxStackBuffer;
+ MemoryRegion_t xRegions[ 1 ];
 
 
 
-    void aos_sem_signal_all(aos_sem_t *sem);
-# 254 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_queue_new(aos_queue_t *queue, void *buf, unsigned int size,
-                      int max_msg);
+} TaskParameters_t;
 
 
 
+typedef struct xTASK_STATUS
+{
+ TaskHandle_t xHandle;
+ const char *pcTaskName;
+ UBaseType_t xTaskNumber;
+ eTaskState eCurrentState;
+ UBaseType_t uxCurrentPriority;
+ UBaseType_t uxBasePriority;
+ uint32_t ulRunTimeCounter;
+ StackType_t *pxStackBase;
+ uint16_t usStackHighWaterMark;
+} TaskStatus_t;
 
 
+typedef enum
+{
+ eAbortSleep = 0,
+ eStandardSleep,
+ eNoTasksWaitingTimeout
+} eSleepModeStatus;
+# 330 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+ BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+       const char * const pcName,
+       const uint16_t usStackDepth,
+       void * const pvParameters,
+       UBaseType_t uxPriority,
+       TaskHandle_t * const pxCreatedTask ) ;
+# 446 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+ TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
+         const char * const pcName,
+         const uint32_t ulStackDepth,
+         void * const pvParameters,
+         UBaseType_t uxPriority,
+         StackType_t * const puxStackBuffer,
+         StaticTask_t * const pxTaskBuffer ) ;
+# 665 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskAllocateMPURegions( TaskHandle_t xTask, const MemoryRegion_t * const pxRegions ) ;
+# 706 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskDelete( TaskHandle_t xTaskToDelete ) ;
+# 758 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskDelay( const TickType_t xTicksToDelay ) ;
+# 817 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement ) ;
+# 842 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskAbortDelay( TaskHandle_t xTask ) ;
+# 889 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) ;
 
-    void aos_queue_free(aos_queue_t *queue);
-# 273 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_queue_send(aos_queue_t *queue, void *msg, unsigned int size);
-# 285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_queue_recv(aos_queue_t *queue, unsigned int ms, void *msg,
-                       unsigned int *size);
-# 295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_queue_is_valid(aos_queue_t *queue);
-# 304 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    void *aos_queue_buf_ptr(aos_queue_t *queue);
-# 317 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_timer_new(aos_timer_t *timer, void (*fn)(void *, void *), void *arg,
-                      int ms, int repeat);
-# 332 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_timer_new_ext(aos_timer_t *timer, void (*fn)(void *, void *),
-                          void *arg, int ms, int repeat,
-                          unsigned char auto_run);
 
 
 
 
 
 
-    void aos_timer_free(aos_timer_t *timer);
-# 350 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_timer_start(aos_timer_t *timer);
-# 359 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_timer_stop(aos_timer_t *timer);
-# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_timer_change(aos_timer_t *timer, int ms);
-# 380 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_workqueue_create(aos_workqueue_t *workqueue, int pri,
-                             int stack_size);
-# 393 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_work_init(aos_work_t *work, void (*fn)(void *), void *arg, int dly);
+UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) ;
+# 915 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+eTaskState eTaskGetState( TaskHandle_t xTask ) ;
+# 971 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskGetInfo( TaskHandle_t xTask, TaskStatus_t *pxTaskStatus, BaseType_t xGetFreeStackSpace, eTaskState eState ) ;
+# 1013 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskPrioritySet( TaskHandle_t xTask, UBaseType_t uxNewPriority ) ;
+# 1064 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskSuspend( TaskHandle_t xTaskToSuspend ) ;
+# 1113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskResume( TaskHandle_t xTaskToResume ) ;
+# 1142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) ;
+# 1175 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskStartScheduler( void ) ;
+# 1231 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskEndScheduler( void ) ;
+# 1282 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskSuspendAll( void ) ;
+# 1336 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskResumeAll( void ) ;
+# 1351 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+TickType_t xTaskGetTickCount( void ) ;
+BaseType_t xTaskGetTickCount2( TickType_t *ticks, BaseType_t *overflow ) ;
+# 1368 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+TickType_t xTaskGetTickCountFromISR( void ) ;
+# 1382 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+UBaseType_t uxTaskGetNumberOfTasks( void ) ;
+# 1395 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+char *pcTaskGetName( TaskHandle_t xTaskToQuery ) ;
+# 1411 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+TaskHandle_t xTaskGetHandle( const char *pcNameToQuery ) ;
+# 1438 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) ;
+# 1465 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+uint16_t uxTaskGetStackHighWaterMark2( TaskHandle_t xTask ) ;
+# 1513 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+ void vTaskSetThreadLocalStoragePointer( TaskHandle_t xTaskToSet, BaseType_t xIndex, void *pvValue ) ;
+ void *pvTaskGetThreadLocalStoragePointer( TaskHandle_t xTaskToQuery, BaseType_t xIndex ) ;
 
 
 
 
 
 
-    void aos_work_destroy(aos_work_t *work);
-# 410 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_work_run(aos_workqueue_t *workqueue, aos_work_t *work);
-# 419 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_work_sched(aos_work_t *work);
-# 428 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    int aos_work_cancel(aos_work_t *work);
-# 438 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    void *aos_realloc(void *mem, unsigned int size);
-# 447 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    void *aos_malloc(unsigned int size);
-# 457 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    void *aos_calloc(unsigned int nitems, unsigned int size);
-# 466 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    void *aos_zalloc(unsigned int size);
+        typedef void (*TlsDeleteCallbackFunction_t)( int, void * );
 
 
 
 
+        UBaseType_t vTaskSetThreadLocalStoragePointerAndDelCallback( TaskHandle_t xTaskToSet, BaseType_t xIndex, void *pvValue, TlsDeleteCallbackFunction_t pvDelCallback);
+# 1541 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask, void *pvParameter ) ;
+# 1550 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+TaskHandle_t xTaskGetIdleTaskHandle( void ) ;
+# 1649 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t * const pulTotalRunTime ) ;
+UBaseType_t xAddTasksToAllList( void ) ;
+List_t * pxTaskGetAllList( void ) ;
+# 1698 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskList( char * pcWriteBuffer ) ;
+# 1752 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskGetRunTimeStats( char *pcWriteBuffer ) ;
+# 1782 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+TickType_t xTaskGetIdleRunTimeCounter( void ) ;
+# 1863 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue ) ;
+# 1954 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 2031 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait ) ;
+# 2132 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 2201 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait ) ;
+# 2217 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskNotifyStateClear( TaskHandle_t xTask );
+# 2238 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskIncrementTick( void ) ;
+# 2271 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksToWait ) ;
+void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait ) ;
+# 2285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskPlaceOnEventListRestricted( List_t * const pxEventList, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) ;
+# 2311 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) ;
+void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, const TickType_t xItemValue ) ;
+# 2322 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+ void vTaskSwitchContext( void ) ;
 
 
 
-    void aos_alloc_trace(void *addr, size_t allocator);
 
 
+TickType_t uxTaskResetEventItemValue( void ) ;
 
 
 
 
-    void aos_free(void *mem);
+TaskHandle_t xTaskGetCurrentTaskHandle( void ) ;
 
 
 
 
+void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
 
 
-    long long aos_now(void);
 
 
 
+BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait ) ;
 
 
 
-    long long aos_now_ms(void);
-# 512 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
-    char *aos_now_time_str(char *buffer, const int len);
 
 
+void vTaskMissedYield( void ) ;
 
 
 
 
-    void aos_msleep(int ms);
 
+BaseType_t xTaskGetSchedulerState( void ) ;
 
 
 
-    void aos_init(void);
 
 
+BaseType_t xTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) ;
 
 
-    void aos_start(void);
-# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 1
-# 40 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h"
+
+
+
+BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) ;
+# 2378 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskPriorityDisinheritAfterTimeout( TaskHandle_t const pxMutexHolder, UBaseType_t uxHighestPriorityWaitingTask ) ;
+
+
+
+
+UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) ;
+
+
+
+
+
+void vTaskSetTaskNumber( TaskHandle_t xTask, const UBaseType_t uxHandle ) ;
+# 2399 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+void vTaskStepTick( const TickType_t xTicksToJump ) ;
+void vTaskStepTickSafe( const TickType_t xTicksToJump ) ;
+# 2416 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
+eSleepModeStatus eTaskConfirmSleepModeStatus( void ) ;
+
+
+
+
+
+TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
+
+
+
+
+
+void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 1
+# 38 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
+# 39 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 2
+# 76 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+struct tmrTimerControl;
+typedef struct tmrTimerControl * TimerHandle_t;
+
+
+
+
+typedef void (*TimerCallbackFunction_t)( TimerHandle_t xTimer );
+
+
+
+
+
+typedef void (*PendedFunction_t)( void *, uint32_t );
+# 228 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+ TimerHandle_t xTimerCreate( const char * const pcTimerName,
+        const TickType_t xTimerPeriodInTicks,
+        const UBaseType_t uxAutoReload,
+        void * const pvTimerID,
+        TimerCallbackFunction_t pxCallbackFunction ) ;
+# 358 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+ TimerHandle_t xTimerCreateStatic( const char * const pcTimerName,
+          const TickType_t xTimerPeriodInTicks,
+          const UBaseType_t uxAutoReload,
+          void * const pvTimerID,
+          TimerCallbackFunction_t pxCallbackFunction,
+          StaticTimer_t *pxTimerBuffer ) ;
+# 386 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void *pvTimerGetTimerID( const TimerHandle_t xTimer ) ;
+# 407 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void vTimerSetTimerID( TimerHandle_t xTimer, void *pvNewID ) ;
+# 444 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerIsTimerActive( TimerHandle_t xTimer ) ;
+
+
+
+
+
+
+
+TaskHandle_t xTimerGetTimerDaemonTaskHandle( void ) ;
+# 1187 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerPendFunctionCallFromISR( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 1221 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerPendFunctionCall( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, TickType_t xTicksToWait ) ;
+# 1232 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+const char * pcTimerGetName( TimerHandle_t xTimer ) ;
+# 1249 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void vTimerSetReloadMode( TimerHandle_t xTimer, const UBaseType_t uxAutoReload ) ;
+# 1260 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+TickType_t xTimerGetPeriod( TimerHandle_t xTimer ) ;
+# 1275 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+TickType_t xTimerGetExpiryTime( TimerHandle_t xTimer ) ;
+
+
+
+
+
+BaseType_t xTimerCreateTimerTask( void ) ;
+BaseType_t xTimerGenericCommand( TimerHandle_t xTimer, const BaseType_t xCommandID, const TickType_t xOptionalValue, BaseType_t * const pxHigherPriorityTaskWoken, const TickType_t xTicksToWait ) ;
+
+
+ void vTimerSetTimerNumber( TimerHandle_t xTimer, UBaseType_t uxTimerNumber ) ;
+ UBaseType_t uxTimerGetTimerNumber( TimerHandle_t xTimer ) ;
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 1
+# 42 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/opt.h" 1
 # 51 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/opt.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/config/lwipopts.h" 1
@@ -2493,11 +2091,24 @@ typedef int sys_prot_t;
 
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/alloca.h" 1 3
 # 23 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
-# 33 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
 
 
 
-# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 1 3
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
+
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
+struct __locale_t;
+typedef struct __locale_t *locale_t;
+# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
+
+
+
+
 typedef struct
 {
   int quot;
@@ -2955,334 +2566,15 @@ __locale_ctype_ptr_l(locale_t _l)
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/opt.h" 1
 # 42 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/debug.h" 2
 # 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/opt.h" 2
-# 41 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 2
+# 43 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
 
 
 
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h" 1
-# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h"
-
-# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h"
-typedef enum {
-
-  ERR_OK = 0,
-
-  ERR_MEM = -1,
-
-  ERR_BUF = -2,
-
-  ERR_TIMEOUT = -3,
-
-  ERR_RTE = -4,
-
-  ERR_INPROGRESS = -5,
-
-  ERR_VAL = -6,
-
-  ERR_WOULDBLOCK = -7,
-
-  ERR_USE = -8,
-
-  ERR_ALREADY = -9,
-
-  ERR_ISCONN = -10,
-
-  ERR_CONN = -11,
-
-  ERR_IF = -12,
-
-
-  ERR_ABRT = -13,
-
-  ERR_RST = -14,
-
-  ERR_CLSD = -15,
-
-  ERR_ARG = -16
-} err_enum_t;
-
-
-
-
-
-
-typedef s8_t err_t;
-# 110 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h"
-int err_to_errno(err_t err);
-# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h" 1
-# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h" 1
-# 95 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 1
-# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h" 1
-# 40 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
-# 41 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h" 2
-
-
-
-
-
-
-struct QueueDefinition;
-typedef struct QueueDefinition * QueueHandle_t;
-
-
-
-
-
-
-typedef struct QueueDefinition * QueueSetHandle_t;
-
-
-
-
-
-
-typedef struct QueueDefinition * QueueSetMemberHandle_t;
-# 650 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueGenericSend( QueueHandle_t xQueue, const void * const pvItemToQueue, TickType_t xTicksToWait, const BaseType_t xCopyPosition ) ;
-# 744 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueuePeek( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) ;
-# 777 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueuePeekFromISR( QueueHandle_t xQueue, void * const pvBuffer ) ;
-# 868 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) ;
-# 883 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-UBaseType_t uxQueueMessagesWaiting( const QueueHandle_t xQueue ) ;
-# 900 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-UBaseType_t uxQueueSpacesAvailable( const QueueHandle_t xQueue ) ;
-# 914 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-void vQueueDelete( QueueHandle_t xQueue ) ;
-# 1295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueGenericSendFromISR( QueueHandle_t xQueue, const void * const pvItemToQueue, BaseType_t * const pxHigherPriorityTaskWoken, const BaseType_t xCopyPosition ) ;
-BaseType_t xQueueGiveFromISR( QueueHandle_t xQueue, BaseType_t * const pxHigherPriorityTaskWoken ) ;
-# 1385 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueReceiveFromISR( QueueHandle_t xQueue, void * const pvBuffer, BaseType_t * const pxHigherPriorityTaskWoken ) ;
-
-
-
-
-
-BaseType_t xQueueIsQueueEmptyFromISR( const QueueHandle_t xQueue ) ;
-BaseType_t xQueueIsQueueFullFromISR( const QueueHandle_t xQueue ) ;
-UBaseType_t uxQueueMessagesWaitingFromISR( const QueueHandle_t xQueue ) ;
-# 1404 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueCRSendFromISR( QueueHandle_t xQueue, const void *pvItemToQueue, BaseType_t xCoRoutinePreviouslyWoken );
-BaseType_t xQueueCRReceiveFromISR( QueueHandle_t xQueue, void *pvBuffer, BaseType_t *pxTaskWoken );
-BaseType_t xQueueCRSend( QueueHandle_t xQueue, const void *pvItemToQueue, TickType_t xTicksToWait );
-BaseType_t xQueueCRReceive( QueueHandle_t xQueue, void *pvBuffer, TickType_t xTicksToWait );
-
-
-
-
-
-
-QueueHandle_t xQueueCreateMutex( const uint8_t ucQueueType ) ;
-QueueHandle_t xQueueCreateMutexStatic( const uint8_t ucQueueType, StaticQueue_t *pxStaticQueue ) ;
-QueueHandle_t xQueueCreateCountingSemaphore( const UBaseType_t uxMaxCount, const UBaseType_t uxInitialCount ) ;
-QueueHandle_t xQueueCreateCountingSemaphoreStatic( const UBaseType_t uxMaxCount, const UBaseType_t uxInitialCount, StaticQueue_t *pxStaticQueue ) ;
-BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue, TickType_t xTicksToWait ) ;
-TaskHandle_t xQueueGetMutexHolder( QueueHandle_t xSemaphore ) ;
-TaskHandle_t xQueueGetMutexHolderFromISR( QueueHandle_t xSemaphore ) ;
-
-
-
-
-
-BaseType_t xQueueTakeMutexRecursive( QueueHandle_t xMutex, TickType_t xTicksToWait ) ;
-BaseType_t xQueueGiveMutexRecursive( QueueHandle_t xMutex ) ;
-# 1458 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
- void vQueueAddToRegistry( QueueHandle_t xQueue, const char *pcQueueName ) ;
-# 1472 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
- void vQueueUnregisterQueue( QueueHandle_t xQueue ) ;
-# 1487 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
- const char *pcQueueGetName( QueueHandle_t xQueue ) ;
-# 1496 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
- QueueHandle_t xQueueGenericCreate( const UBaseType_t uxQueueLength, const UBaseType_t uxItemSize, const uint8_t ucQueueType ) ;
-# 1505 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
- QueueHandle_t xQueueGenericCreateStatic( const UBaseType_t uxQueueLength, const UBaseType_t uxItemSize, uint8_t *pucQueueStorage, StaticQueue_t *pxStaticQueue, const uint8_t ucQueueType ) ;
-# 1556 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-QueueSetHandle_t xQueueCreateSet( const UBaseType_t uxEventQueueLength ) ;
-# 1580 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueAddToSet( QueueSetMemberHandle_t xQueueOrSemaphore, QueueSetHandle_t xQueueSet ) ;
-# 1599 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-BaseType_t xQueueRemoveFromSet( QueueSetMemberHandle_t xQueueOrSemaphore, QueueSetHandle_t xQueueSet ) ;
-# 1635 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
-QueueSetMemberHandle_t xQueueSelectFromSet( QueueSetHandle_t xQueueSet, const TickType_t xTicksToWait ) ;
-
-
-
-
-QueueSetMemberHandle_t xQueueSelectFromSetFromISR( QueueSetHandle_t xQueueSet ) ;
-
-
-void vQueueWaitForMessageRestricted( QueueHandle_t xQueue, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) ;
-BaseType_t xQueueGenericReset( QueueHandle_t xQueue, BaseType_t xNewQueue ) ;
-void vQueueSetQueueNumber( QueueHandle_t xQueue, UBaseType_t uxQueueNumber ) ;
-UBaseType_t uxQueueGetQueueNumber( QueueHandle_t xQueue ) ;
-uint8_t ucQueueGetQueueType( QueueHandle_t xQueue ) ;
-# 38 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h" 1
-# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h" 1
-# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h" 2
-
-typedef QueueHandle_t SemaphoreHandle_t;
-# 39 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 2
-
-
-
-
-
-typedef SemaphoreHandle_t sys_sem_t;
-typedef SemaphoreHandle_t sys_mutex_t;
-typedef QueueHandle_t sys_mbox_t;
-typedef TaskHandle_t sys_thread_t;
-
-typedef struct _sys_arch_state_t
-{
-
- char cTaskName[( 16 )];
- unsigned short nStackDepth;
- unsigned short nTaskCount;
-} sys_arch_state_t;
-# 96 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h" 2
-
-
-typedef void (*lwip_thread_fn)(void *arg);
-# 137 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-err_t sys_mutex_new(sys_mutex_t *mutex);
-
-
-
-
-
-void sys_mutex_lock(sys_mutex_t *mutex);
-
-
-
-
-
-void sys_mutex_unlock(sys_mutex_t *mutex);
-
-
-
-
-
-void sys_mutex_free(sys_mutex_t *mutex);
-# 164 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-int sys_mutex_valid(sys_mutex_t *mutex);
-# 174 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_mutex_set_invalid(sys_mutex_t *mutex);
-# 195 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-err_t sys_sem_new(sys_sem_t *sem, u8_t count);
-
-
-
-
-
-void sys_sem_signal(sys_sem_t *sem);
-# 219 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-u32_t sys_arch_sem_wait(sys_sem_t *sem, u32_t timeout);
-
-
-
-
-
-void sys_sem_free(sys_sem_t *sem);
-# 236 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-int sys_sem_valid(sys_sem_t *sem);
-# 246 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_sem_set_invalid(sys_sem_t *sem);
-# 266 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_msleep(u32_t ms);
-# 285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-err_t sys_mbox_new(sys_mbox_t *mbox, int size);
-# 294 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_mbox_post(sys_mbox_t *mbox, void *msg);
-# 304 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-err_t sys_mbox_trypost(sys_mbox_t *mbox, void *msg);
-# 314 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-err_t sys_mbox_trypost_fromisr(sys_mbox_t *mbox, void *msg);
-# 336 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-u32_t sys_arch_mbox_fetch(sys_mbox_t *mbox, void **msg, u32_t timeout);
-# 355 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-u32_t sys_arch_mbox_tryfetch(sys_mbox_t *mbox, void **msg);
-# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_mbox_free(sys_mbox_t *mbox);
-# 379 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-int sys_mbox_valid(sys_mbox_t *mbox);
-# 389 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_mbox_set_invalid(sys_mbox_t *mbox);
-# 420 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-sys_thread_t sys_thread_new(const char *name, lwip_thread_fn thread, void *arg, int stacksize, int prio);
-# 429 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-void sys_init(void);
-
-
-
-
-
-u32_t sys_jiffies(void);
-# 446 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-u32_t sys_now(void);
-# 492 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
-sys_prot_t sys_arch_protect(void);
-void sys_arch_unprotect(sys_prot_t pval);
-# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h" 2
-# 66 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
-typedef void (* lwip_cyclic_timer_handler)(void);
-
-
-
-struct lwip_cyclic_timer {
-  u32_t interval_ms;
-  lwip_cyclic_timer_handler handler;
-
-
-
-};
-
-
-
-extern const struct lwip_cyclic_timer lwip_cyclic_timers[];
-
-extern const int lwip_num_cyclic_timers;
-# 91 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
-typedef void (* sys_timeout_handler)(void *arg);
-
-struct sys_timeo {
-  struct sys_timeo *next;
-  u32_t time;
-  sys_timeout_handler h;
-  void *arg;
-
-
-
-};
-
-void sys_timeouts_init(void);
-
-
-
-
-
-void sys_timeout(u32_t msecs, sys_timeout_handler handler, void *arg);
-
-
-void sys_untimeout(sys_timeout_handler handler, void *arg);
-void sys_restart_timeouts(void);
-void sys_check_timeouts(void);
-u32_t sys_timeouts_sleeptime(void);
-# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h" 1
-# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/ip_addr.h" 1
 # 41 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/ip_addr.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/def.h" 1
+# 96 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/def.h"
+
 # 96 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/def.h"
 u16_t lwip_htons(u16_t x);
 
@@ -3349,7 +2641,60 @@ typedef ip4_addr_t ip_addr_t;
 # 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/ip_addr.h"
 extern const ip_addr_t ip_addr_any;
 extern const ip_addr_t ip_addr_broadcast;
-# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h" 2
+# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h" 1
+# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h" 1
+# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h"
+typedef enum {
+
+  ERR_OK = 0,
+
+  ERR_MEM = -1,
+
+  ERR_BUF = -2,
+
+  ERR_TIMEOUT = -3,
+
+  ERR_RTE = -4,
+
+  ERR_INPROGRESS = -5,
+
+  ERR_VAL = -6,
+
+  ERR_WOULDBLOCK = -7,
+
+  ERR_USE = -8,
+
+  ERR_ALREADY = -9,
+
+  ERR_ISCONN = -10,
+
+  ERR_CONN = -11,
+
+  ERR_IF = -12,
+
+
+  ERR_ABRT = -13,
+
+  ERR_RST = -14,
+
+  ERR_CLSD = -15,
+
+  ERR_ARG = -16
+} err_enum_t;
+
+
+
+
+
+
+typedef s8_t err_t;
+# 110 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/err.h"
+int err_to_errno(err_t err);
+# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h" 2
+
+
 
 
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/pbuf.h" 1
@@ -4146,7 +3491,936 @@ typedef union
 } netif_ext_callback_args_t;
 # 645 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netif.h"
 typedef void (*netif_ext_callback_fn)(struct netif* netif, netif_nsc_reason_t reason, const netif_ext_callback_args_t* args);
-# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 2
+# 48 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/inet.h" 1
+# 55 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/inet.h"
+typedef u32_t in_addr_t;
+
+
+struct in_addr {
+  in_addr_t s_addr;
+};
+
+struct in6_addr {
+  union {
+    u32_t u32_addr[4];
+    u8_t u8_addr[16];
+  } un;
+
+};
+# 86 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/inet.h"
+extern const struct in6_addr in6addr_any;
+# 50 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/errno.h" 1
+# 177 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/errno.h"
+extern int errno;
+# 51 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 1 3
+# 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
+# 18 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
+
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 1 3
+# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 3
+
+
+
+# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 3
+int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
+void bcopy(const void *, void *, size_t);
+void bzero(void *, size_t);
+
+
+void explicit_bzero(void *, size_t);
+
+
+int ffs(int) __attribute__((__const__));
+
+
+int ffsl(long) __attribute__((__const__));
+int ffsll(long long) __attribute__((__const__));
+int fls(int) __attribute__((__const__));
+int flsl(long) __attribute__((__const__));
+int flsll(long long) __attribute__((__const__));
+
+
+char *index(const char *, int) __attribute__((__pure__));
+char *rindex(const char *, int) __attribute__((__pure__));
+
+int strcasecmp(const char *, const char *) __attribute__((__pure__));
+int strncasecmp(const char *, const char *, size_t) __attribute__((__pure__));
+
+
+int strcasecmp_l (const char *, const char *, locale_t);
+int strncasecmp_l (const char *, const char *, size_t, locale_t);
+
+
+# 25 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
+
+
+
+
+void * memchr (const void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void * memcpy (void *restrict, const void *restrict, size_t);
+void * memmove (void *, const void *, size_t);
+void * memset (void *, int, size_t);
+char *strcat (char *restrict, const char *restrict);
+char *strchr (const char *, int);
+int strcmp (const char *, const char *);
+int strcoll (const char *, const char *);
+char *strcpy (char *restrict, const char *restrict);
+size_t strcspn (const char *, const char *);
+char *strerror (int);
+size_t strlen (const char *);
+char *strncat (char *restrict, const char *restrict, size_t);
+int strncmp (const char *, const char *, size_t);
+char *strncpy (char *restrict, const char *restrict, size_t);
+char *strpbrk (const char *, const char *);
+char *strrchr (const char *, int);
+size_t strspn (const char *, const char *);
+char *strstr (const char *, const char *);
+
+char *strtok (char *restrict, const char *restrict);
+
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+
+int strcoll_l (const char *, const char *, locale_t);
+char *strerror_l (int, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+
+
+int timingsafe_bcmp (const void *, const void *, size_t);
+int timingsafe_memcmp (const void *, const void *, size_t);
+
+
+void * memccpy (void *restrict, const void *restrict, int, size_t);
+
+
+void * mempcpy (void *, const void *, size_t);
+void * memmem (const void *, size_t, const void *, size_t);
+void * memrchr (const void *, int, size_t);
+void * rawmemchr (const void *, int);
+
+
+char *stpcpy (char *restrict, const char *restrict);
+char *stpncpy (char *restrict, const char *restrict, size_t);
+
+
+char *strcasestr (const char *, const char *);
+char *strchrnul (const char *, int);
+
+
+char *strdup (const char *) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
+
+char *_strdup_r (struct _reent *, const char *);
+
+char *strndup (const char *, size_t) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
+
+char *_strndup_r (struct _reent *, const char *, size_t);
+
+
+
+
+
+
+char *strerror_r (int, char *, size_t);
+# 112 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
+char * _strerror_r (struct _reent *, int, int, int *);
+
+
+size_t strlcat (char *, const char *, size_t);
+size_t strlcpy (char *, const char *, size_t);
+
+
+size_t strnlen (const char *, size_t);
+
+
+char *strsep (char **, const char *);
+
+
+char *strnstr(const char *, const char *, size_t) __attribute__((__pure__));
+
+
+
+char *strlwr (char *);
+char *strupr (char *);
+
+
+
+char *strsignal (int __signo);
+
+
+
+
+
+
+
+int strverscmp (const char *, const char *);
+# 172 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
+char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/string.h" 1 3
+# 15 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/string.h" 3
+static __inline unsigned long __libc_detect_null(unsigned long w)
+{
+  unsigned long mask = 0x7f7f7f7f;
+  if (sizeof (long) == 8)
+    mask = ((mask << 16) << 16) | mask;
+  return ~(((w & mask) + mask) | w | mask);
+}
+# 176 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
+
+
+# 53 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+# 61 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+
+# 61 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef u8_t sa_family_t;
+
+
+
+
+typedef u16_t in_port_t;
+
+
+
+
+struct sockaddr_in {
+  u8_t sin_len;
+  sa_family_t sin_family;
+  in_port_t sin_port;
+  struct in_addr sin_addr;
+
+  char sin_zero[8];
+};
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct sockaddr {
+  u8_t sa_len;
+  sa_family_t sa_family;
+  char sa_data[14];
+};
+
+struct sockaddr_storage {
+  u8_t s2_len;
+  sa_family_t ss_family;
+  char s2_data1[2];
+  u32_t s2_data2[3];
+
+
+
+};
+
+
+
+
+typedef u32_t socklen_t;
+# 121 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct iovec {
+  void *iov_base;
+  size_t iov_len;
+};
+
+
+struct msghdr {
+  void *msg_name;
+  socklen_t msg_namelen;
+  struct iovec *msg_iov;
+  int msg_iovlen;
+  void *msg_control;
+  socklen_t msg_controllen;
+  int msg_flags;
+};
+
+
+
+
+
+
+struct cmsghdr {
+  socklen_t cmsg_len;
+  int cmsg_level;
+  int cmsg_type;
+};
+# 183 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct ifreq {
+  char ifr_name[6];
+};
+# 226 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct linger {
+  int l_onoff;
+  int l_linger;
+};
+# 319 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef struct ip_mreq {
+    struct in_addr imr_multiaddr;
+    struct in_addr imr_interface;
+} ip_mreq;
+
+
+
+struct in_pktinfo {
+  unsigned int ipi_ifindex;
+  struct in_addr ipi_addr;
+};
+# 506 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef unsigned int nfds_t;
+struct pollfd
+{
+  int fd;
+  short events;
+  short revents;
+};
+# 529 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+void lwip_socket_thread_init(void);
+void lwip_socket_thread_cleanup(void);
+# 576 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+int lwip_accept(int s, struct sockaddr *addr, socklen_t *addrlen);
+int lwip_bind(int s, const struct sockaddr *name, socklen_t namelen);
+int lwip_shutdown(int s, int how);
+int lwip_getpeername (int s, struct sockaddr *name, socklen_t *namelen);
+int lwip_getsockname (int s, struct sockaddr *name, socklen_t *namelen);
+int lwip_getsockopt (int s, int level, int optname, void *optval, socklen_t *optlen);
+int lwip_setsockopt (int s, int level, int optname, const void *optval, socklen_t optlen);
+ int lwip_close(int s);
+int lwip_connect(int s, const struct sockaddr *name, socklen_t namelen);
+int lwip_listen(int s, int backlog);
+ssize_t lwip_recv(int s, void *mem, size_t len, int flags);
+ssize_t lwip_read(int s, void *mem, size_t len);
+ssize_t lwip_readv(int s, const struct iovec *iov, int iovcnt);
+ssize_t lwip_recvfrom(int s, void *mem, size_t len, int flags,
+      struct sockaddr *from, socklen_t *fromlen);
+ssize_t lwip_recvmsg(int s, struct msghdr *message, int flags);
+ssize_t lwip_send(int s, const void *dataptr, size_t size, int flags);
+ssize_t lwip_sendmsg(int s, const struct msghdr *message, int flags);
+ssize_t lwip_sendto(int s, const void *dataptr, size_t size, int flags,
+    const struct sockaddr *to, socklen_t tolen);
+int lwip_socket(int domain, int type, int protocol);
+ssize_t lwip_write(int s, const void *dataptr, size_t size);
+ssize_t lwip_writev(int s, const struct iovec *iov, int iovcnt);
+
+int lwip_select(int maxfdp1, fd_set *readset, fd_set *writeset, fd_set *exceptset,
+                struct timeval *timeout);
+
+
+int lwip_poll(struct pollfd *fds, nfds_t nfds, int timeout);
+
+int lwip_ioctl(int s, long cmd, void *argp);
+int lwip_fcntl(int s, int cmd, int val);
+const char *lwip_inet_ntop(int af, const void *src, char *dst, socklen_t size);
+int lwip_inet_pton(int af, const char *src, void *dst);
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h" 1
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 1
+
+
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h" 1
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/event_type_code.h" 1
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h" 2
+# 102 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+typedef struct {
+
+    uint32_t time;
+
+    uint16_t type;
+
+    uint16_t code;
+
+    unsigned long value;
+
+    unsigned long extra;
+} input_event_t;
+
+
+typedef void (*aos_event_cb)(input_event_t *event, void *private_data);
+
+typedef void (*aos_call_t)(void *arg);
+
+typedef void (*aos_poll_call_t)(int fd, void *arg);
+# 131 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_register_event_filter(uint16_t type, aos_event_cb cb, void *priv);
+# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_unregister_event_filter(uint16_t type, aos_event_cb cb, void *priv);
+# 153 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_post_event(uint16_t type, uint16_t code, unsigned long value);
+# 164 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_poll_read_fd(int fd, aos_poll_call_t action, void *param);
+# 173 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+void aos_cancel_poll_read_fd(int fd, aos_poll_call_t action, void *param);
+# 184 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_post_delayed_action(int ms, aos_call_t action, void *arg);
+# 193 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+void aos_cancel_delayed_action(int ms, aos_call_t action, void *arg);
+# 206 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_schedule_call(aos_call_t action, void *arg);
+
+typedef void *aos_loop_t;
+
+
+
+
+
+
+aos_loop_t aos_loop_init(void);
+
+
+
+
+
+
+aos_loop_t aos_current_loop(void);
+
+
+
+
+void aos_loop_run(void);
+
+
+
+
+void aos_loop_exit(void);
+
+
+
+
+void aos_loop_destroy(void);
+# 248 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+int aos_loop_schedule_call(aos_loop_t *loop, aos_call_t action, void *arg);
+# 261 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+void *aos_loop_schedule_work(int ms, aos_call_t action, void *arg1,
+                             aos_call_t fini_cb, void *arg2);
+# 271 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
+void aos_cancel_work(void *work, aos_call_t action, void *arg1);
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h" 1
+
+
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h" 2
+# 22 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    typedef struct
+    {
+        void *hdl;
+    } aos_hdl_t;
+
+    typedef aos_hdl_t aos_task_t;
+    typedef aos_hdl_t aos_mutex_t;
+    typedef aos_hdl_t aos_sem_t;
+    typedef aos_hdl_t aos_queue_t;
+    typedef aos_hdl_t aos_timer_t;
+    typedef aos_hdl_t aos_work_t;
+
+    typedef struct
+    {
+        void *hdl;
+        void *stk;
+    } aos_workqueue_t;
+
+    typedef unsigned int aos_task_key_t;
+
+
+
+
+    void aos_reboot(void);
+
+
+
+
+
+
+    int aos_get_hz(void);
+
+
+
+
+
+
+    const char *aos_version_get(void);
+# 71 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_task_new(const char *name, void (*fn)(void *), void *arg,
+                     int stack_size);
+# 89 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_task_new_ext(aos_task_t *task, const char *name, void (*fn)(void *),
+                         void *arg, int stack_size, int prio);
+
+
+
+
+
+
+    void aos_task_exit(int code);
+
+
+
+
+
+
+    const char *aos_task_name(void);
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_task_key_create(aos_task_key_t *key);
+
+
+
+
+
+
+    void aos_task_key_delete(aos_task_key_t key);
+# 130 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_task_setspecific(aos_task_key_t key, void *vp);
+
+
+
+
+
+
+    void *aos_task_getspecific(aos_task_key_t key);
+# 148 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_mutex_new(aos_mutex_t *mutex);
+
+
+
+
+
+
+
+    void aos_mutex_free(aos_mutex_t *mutex);
+# 167 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_mutex_lock(aos_mutex_t *mutex, unsigned int timeout);
+# 177 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_mutex_unlock(aos_mutex_t *mutex);
+# 186 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_mutex_is_valid(aos_mutex_t *mutex);
+# 197 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_sem_new(aos_sem_t *sem, int count);
+
+
+
+
+
+
+
+    void aos_sem_free(aos_sem_t *sem);
+# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_sem_wait(aos_sem_t *sem, unsigned int timeout);
+
+
+
+
+
+
+
+    void aos_sem_signal(aos_sem_t *sem);
+# 233 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_sem_is_valid(aos_sem_t *sem);
+
+
+
+
+
+
+
+    void aos_sem_signal_all(aos_sem_t *sem);
+# 254 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_queue_new(aos_queue_t *queue, void *buf, unsigned int size,
+                      int max_msg);
+
+
+
+
+
+
+    void aos_queue_free(aos_queue_t *queue);
+# 273 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_queue_send(aos_queue_t *queue, void *msg, unsigned int size);
+# 285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_queue_recv(aos_queue_t *queue, unsigned int ms, void *msg,
+                       unsigned int *size);
+# 295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_queue_is_valid(aos_queue_t *queue);
+# 304 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    void *aos_queue_buf_ptr(aos_queue_t *queue);
+# 317 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_timer_new(aos_timer_t *timer, void (*fn)(void *, void *), void *arg,
+                      int ms, int repeat);
+# 332 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_timer_new_ext(aos_timer_t *timer, void (*fn)(void *, void *),
+                          void *arg, int ms, int repeat,
+                          unsigned char auto_run);
+
+
+
+
+
+
+    void aos_timer_free(aos_timer_t *timer);
+# 350 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_timer_start(aos_timer_t *timer);
+# 359 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_timer_stop(aos_timer_t *timer);
+# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_timer_change(aos_timer_t *timer, int ms);
+# 380 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_workqueue_create(aos_workqueue_t *workqueue, int pri,
+                             int stack_size);
+# 393 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_work_init(aos_work_t *work, void (*fn)(void *), void *arg, int dly);
+
+
+
+
+
+
+    void aos_work_destroy(aos_work_t *work);
+# 410 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_work_run(aos_workqueue_t *workqueue, aos_work_t *work);
+# 419 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_work_sched(aos_work_t *work);
+# 428 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    int aos_work_cancel(aos_work_t *work);
+# 438 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    void *aos_realloc(void *mem, unsigned int size);
+# 447 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    void *aos_malloc(unsigned int size);
+# 457 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    void *aos_calloc(unsigned int nitems, unsigned int size);
+# 466 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    void *aos_zalloc(unsigned int size);
+
+
+
+
+
+
+
+    void aos_alloc_trace(void *addr, size_t allocator);
+
+
+
+
+
+
+    void aos_free(void *mem);
+
+
+
+
+
+
+    long long aos_now(void);
+
+
+
+
+
+
+    long long aos_now_ms(void);
+# 512 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h"
+    char *aos_now_time_str(char *buffer, const int len);
+
+
+
+
+
+
+    void aos_msleep(int ms);
+
+
+
+
+    void aos_init(void);
+
+
+
+
+    void aos_start(void);
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 1
+# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h" 1
+# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h" 1
+# 95 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 1
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h" 1
+# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+struct QueueDefinition;
+typedef struct QueueDefinition * QueueHandle_t;
+
+
+
+
+
+
+typedef struct QueueDefinition * QueueSetHandle_t;
+
+
+
+
+
+
+typedef struct QueueDefinition * QueueSetMemberHandle_t;
+# 650 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueGenericSend( QueueHandle_t xQueue, const void * const pvItemToQueue, TickType_t xTicksToWait, const BaseType_t xCopyPosition ) ;
+# 744 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueuePeek( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) ;
+# 777 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueuePeekFromISR( QueueHandle_t xQueue, void * const pvBuffer ) ;
+# 868 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueReceive( QueueHandle_t xQueue, void * const pvBuffer, TickType_t xTicksToWait ) ;
+# 883 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+UBaseType_t uxQueueMessagesWaiting( const QueueHandle_t xQueue ) ;
+# 900 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+UBaseType_t uxQueueSpacesAvailable( const QueueHandle_t xQueue ) ;
+# 914 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+void vQueueDelete( QueueHandle_t xQueue ) ;
+# 1295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueGenericSendFromISR( QueueHandle_t xQueue, const void * const pvItemToQueue, BaseType_t * const pxHigherPriorityTaskWoken, const BaseType_t xCopyPosition ) ;
+BaseType_t xQueueGiveFromISR( QueueHandle_t xQueue, BaseType_t * const pxHigherPriorityTaskWoken ) ;
+# 1385 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueReceiveFromISR( QueueHandle_t xQueue, void * const pvBuffer, BaseType_t * const pxHigherPriorityTaskWoken ) ;
+
+
+
+
+
+BaseType_t xQueueIsQueueEmptyFromISR( const QueueHandle_t xQueue ) ;
+BaseType_t xQueueIsQueueFullFromISR( const QueueHandle_t xQueue ) ;
+UBaseType_t uxQueueMessagesWaitingFromISR( const QueueHandle_t xQueue ) ;
+# 1404 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueCRSendFromISR( QueueHandle_t xQueue, const void *pvItemToQueue, BaseType_t xCoRoutinePreviouslyWoken );
+BaseType_t xQueueCRReceiveFromISR( QueueHandle_t xQueue, void *pvBuffer, BaseType_t *pxTaskWoken );
+BaseType_t xQueueCRSend( QueueHandle_t xQueue, const void *pvItemToQueue, TickType_t xTicksToWait );
+BaseType_t xQueueCRReceive( QueueHandle_t xQueue, void *pvBuffer, TickType_t xTicksToWait );
+
+
+
+
+
+
+QueueHandle_t xQueueCreateMutex( const uint8_t ucQueueType ) ;
+QueueHandle_t xQueueCreateMutexStatic( const uint8_t ucQueueType, StaticQueue_t *pxStaticQueue ) ;
+QueueHandle_t xQueueCreateCountingSemaphore( const UBaseType_t uxMaxCount, const UBaseType_t uxInitialCount ) ;
+QueueHandle_t xQueueCreateCountingSemaphoreStatic( const UBaseType_t uxMaxCount, const UBaseType_t uxInitialCount, StaticQueue_t *pxStaticQueue ) ;
+BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue, TickType_t xTicksToWait ) ;
+TaskHandle_t xQueueGetMutexHolder( QueueHandle_t xSemaphore ) ;
+TaskHandle_t xQueueGetMutexHolderFromISR( QueueHandle_t xSemaphore ) ;
+
+
+
+
+
+BaseType_t xQueueTakeMutexRecursive( QueueHandle_t xMutex, TickType_t xTicksToWait ) ;
+BaseType_t xQueueGiveMutexRecursive( QueueHandle_t xMutex ) ;
+# 1458 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+ void vQueueAddToRegistry( QueueHandle_t xQueue, const char *pcQueueName ) ;
+# 1472 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+ void vQueueUnregisterQueue( QueueHandle_t xQueue ) ;
+# 1487 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+ const char *pcQueueGetName( QueueHandle_t xQueue ) ;
+# 1496 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+ QueueHandle_t xQueueGenericCreate( const UBaseType_t uxQueueLength, const UBaseType_t uxItemSize, const uint8_t ucQueueType ) ;
+# 1505 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+ QueueHandle_t xQueueGenericCreateStatic( const UBaseType_t uxQueueLength, const UBaseType_t uxItemSize, uint8_t *pucQueueStorage, StaticQueue_t *pxStaticQueue, const uint8_t ucQueueType ) ;
+# 1556 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+QueueSetHandle_t xQueueCreateSet( const UBaseType_t uxEventQueueLength ) ;
+# 1580 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueAddToSet( QueueSetMemberHandle_t xQueueOrSemaphore, QueueSetHandle_t xQueueSet ) ;
+# 1599 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+BaseType_t xQueueRemoveFromSet( QueueSetMemberHandle_t xQueueOrSemaphore, QueueSetHandle_t xQueueSet ) ;
+# 1635 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h"
+QueueSetMemberHandle_t xQueueSelectFromSet( QueueSetHandle_t xQueueSet, const TickType_t xTicksToWait ) ;
+
+
+
+
+QueueSetMemberHandle_t xQueueSelectFromSetFromISR( QueueSetHandle_t xQueueSet ) ;
+
+
+void vQueueWaitForMessageRestricted( QueueHandle_t xQueue, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) ;
+BaseType_t xQueueGenericReset( QueueHandle_t xQueue, BaseType_t xNewQueue ) ;
+void vQueueSetQueueNumber( QueueHandle_t xQueue, UBaseType_t uxQueueNumber ) ;
+UBaseType_t uxQueueGetQueueNumber( QueueHandle_t xQueue ) ;
+uint8_t ucQueueGetQueueType( QueueHandle_t xQueue ) ;
+# 38 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h" 1
+# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/queue.h" 1
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/semphr.h" 2
+
+typedef QueueHandle_t SemaphoreHandle_t;
+# 39 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/lwip-port/arch/sys_arch.h" 2
+
+
+
+
+
+typedef SemaphoreHandle_t sys_sem_t;
+typedef SemaphoreHandle_t sys_mutex_t;
+typedef QueueHandle_t sys_mbox_t;
+typedef TaskHandle_t sys_thread_t;
+
+typedef struct _sys_arch_state_t
+{
+
+ char cTaskName[( 16 )];
+ unsigned short nStackDepth;
+ unsigned short nTaskCount;
+} sys_arch_state_t;
+# 96 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h" 2
+
+
+typedef void (*lwip_thread_fn)(void *arg);
+# 137 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+err_t sys_mutex_new(sys_mutex_t *mutex);
+
+
+
+
+
+void sys_mutex_lock(sys_mutex_t *mutex);
+
+
+
+
+
+void sys_mutex_unlock(sys_mutex_t *mutex);
+
+
+
+
+
+void sys_mutex_free(sys_mutex_t *mutex);
+# 164 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+int sys_mutex_valid(sys_mutex_t *mutex);
+# 174 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_mutex_set_invalid(sys_mutex_t *mutex);
+# 195 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+err_t sys_sem_new(sys_sem_t *sem, u8_t count);
+
+
+
+
+
+void sys_sem_signal(sys_sem_t *sem);
+# 219 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+u32_t sys_arch_sem_wait(sys_sem_t *sem, u32_t timeout);
+
+
+
+
+
+void sys_sem_free(sys_sem_t *sem);
+# 236 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+int sys_sem_valid(sys_sem_t *sem);
+# 246 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_sem_set_invalid(sys_sem_t *sem);
+# 266 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_msleep(u32_t ms);
+# 285 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+err_t sys_mbox_new(sys_mbox_t *mbox, int size);
+# 294 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_mbox_post(sys_mbox_t *mbox, void *msg);
+# 304 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+err_t sys_mbox_trypost(sys_mbox_t *mbox, void *msg);
+# 314 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+err_t sys_mbox_trypost_fromisr(sys_mbox_t *mbox, void *msg);
+# 336 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+u32_t sys_arch_mbox_fetch(sys_mbox_t *mbox, void **msg, u32_t timeout);
+# 355 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+u32_t sys_arch_mbox_tryfetch(sys_mbox_t *mbox, void **msg);
+# 369 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_mbox_free(sys_mbox_t *mbox);
+# 379 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+int sys_mbox_valid(sys_mbox_t *mbox);
+# 389 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_mbox_set_invalid(sys_mbox_t *mbox);
+# 420 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+sys_thread_t sys_thread_new(const char *name, lwip_thread_fn thread, void *arg, int stacksize, int prio);
+# 429 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+void sys_init(void);
+
+
+
+
+
+u32_t sys_jiffies(void);
+# 446 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+u32_t sys_now(void);
+# 492 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sys.h"
+sys_prot_t sys_arch_protect(void);
+void sys_arch_unprotect(sys_prot_t pval);
+# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h" 2
+# 66 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
+typedef void (* lwip_cyclic_timer_handler)(void);
+
+
+
+struct lwip_cyclic_timer {
+  u32_t interval_ms;
+  lwip_cyclic_timer_handler handler;
+
+
+
+};
+
+
+
+extern const struct lwip_cyclic_timer lwip_cyclic_timers[];
+
+extern const int lwip_num_cyclic_timers;
+# 91 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/timeouts.h"
+typedef void (* sys_timeout_handler)(void *arg);
+
+struct sys_timeo {
+  struct sys_timeo *next;
+  u32_t time;
+  sys_timeout_handler h;
+  void *arg;
+
+
+
+};
+
+void sys_timeouts_init(void);
+
+
+
+
+
+void sys_timeout(u32_t msecs, sys_timeout_handler handler, void *arg);
+
+
+void sys_untimeout(sys_timeout_handler handler, void *arg);
+void sys_restart_timeouts(void);
+void sys_check_timeouts(void);
+u32_t sys_timeouts_sleeptime(void);
+# 46 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 2
 # 66 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h"
 struct pbuf;
 struct netif;
@@ -4179,7 +4453,7 @@ err_t tcpip_callbackmsg_trycallback_fromisr(struct tcpip_callback_msg* msg);
 
 err_t pbuf_free_callback(struct pbuf *p);
 err_t mem_free_callback(void *m);
-# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/wifi_manager/bl60x_wifi_driver/include/wifi_mgmr_ext.h" 1
 
 
@@ -5567,7 +5841,7 @@ int wifi_mgmr_bcnind_auth_to_ext(int auth);
 int wifi_mgmr_bcnind_cipher_to_ext(int cipher);
 struct sm_connect_tlv_desc* wifi_mgmr_diagnose_tlv_get_ele(void);
 void wifi_mgmr_diagnose_tlv_free_ele(struct sm_connect_tlv_desc* ele);
-# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/hal_wifi.h" 1
 
 
@@ -5577,7 +5851,9 @@ void wifi_mgmr_diagnose_tlv_free_ele(struct sm_connect_tlv_desc* ele);
 
 
 int hal_wifi_start_firmware_task(void);
-# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+
+
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 1
 # 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdbool.h" 1 3 4
@@ -5625,7 +5901,37 @@ typedef struct _blog_info {
     void blog_hexdump_out(const char* name, uint8_t width, uint8_t* buf, uint16_t size);
 
     int blog_set_level_log_component(char* level, char* component_name);
-# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 16 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+
+
+
+
+
+
+
+void event_cb_wifi_event(input_event_t* event, void* private_data);
+void proc_main_entry(void* pvParameters);
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h" 2
+
+
+
+
+
+typedef enum {
+    NO_CLICK = 0,
+    CLICK,
+    CONFIG,
+    HOLD_BUTTON,
+    HOLD_BUTTON_LONG
+} button_states;
+
+
+
+
+uint8_t get_button_status(void);
+button_states button_state(void);
+void button_manual_task(void *param);
+# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_sys.h" 1
 
 
@@ -5652,7 +5958,7 @@ void bl_sys_reset_system(void);
 int bl_sys_isxipaddr(uint32_t addr);
 int bl_sys_early_init(void);
 int bl_sys_init(void);
-# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 1
 # 28 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 1 3
@@ -6005,135 +6311,8 @@ extern cJSON *cJSON_Duplicate(cJSON *item,int recurse);
 extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated);
 
 extern void cJSON_Minify(char *json);
-# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-
-
-
-
-
-extern void mqtt_start(void);
-extern void button_task(void *param);
-
-static wifi_conf_t conf =
-{
-    .country_code = "CN",
-};
-
-static void wifi_sta_connect(char* ssid, char* password)
-{
-    wifi_interface_t wifi_interface;
-
-    wifi_interface = wifi_mgmr_sta_enable();
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, 
-# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                         ((void *)0)
-# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                             , 
-# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                               ((void *)0)
-# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                                   , 0, 0);
-}
-
-static void event_cb_wifi_event(input_event_t* event, void* private_data)
-{
-    switch (event->code)
-    {
-        case 1:
-        {
-            ;
-            wifi_mgmr_start_background(&conf);
-        }
-        break;
-        case 2:
-        {
-            ;
-            wifi_sta_connect("RD VNPT", "66668888");
-        }
-        break;
-        case 9:
-        {
-            ;
-        }
-        break;
-        case 5:
-        {
-            ;
-        }
-        break;
-        case 8:
-        {
-            ;
-        }
-        break;
-        case 3:
-        {
-            ;
-        }
-        break;
-        case 4:
-        {
-            ;
-        }
-        break;
-        case 6:
-        {
-            ;
-        }
-        break;
-        case 7:
-        {
-            ;
-            ;
-            mqtt_start();
-        }
-        break;
-        case 13:
-        break;
-        case 14:
-        {
-           
-
-                                                                        ;
-            if (event->value)
-            {
-                vPortFree((void*)event->value);
-            }
-        }
-        break;
-        case 15:
-        break;
-        case 16:
-        break;
-        case 17:
-        {
-            ;
-        }
-        break;
-        default:
-        {
-            ;
-
-        }
-    }
-}
-
-static void proc_main_entry(void* pvParameters)
-{
-    aos_register_event_filter(0x0002, event_cb_wifi_event, 
-# 119 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                           ((void *)0)
-# 119 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                               );
-    hal_wifi_start_firmware_task();
-    aos_post_event(0x0002, 1, 0);
-    vTaskDelete(
-# 122 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-               ((void *)0)
-# 122 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                   );
-}
-
+# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
+# 125 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
 void main()
 {
     blog_set_level_log_component(BLOG_LEVEL_WARN, "tcp");
@@ -6149,23 +6328,16 @@ void main()
                     ((void *)0)
 # 131 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
                         );
-    puts("[OS] proc_main_entry task...");
-    xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, 
-# 133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                           ((void *)0)
-# 133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                               , 15, 
-# 133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                                     ((void *)0)
-# 133 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                                         );
-    xTaskCreate(button_task, "button_task", 2048, 
-# 134 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                 ((void *)0)
-# 134 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                     , 15, 
-# 134 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
-                                                           ((void *)0)
-# 134 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-                                                               );
+# 140 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
+    puts("[OS] button_manual_task task...");
+
+    xTaskCreate(button_manual_task, "button_manual_task", 2048, 
+# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
+                                                               ((void *)0)
+# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
+                                                                   , 15, 
+# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4
+                                                                         ((void *)0)
+# 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
+                                                                             );
 }

@@ -11702,8 +11702,6 @@ platform_hal_device_init:
 	.string	"__DBL_DIG__ 15"
 .LASF102:
 	.string	"__WCHAR_MAX__ 0x7fffffff"
-.LASF361:
-	.string	"BFLB_COREDUMP_BINARY_ID 1722507193"
 .LASF403:
 	.string	"__GNUC_PREREQ(maj,min) ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))"
 .LASF265:
@@ -11730,6 +11728,8 @@ platform_hal_device_init:
 	.string	"__RCSID_SOURCE(s) struct __hack"
 .LASF1347:
 	.string	"traceTASK_NOTIFY_TAKE_BLOCK() "
+.LASF866:
+	.string	"FILENAME_MAX 1024"
 .LASF1151:
 	.string	"notifyNOTIFIED_TASK_STACK_SIZE 120"
 .LASF1428:
@@ -12702,8 +12702,8 @@ platform_hal_device_init:
 	.string	"unsigned int"
 .LASF842:
 	.string	"_funlockfile(fp) (((fp)->_flags & __SSTR) ? 0 : __lock_release_recursive((fp)->_lock))"
-.LASF866:
-	.string	"FILENAME_MAX 1024"
+.LASF361:
+	.string	"BFLB_COREDUMP_BINARY_ID 1723015342"
 .LASF1160:
 	.string	"configTHREAD_LOCAL_STORAGE_DELETE_CALLBACKS 1"
 .LASF69:

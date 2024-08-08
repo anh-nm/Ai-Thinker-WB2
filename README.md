@@ -6,7 +6,7 @@
     - Về phần cấu hình. Thiết bị sẽ được đưa về trạng thái cấu hình bằng cách giữ nút nhấn trong 5s rồi nhả ra.
     - Khi đó LED nháy liên tục với chu kỳ 200ms.
     - Khi truyền dữ liệu cho chip, kết nối với wifi mà chip phát ra và gửi dữ liệu.
-    - Sửng dụng socket/tcp/http...
+    - Sửng dụng socket tcp/http...
 
 2. Trong khi chưa được cấu hình, thiết bị vẫn phải bật tắt bằng nút nhấn phần cứng bình thường.
 
@@ -30,13 +30,16 @@ Wifi
 4. Wifi reconnect
 
 Button
-1. Nomal Click
 
-2. Config wifi click
+1. NO_CLICK
 
-3. Hold button
+2. CLICK
 
-4. Hold button long
+3. CONFIG
+
+4. HOLD BUTTON
+
+5. HOLD BUTTON LONG
 
 Led
 1. LED ON

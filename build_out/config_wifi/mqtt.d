@@ -18,7 +18,8 @@ mqtt.o: \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_type.h \
- /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_cfg.h
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_cfg.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/platform.h:
@@ -38,4 +39,5 @@ mqtt.o: \
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_type.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_cfg.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/./mqtt.c:

@@ -2766,7 +2766,7 @@ size_t utils_hex2bin(const char *hex, size_t hexlen, uint8_t *buf, size_t buflen
 void bl_coredump_run();
 # 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/coredump/bl_coredump.c" 2
 # 27 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/coredump/bl_coredump.c"
-uint32_t _$coredump_binary_id$_ __attribute__((used, section(".coredump_binary_id"))) = 1722507185;
+uint32_t _$coredump_binary_id$_ __attribute__((used, section(".coredump_binary_id"))) = 1723015333;
 # 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/coredump/bl_coredump.c"
 extern uintptr_t _sp_main, _sp_base;
 extern uint8_t _ld_ram_size1, _ld_ram_addr1;

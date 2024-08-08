@@ -3198,7 +3198,9 @@ typedef struct _blog_info {
 
     int blog_set_level_log_component(char* level, char* component_name);
 # 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
-# 20 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h" 1
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 21 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
 static void log_error_if_nonzero(const char *message, int error_code);
 static axk_err_t event_cb(axk_mqtt_event_handle_t event);
 static void control_button(cJSON *Switch, cJSON *getctr);
@@ -3283,9 +3285,9 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
         cJSON *json = cJSON_Parse(json_data);
 
         if(json == 
-# 103 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 104 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                   ((void *)0)
-# 103 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 104 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                       ){
             ;
         }else{
@@ -3364,13 +3366,13 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
                 cJSON *SWITCH = cJSON_GetObjectItem(json, "switch");
                 cJSON *ctr = cJSON_GetObjectItem(json, "ctr");
                 if( SWITCH!=
-# 180 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                            ((void *)0) 
-# 180 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                                 && ctr!= 
-# 180 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                                          ((void *)0)
-# 180 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                                              ){
                     control_button(SWITCH, ctr);
 
@@ -3389,7 +3391,7 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
             }
 
         }
-# 215 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
         cJSON_Delete(json);
         free(json_data);
 
@@ -3502,10 +3504,6 @@ void button_task(void *param){
 }
 
 static void control_button(cJSON *Switch, cJSON *getctr){
-
-
-
-
 
     int switch_val = Switch->valueint;
     int ctr = getctr->valueint;

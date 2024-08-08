@@ -10292,10 +10292,10 @@ static void _dump_boot_info(void)
     puts("release_bl_iot_sdk_1.6.40-11-gf4c8dac01");
     puts("\r\n");
     puts("Build Date: ");
-    puts("Aug  1 2024");
+    puts("Aug  7 2024");
     puts("\r\n");
     puts("Build Time: ");
-    puts("17:10:37");
+    puts("14:16:03");
     puts("\r\n");
 
 }

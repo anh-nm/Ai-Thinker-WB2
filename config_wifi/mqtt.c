@@ -6,16 +6,17 @@
 #include <ctype.h>
 #include <bl_gpio.h>
 #include "blog.h"
+#include "hardware_config.h"
 
-#define BUTTON1    1
-#define BUTTON2    5
-#define BUTTON3   21
-#define BUTTON4   20
+// #define BUTTON1    1
+// #define BUTTON2    5
+// #define BUTTON3   21
+// #define BUTTON4   20
 
-#define SWITCH1   14
-#define SWITCH2   17 
-#define SWITCH3    3
-#define SWITCH4    0
+// #define SWITCH1   14
+// #define SWITCH2   17 
+// #define SWITCH3    3
+// #define SWITCH4    0
 
 static void log_error_if_nonzero(const char *message, int error_code);
 static axk_err_t event_cb(axk_mqtt_event_handle_t event);
@@ -236,10 +237,10 @@ axk_mqtt_client_handle_t client;
 //Hàm cấu hình và khởi động mqtt
 void mqtt_start(void)
 {
-    bl_gpio_enable_output(SWITCH1, 0, 0);
-    bl_gpio_enable_output(SWITCH2, 0, 0);
-    bl_gpio_enable_output(SWITCH3, 0, 0);
-    bl_gpio_enable_output(SWITCH4, 0, 0);
+    bl_gpio_enable_output(LED1, 0, 0);
+    bl_gpio_enable_output(LED2, 0, 0);
+    bl_gpio_enable_output(LED3, 0, 0);
+    bl_gpio_enable_output(LED4, 0, 0);
 
     axk_mqtt_client_config_t mqtt_cfg = {
         .uri = "mqtt://150.95.113.123",
@@ -260,14 +261,14 @@ int flag = 0;
 
 void button_task(void *param){
     bl_gpio_enable_input(BUTTON3, 1, 0); //Khi không nhấn, trạng thái nút luôn ở mức cao
-    bl_gpio_enable_output(SWITCH3, 0, 0);
+    bl_gpio_enable_output(LED3, 0, 0);
     int msg_id;
 
     while (1){
         if (bl_gpio_input_get_value(BUTTON3) == 0){
             
             if(flag == 0){
-                bl_gpio_output_set(SWITCH3, 1);
+                bl_gpio_output_set(LED3, 1);
                 // Tao mot doi tuong json moi
                 cJSON *root = cJSON_CreateObject();
 
@@ -294,7 +295,7 @@ void button_task(void *param){
         }
         else{
             if(flag == 1){
-                bl_gpio_output_set(SWITCH3, 0);
+                bl_gpio_output_set(LED3, 0);
                 // Tao mot doi tuong json moi
                 cJSON *root = cJSON_CreateObject();
 
@@ -325,15 +326,11 @@ void button_task(void *param){
 
 static void control_button(cJSON *Switch, cJSON *getctr){
 
-    // bl_gpio_enable_output(SWITCH1, 0, 0);
-    // bl_gpio_enable_output(SWITCH2, 0, 0);
-    // bl_gpio_enable_output(SWITCH3, 0, 0);
-    // bl_gpio_enable_output(SWITCH4, 0, 0);
     int switch_val = Switch->valueint;
     int ctr = getctr->valueint;
 
     // Mảng ánh xạ các giá trị SWITCH tới các chân GPIO tương ứng
-    int switch_pins[] = {0, SWITCH1, SWITCH2, SWITCH3, SWITCH4};
+    int switch_pins[] = {0, LED1, LED2, LED3, LED4};
 
     if (switch_val >= 1 && switch_val <= 4) {
         if(ctr == 1){
