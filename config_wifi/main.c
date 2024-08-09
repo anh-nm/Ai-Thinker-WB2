@@ -2,7 +2,7 @@
 //#include "ap.h"
 #include "button.h"
 #include <bl_sys.h>
-#include <cJSON.h>
+//#include <cJSON.h>
 
 
 // #define ROUTER_SSID "RD VNPT"
@@ -137,7 +137,7 @@ void main()
     // event_group = xEventGroupCreate();
     // button_timer = xTimerCreate("ButtonTimer", pdMS_TO_TICKS(BUTTON_PRESS_TIME_MS), pdFALSE, (void *)0, button_timer_callback);
 
-    puts("[OS] button_manual_task task...");
+    puts("[OS] button_manual_task ...");
     //xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, NULL, 15, NULL);
     xTaskCreate(button_manual_task, "button_manual_task", 2048, NULL, 15, NULL);
 }

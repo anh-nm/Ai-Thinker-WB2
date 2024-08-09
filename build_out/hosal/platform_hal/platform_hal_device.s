@@ -11106,6 +11106,8 @@ platform_hal_device_init:
 	.string	"__FLT128_HAS_DENORM__ 1"
 .LASF1062:
 	.string	"IOF_SPI2_SCK (29u)"
+.LASF1256:
+	.string	"PRIVILEGED_FUNCTION "
 .LASF331:
 	.string	"__SIZEOF_WINT_T__ 4"
 .LASF858:
@@ -11728,8 +11730,6 @@ platform_hal_device_init:
 	.string	"__RCSID_SOURCE(s) struct __hack"
 .LASF1347:
 	.string	"traceTASK_NOTIFY_TAKE_BLOCK() "
-.LASF866:
-	.string	"FILENAME_MAX 1024"
 .LASF1151:
 	.string	"notifyNOTIFIED_TASK_STACK_SIZE 120"
 .LASF1428:
@@ -12206,8 +12206,8 @@ platform_hal_device_init:
 	.string	"fwopen(__cookie,__fn) funopen(__cookie, (int (*)())0, __fn, (fpos_t (*)())0, (int (*)())0)"
 .LASF1520:
 	.string	"_ZN12BLAesRequestC4EPhS0_S0_S0_i"
-.LASF1256:
-	.string	"PRIVILEGED_FUNCTION "
+.LASF361:
+	.string	"BFLB_COREDUMP_BINARY_ID 1723169732"
 .LASF518:
 	.string	"__CC_SUPPORTS___INLINE__ 1"
 .LASF1405:
@@ -12702,8 +12702,8 @@ platform_hal_device_init:
 	.string	"unsigned int"
 .LASF842:
 	.string	"_funlockfile(fp) (((fp)->_flags & __SSTR) ? 0 : __lock_release_recursive((fp)->_lock))"
-.LASF361:
-	.string	"BFLB_COREDUMP_BINARY_ID 1723015342"
+.LASF866:
+	.string	"FILENAME_MAX 1024"
 .LASF1160:
 	.string	"configTHREAD_LOCAL_STORAGE_DELETE_CALLBACKS 1"
 .LASF69:

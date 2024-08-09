@@ -5903,6 +5903,340 @@ typedef struct _blog_info {
 
     int blog_set_level_log_component(char* level, char* component_name);
 # 16 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 1
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 1
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 1
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 2
+# 81 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+struct EventGroupDef_t;
+typedef struct EventGroupDef_t * EventGroupHandle_t;
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+typedef TickType_t EventBits_t;
+# 147 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreate( void ) ;
+# 200 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreateStatic( StaticEventGroup_t *pxEventGroupBuffer ) ;
+# 295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToWaitFor, const BaseType_t xClearOnExit, const BaseType_t xWaitForAllBits, TickType_t xTicksToWait ) ;
+# 352 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 408 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupClearBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 485 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet ) ;
+# 560 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupSetBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 689 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, const EventBits_t uxBitsToWaitFor, TickType_t xTicksToWait ) ;
+# 725 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup ) ;
+# 739 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+void vEventGroupDelete( EventGroupHandle_t xEventGroup ) ;
+
+
+void vEventGroupSetBitsCallback( void *pvEventGroup, const uint32_t ulBitsToSet ) ;
+void vEventGroupClearBitsCallback( void *pvEventGroup, const uint32_t ulBitsToClear ) ;
+
+
+
+ UBaseType_t uxEventGroupGetNumber( void* xEventGroup ) ;
+ void vEventGroupSetNumber( void* xEventGroup, UBaseType_t uxEventGroupNumber ) ;
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h" 1
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h"
+struct hostent {
+    char *h_name;
+    char **h_aliases;
+
+    int h_addrtype;
+    int h_length;
+    char **h_addr_list;
+
+
+};
+
+struct addrinfo {
+    int ai_flags;
+    int ai_family;
+    int ai_socktype;
+    int ai_protocol;
+    socklen_t ai_addrlen;
+    struct sockaddr *ai_addr;
+    char *ai_canonname;
+    struct addrinfo *ai_next;
+};
+
+
+
+
+
+
+extern int h_errno;
+
+
+struct hostent *lwip_gethostbyname(const char *name);
+int lwip_gethostbyname_r(const char *name, struct hostent *ret, char *buf,
+                size_t buflen, struct hostent **result, int *h_errnop);
+void lwip_freeaddrinfo(struct addrinfo *ai);
+int lwip_getaddrinfo(const char *nodename,
+       const char *servname,
+       const struct addrinfo *hints,
+       struct addrinfo **res);
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 1
+# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h" 1
+# 60 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h"
+struct netbuf {
+  struct pbuf *p, *ptr;
+  ip_addr_t addr;
+  u16_t port;
+
+  u8_t flags;
+  u16_t toport_chksum;
+
+
+
+
+};
+
+
+struct netbuf * netbuf_new (void);
+void netbuf_delete (struct netbuf *buf);
+void * netbuf_alloc (struct netbuf *buf, u16_t size);
+void netbuf_free (struct netbuf *buf);
+err_t netbuf_ref (struct netbuf *buf,
+                                   const void *dataptr, u16_t size);
+void netbuf_chain (struct netbuf *head, struct netbuf *tail);
+
+err_t netbuf_data (struct netbuf *buf,
+                                   void **dataptr, u16_t *len);
+s8_t netbuf_next (struct netbuf *buf);
+void netbuf_first (struct netbuf *buf);
+# 48 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 2
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_type {
+  NETCONN_INVALID = 0,
+
+  NETCONN_TCP = 0x10,
+
+
+
+
+
+  NETCONN_UDP = 0x20,
+
+  NETCONN_UDPLITE = 0x21,
+
+  NETCONN_UDPNOCHKSUM = 0x22,
+# 138 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+  NETCONN_RAW = 0x40
+
+
+
+
+};
+
+
+
+enum netconn_state {
+  NETCONN_NONE,
+  NETCONN_WRITE,
+  NETCONN_LISTEN,
+  NETCONN_CONNECT,
+  NETCONN_CLOSE
+};
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_evt {
+  NETCONN_EVT_RCVPLUS,
+  NETCONN_EVT_RCVMINUS,
+  NETCONN_EVT_SENDPLUS,
+  NETCONN_EVT_SENDMINUS,
+  NETCONN_EVT_ERROR
+};
+
+
+
+enum netconn_igmp {
+  NETCONN_JOIN,
+  NETCONN_LEAVE
+};
+# 207 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct ip_pcb;
+struct tcp_pcb;
+struct udp_pcb;
+struct raw_pcb;
+struct netconn;
+struct api_msg;
+
+
+typedef void (* netconn_callback)(struct netconn *, enum netconn_evt, u16_t len);
+
+
+struct netconn {
+
+  enum netconn_type type;
+
+  enum netconn_state state;
+
+  union {
+    struct ip_pcb *ip;
+    struct tcp_pcb *tcp;
+    struct udp_pcb *udp;
+    struct raw_pcb *raw;
+  } pcb;
+
+  err_t pending_err;
+
+
+
+
+
+
+  sys_mbox_t recvmbox;
+
+
+
+  sys_mbox_t acceptmbox;
+
+
+
+
+  int mbox_threads_waiting;
+
+
+
+  int socket;
+
+
+
+
+  s32_t send_timeout;
+
+
+
+
+  u32_t recv_timeout;
+
+
+
+
+  int recv_bufsize;
+
+
+
+  int recv_avail;
+
+
+
+  s16_t linger;
+
+
+  u8_t flags;
+
+
+
+
+  struct api_msg *current_msg;
+
+
+  netconn_callback callback;
+};
+
+
+
+
+
+
+struct netvector {
+
+  const void *ptr;
+
+  size_t len;
+};
+# 312 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct netconn *netconn_new_with_proto_and_callback(enum netconn_type t, u8_t proto,
+                                             netconn_callback callback);
+err_t netconn_prepare_delete(struct netconn *conn);
+err_t netconn_delete(struct netconn *conn);
+
+
+
+err_t netconn_getaddr(struct netconn *conn, ip_addr_t *addr,
+                        u16_t *port, u8_t local);
+
+
+
+
+
+err_t netconn_bind(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_bind_if(struct netconn *conn, u8_t if_idx);
+err_t netconn_connect(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_disconnect (struct netconn *conn);
+err_t netconn_listen_with_backlog(struct netconn *conn, u8_t backlog);
+
+
+err_t netconn_accept(struct netconn *conn, struct netconn **new_conn);
+err_t netconn_recv(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf_flags(struct netconn *conn, struct netbuf **new_buf, u8_t apiflags);
+err_t netconn_recv_tcp_pbuf(struct netconn *conn, struct pbuf **new_buf);
+err_t netconn_recv_tcp_pbuf_flags(struct netconn *conn, struct pbuf **new_buf, u8_t apiflags);
+err_t netconn_tcp_recvd(struct netconn *conn, size_t len);
+err_t netconn_sendto(struct netconn *conn, struct netbuf *buf,
+                             const ip_addr_t *addr, u16_t port);
+err_t netconn_send(struct netconn *conn, struct netbuf *buf);
+err_t netconn_write_partly(struct netconn *conn, const void *dataptr, size_t size,
+                             u8_t apiflags, size_t *bytes_written);
+err_t netconn_write_vectors_partly(struct netconn *conn, struct netvector *vectors, u16_t vectorcnt,
+                                     u8_t apiflags, size_t *bytes_written);
+
+
+
+err_t netconn_close(struct netconn *conn);
+err_t netconn_shutdown(struct netconn *conn, u8_t shut_rx, u8_t shut_tx);
+
+
+err_t netconn_join_leave_group(struct netconn *conn, const ip_addr_t *multiaddr,
+                             const ip_addr_t *netif_addr, enum netconn_igmp join_or_leave);
+err_t netconn_join_leave_group_netif(struct netconn *conn, const ip_addr_t *multiaddr,
+                             u8_t if_idx, enum netconn_igmp join_or_leave);
+
+
+
+
+
+
+err_t netconn_gethostbyname(const char *name, ip_addr_t *addr);
+
+
+
+
+err_t netconn_err(struct netconn *conn);
+# 418 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+void netconn_thread_init(void);
+void netconn_thread_cleanup(void);
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h" 1
+
+
+
+
+void web_server2(void *pvParameters);
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+void http_server_start(void *pvParameters);
+# 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
 
 
 
@@ -6025,7 +6359,36 @@ button_states button_state(void){
     return status;
 }
 
+void test_task(void *param){
+    bl_gpio_enable_output(0, 0, 0);
 
+    uint32_t old_tick_ms = xTaskGetTickCount();
+    uint8_t led4_state = 0;
+
+    while(1){
+        if(xTaskGetTickCount() - old_tick_ms >= 5000){
+            old_tick_ms = xTaskGetTickCount();
+            led4_state = !led4_state;
+            bl_gpio_output_set(0, led4_state);
+            if(led4_state == 0){
+                IS_CONFIG = 0;
+                vTaskDelete(
+# 137 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
+                           ((void *)0)
+# 137 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
+                               );
+                mainTaskHandle = 
+# 138 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
+                                ((void *)0)
+# 138 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
+                                    ;
+            }
+        }
+        vTaskDelay(50);
+
+    }
+
+}
 
 void button_manual_task(void *param){
 
@@ -6050,16 +6413,19 @@ void button_manual_task(void *param){
 
 
 
-            if(mainTaskHandle == 
-# 149 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
-                                ((void *)0)
-# 149 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
-                                    ){
-                xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, 
-# 150 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
-                                                                       ((void *)0)
-# 150 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
-                                                                           , 15, &mainTaskHandle);
+
+
+            if (mainTaskHandle == 
+# 172 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
+                                 ((void *)0)
+# 172 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
+                                     ) {
+
+                xTaskCreate(proc_main_entry, (char*)"main_entry", 1024*3, 
+# 174 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c" 3 4
+                                                                         ((void *)0)
+# 174 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
+                                                                             , 15, &mainTaskHandle);
             }
         }
         vTaskDelay(50);

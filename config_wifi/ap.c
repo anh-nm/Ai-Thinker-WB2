@@ -72,7 +72,7 @@ static void wifi_ap_start()
                                                                         //components/network/lwip_dhcpd/dhcp_server_raw.c：42   #define DHCPD_SERVER_IP "192.168.4.1"
 }
 
-void event_cb_wifi_event(input_event_t* event, void* private_data)
+void event_ap_wifi_event(input_event_t* event, void* private_data)
 {
     switch (event->code) {
         case CODE_WIFI_ON_INIT_DONE:
@@ -85,16 +85,21 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
             break;
         case CODE_WIFI_ON_AP_STARTED:
             blog_info("<<<<<<<<< startt soft ap OK<<<<<<<<<<<");
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
 
             break;
         case CODE_WIFI_ON_AP_STOPPED:
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP <<<<<<<<<<<<<<<<<<<<\r\n");
             break;
         case CODE_WIFI_ON_AP_STA_ADD:
             blog_info("<<<<<<<<< station connent ap <<<<<<<<<<<");
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+            xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
 
             break;
         case CODE_WIFI_ON_AP_STA_DEL:
             blog_info("<<<<<<<<< station disconnet ap <<<<<<<<<<<");
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
 
             break;
         default:
@@ -105,24 +110,9 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
 
 void proc_main_entry(void* pvParameters)
 {
-
-    aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
+    aos_register_event_filter(EV_WIFI, event_ap_wifi_event, NULL);
     hal_wifi_start_firmware_task();
     aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
     vTaskDelete(NULL);
 }
 
-// static void system_thread_init()
-// {
-//     /*nothing here*/
-// }
-
-// void main()
-// {
-//     system_thread_init();
-
-//     puts("[OS] Starting TCP/IP Stack...");
-//     tcpip_init(NULL, NULL);
-//     puts("[OS] proc_main_entry task...");
-//     xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, NULL, 15, NULL);
-// }

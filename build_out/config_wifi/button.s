@@ -292,6 +292,121 @@ button_state:
 	.cfi_endproc
 .LFE31:
 	.size	button_state, .-button_state
+	.section	.text.test_task,"ax",@progbits
+	.align	1
+	.globl	test_task
+	.type	test_task, @function
+test_task:
+.LFB32:
+	.loc 1 124 28 is_stmt 1
+	.cfi_startproc
+.LVL12:
+	.loc 1 125 5
+	.loc 1 124 28 is_stmt 0
+	addi	sp,sp,-32
+	.cfi_def_cfa_offset 32
+	.loc 1 125 5
+	li	a2,0
+	li	a1,0
+	li	a0,0
+.LVL13:
+	.loc 1 124 28
+	sw	ra,28(sp)
+	sw	s0,24(sp)
+	sw	s1,20(sp)
+	sw	s2,16(sp)
+	sw	s4,8(sp)
+	sw	s5,4(sp)
+	sw	s3,12(sp)
+	.cfi_offset 1, -4
+	.cfi_offset 8, -8
+	.cfi_offset 9, -12
+	.cfi_offset 18, -16
+	.cfi_offset 20, -24
+	.cfi_offset 21, -28
+	.cfi_offset 19, -20
+	.loc 1 125 5
+	call	bl_gpio_enable_output
+.LVL14:
+	.loc 1 127 5 is_stmt 1
+	.loc 1 127 28 is_stmt 0
+	call	xTaskGetTickCount
+.LVL15:
+	.loc 1 131 11
+	li	s2,4096
+	.loc 1 127 28
+	mv	s0,a0
+.LVL16:
+	.loc 1 128 5 is_stmt 1
+	.loc 1 128 13 is_stmt 0
+	li	s1,0
+	.loc 1 131 11
+	addi	s2,s2,903
+	.loc 1 136 27
+	lui	s4,%hi(.LANCHOR5)
+	.loc 1 138 32
+	lui	s5,%hi(.LANCHOR7)
+.LVL17:
+.L25:
+	.loc 1 130 5 is_stmt 1
+	.loc 1 131 9
+	.loc 1 131 12 is_stmt 0
+	call	xTaskGetTickCount
+.LVL18:
+	.loc 1 131 32
+	sub	a0,a0,s0
+	.loc 1 131 11
+	bleu	a0,s2,.L24
+	.loc 1 132 27
+	call	xTaskGetTickCount
+.LVL19:
+	xori	s3,s1,1
+	.loc 1 132 13 is_stmt 1
+	.loc 1 132 27 is_stmt 0
+	mv	s0,a0
+.LVL20:
+	.loc 1 133 13 is_stmt 1
+	.loc 1 134 13
+	mv	a1,s3
+	li	a0,0
+	call	bl_gpio_output_set
+.LVL21:
+	.loc 1 135 13
+	.loc 1 135 15 is_stmt 0
+	beq	s1,zero,.L26
+	.loc 1 136 17 is_stmt 1
+	.loc 1 137 17 is_stmt 0
+	li	a0,0
+	.loc 1 136 27
+	sb	zero,%lo(.LANCHOR5)(s4)
+	.loc 1 137 17 is_stmt 1
+	.loc 1 133 24 is_stmt 0
+	li	s1,0
+.LVL22:
+	.loc 1 137 17
+	call	vTaskDelete
+.LVL23:
+	.loc 1 138 17 is_stmt 1
+	.loc 1 138 32 is_stmt 0
+	sw	zero,%lo(.LANCHOR7)(s5)
+.L24:
+.LVL24:
+	.loc 1 141 9 is_stmt 1
+	li	a0,50
+	call	vTaskDelay
+.LVL25:
+	.loc 1 130 10
+	.loc 1 131 11 is_stmt 0
+	j	.L25
+.LVL26:
+.L26:
+	.loc 1 133 24
+	mv	s1,s3
+.LVL27:
+	j	.L24
+	.cfi_endproc
+.LFE32:
+	.size	test_task, .-test_task
 	.section	.rodata.button_manual_task.str1.4,"aMS",@progbits,1
 	.align	2
 .LC0:
@@ -304,29 +419,28 @@ button_state:
 	.globl	button_manual_task
 	.type	button_manual_task, @function
 button_manual_task:
-.LFB32:
-	.loc 1 126 37 is_stmt 1
+.LFB33:
+	.loc 1 147 37 is_stmt 1
 	.cfi_startproc
-.LVL12:
-	.loc 1 128 5
-	.loc 1 126 37 is_stmt 0
-	addi	sp,sp,-48
-	.cfi_def_cfa_offset 48
-	.loc 1 128 5
+.LVL28:
+	.loc 1 149 5
+	.loc 1 147 37 is_stmt 0
+	addi	sp,sp,-32
+	.cfi_def_cfa_offset 32
+	.loc 1 149 5
 	li	a2,0
 	li	a1,1
 	li	a0,21
-.LVL13:
-	.loc 1 126 37
-	sw	ra,44(sp)
-	sw	s0,40(sp)
-	sw	s1,36(sp)
-	sw	s2,32(sp)
-	sw	s3,28(sp)
-	sw	s4,24(sp)
-	sw	s5,20(sp)
-	sw	s6,16(sp)
-	sw	s7,12(sp)
+.LVL29:
+	.loc 1 147 37
+	sw	ra,28(sp)
+	sw	s0,24(sp)
+	sw	s1,20(sp)
+	sw	s2,16(sp)
+	sw	s3,12(sp)
+	sw	s4,8(sp)
+	sw	s5,4(sp)
+	sw	s6,0(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
 	.cfi_offset 9, -12
@@ -335,99 +449,100 @@ button_manual_task:
 	.cfi_offset 20, -24
 	.cfi_offset 21, -28
 	.cfi_offset 22, -32
-	.cfi_offset 23, -36
-	.loc 1 128 5
+	.loc 1 149 5
 	call	bl_gpio_enable_input
-.LVL14:
-	.loc 1 129 5 is_stmt 1
+.LVL30:
+	.loc 1 150 5 is_stmt 1
 	li	a2,0
 	li	a1,0
 	li	a0,3
+	.loc 1 174 17 is_stmt 0
+	li	s0,4096
+	.loc 1 150 5
 	call	bl_gpio_enable_output
-.LVL15:
-	.loc 1 131 5
-	.loc 1 135 11 is_stmt 0
-	li	s0,1
-	.loc 1 140 11
-	li	s2,2
-	.loc 1 142 23
-	lui	s3,%hi(.LANCHOR5)
-	.loc 1 149 31
+.LVL31:
+	.loc 1 152 5 is_stmt 1
+	.loc 1 163 23 is_stmt 0
+	lui	s2,%hi(.LANCHOR5)
+	.loc 1 172 32
 	lui	s1,%hi(.LANCHOR7)
-	.loc 1 150 17
-	lui	s4,%hi(.LC1)
-	lui	s5,%hi(proc_main_entry)
-	.loc 1 136 13
-	lui	s6,%hi(.LC0)
-	.loc 1 137 26
-	lui	s7,%hi(.LANCHOR1)
-.LVL16:
-.L28:
-	.loc 1 133 5 is_stmt 1
-	.loc 1 134 9
-	.loc 1 134 25 is_stmt 0
+	.loc 1 174 17
+	addi	s0,s0,-1024
+	lui	s3,%hi(.LC1)
+	lui	s4,%hi(proc_main_entry)
+	.loc 1 157 13
+	lui	s5,%hi(.LC0)
+	.loc 1 158 26
+	lui	s6,%hi(.LANCHOR1)
+.LVL32:
+.L33:
+	.loc 1 154 5 is_stmt 1
+	.loc 1 155 9
+	.loc 1 155 25 is_stmt 0
 	call	button_state
-.LVL17:
-	.loc 1 134 23
+.LVL33:
+	.loc 1 155 23
 	andi	a0,a0,0xff
-.LVL18:
-	.loc 1 135 9 is_stmt 1
-	.loc 1 135 11 is_stmt 0
-	bne	a0,s0,.L24
-	.loc 1 136 13 is_stmt 1
-	addi	a0,s6,%lo(.LC0)
-.LVL19:
+.LVL34:
+	.loc 1 156 9 is_stmt 1
+	.loc 1 156 11 is_stmt 0
+	li	a5,1
+	bne	a0,a5,.L29
+	.loc 1 157 13 is_stmt 1
+	addi	a0,s5,%lo(.LC0)
+.LVL35:
 	call	printf
-.LVL20:
-	.loc 1 137 13
-	.loc 1 137 26 is_stmt 0
-	addi	a5,s7,%lo(.LANCHOR1)
+.LVL36:
+	.loc 1 158 13
+	.loc 1 158 26 is_stmt 0
+	addi	a5,s6,%lo(.LANCHOR1)
 	lbu	a1,0(a5)
-	.loc 1 138 13
+	.loc 1 159 13
 	li	a0,3
-	.loc 1 137 26
+	.loc 1 158 26
 	seqz	a1,a1
-	.loc 1 137 24
+	.loc 1 158 24
 	sb	a1,0(a5)
-	.loc 1 138 13 is_stmt 1
+	.loc 1 159 13 is_stmt 1
 	call	bl_gpio_output_set
-.LVL21:
-	.loc 1 140 9
-.L25:
-	.loc 1 153 9
+.LVL37:
+	.loc 1 161 9
+.L30:
+	.loc 1 177 9
 	li	a0,50
 	call	vTaskDelay
-.LVL22:
-	.loc 1 133 11
-	.loc 1 134 23 is_stmt 0
-	j	.L28
-.LVL23:
-.L24:
-	.loc 1 140 9 is_stmt 1
-	.loc 1 140 11 is_stmt 0
-	bne	a0,s2,.L25
-	.loc 1 142 13 is_stmt 1
-	.loc 1 142 23 is_stmt 0
-	sb	s0,%lo(.LANCHOR5)(s3)
-	.loc 1 143 13 is_stmt 1
+.LVL38:
+	.loc 1 154 11
+	.loc 1 155 23 is_stmt 0
+	j	.L33
+.LVL39:
+.L29:
+	.loc 1 161 9 is_stmt 1
+	.loc 1 161 11 is_stmt 0
+	li	a4,2
+	bne	a0,a4,.L30
+	.loc 1 163 13 is_stmt 1
+	.loc 1 163 23 is_stmt 0
+	sb	a5,%lo(.LANCHOR5)(s2)
+	.loc 1 164 13 is_stmt 1
 	call	blink_led_200
-.LVL24:
-	.loc 1 149 13
-	.loc 1 149 15 is_stmt 0
+.LVL40:
+	.loc 1 172 13
+	.loc 1 172 16 is_stmt 0
 	lw	a5,%lo(.LANCHOR7)(s1)
-	bne	a5,zero,.L25
-	.loc 1 150 17 is_stmt 1
+	bne	a5,zero,.L30
+	.loc 1 174 17 is_stmt 1
 	addi	a5,s1,%lo(.LANCHOR7)
 	li	a4,15
 	li	a3,0
-	li	a2,1024
-	addi	a1,s4,%lo(.LC1)
-	addi	a0,s5,%lo(proc_main_entry)
+	mv	a2,s0
+	addi	a1,s3,%lo(.LC1)
+	addi	a0,s4,%lo(proc_main_entry)
 	call	xTaskCreate
-.LVL25:
-	j	.L25
+.LVL41:
+	j	.L30
 	.cfi_endproc
-.LFE32:
+.LFE33:
 	.size	button_manual_task, .-button_manual_task
 	.globl	mainTaskHandle
 	.section	.sbss.IS_CONFIG,"aw",@nobits
@@ -496,15 +611,15 @@ time_to_wait.2:
 	.file 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x501
+	.4byte	0x5c7
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.byte	0x1
-	.4byte	.LASF77
+	.4byte	.LASF82
 	.byte	0xc
-	.4byte	.LASF78
-	.4byte	.LASF79
+	.4byte	.LASF83
+	.4byte	.LASF84
 	.4byte	.Ldebug_ranges0+0x18
 	.4byte	0
 	.4byte	.Ldebug_line0
@@ -576,7 +691,7 @@ time_to_wait.2:
 	.byte	0x4
 	.4byte	0x9e
 	.byte	0x7
-	.4byte	.LASF80
+	.4byte	.LASF85
 	.byte	0x8
 	.byte	0x7
 	.byte	0x4
@@ -767,7 +882,7 @@ time_to_wait.2:
 	.byte	0x3
 	.4byte	0x1db
 	.byte	0xb
-	.4byte	.LASF81
+	.4byte	.LASF86
 	.byte	0x1
 	.byte	0x9
 	.byte	0xe
@@ -794,32 +909,32 @@ time_to_wait.2:
 	.byte	0x3
 	.4byte	IS_CONFIG
 	.byte	0xd
-	.4byte	.LASF82
+	.4byte	.LASF65
 	.byte	0x1
-	.byte	0x7e
+	.byte	0x93
 	.byte	0x6
-	.4byte	.LFB32
-	.4byte	.LFE32-.LFB32
+	.4byte	.LFB33
+	.4byte	.LFE33-.LFB33
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x338
+	.4byte	0x337
 	.byte	0xe
-	.4byte	.LASF83
+	.4byte	.LASF67
 	.byte	0x1
-	.byte	0x7e
+	.byte	0x93
 	.byte	0x1f
 	.4byte	0x83
-	.4byte	.LLST0
+	.4byte	.LLST2
 	.byte	0xf
 	.4byte	.LASF64
 	.byte	0x1
-	.byte	0x83
+	.byte	0x98
 	.byte	0xd
 	.4byte	0x41
-	.4byte	.LLST1
+	.4byte	.LLST3
 	.byte	0x10
-	.4byte	.LVL14
-	.4byte	0x4a1
+	.4byte	.LVL30
+	.4byte	0x55a
 	.4byte	0x29d
 	.byte	0x11
 	.byte	0x1
@@ -838,8 +953,8 @@ time_to_wait.2:
 	.byte	0x30
 	.byte	0
 	.byte	0x10
-	.4byte	.LVL15
-	.4byte	0x4ad
+	.4byte	.LVL31
+	.4byte	0x566
 	.4byte	0x2ba
 	.byte	0x11
 	.byte	0x1
@@ -858,11 +973,11 @@ time_to_wait.2:
 	.byte	0x30
 	.byte	0
 	.byte	0x12
-	.4byte	.LVL17
-	.4byte	0x338
+	.4byte	.LVL33
+	.4byte	0x3f1
 	.byte	0x10
-	.4byte	.LVL20
-	.4byte	0x4b9
+	.4byte	.LVL36
+	.4byte	0x572
 	.4byte	0x2da
 	.byte	0x11
 	.byte	0x1
@@ -872,8 +987,8 @@ time_to_wait.2:
 	.4byte	.LC0
 	.byte	0
 	.byte	0x10
-	.4byte	.LVL21
-	.4byte	0x4c5
+	.4byte	.LVL37
+	.4byte	0x57e
 	.4byte	0x2ed
 	.byte	0x11
 	.byte	0x1
@@ -882,8 +997,8 @@ time_to_wait.2:
 	.byte	0x33
 	.byte	0
 	.byte	0x10
-	.4byte	.LVL22
-	.4byte	0x4d1
+	.4byte	.LVL38
+	.4byte	0x58a
 	.4byte	0x301
 	.byte	0x11
 	.byte	0x1
@@ -893,11 +1008,11 @@ time_to_wait.2:
 	.byte	0x32
 	.byte	0
 	.byte	0x12
-	.4byte	.LVL24
-	.4byte	0x3bc
+	.4byte	.LVL40
+	.4byte	0x475
 	.byte	0x13
-	.4byte	.LVL25
-	.4byte	0x4de
+	.4byte	.LVL41
+	.4byte	0x597
 	.byte	0x11
 	.byte	0x1
 	.byte	0x5b
@@ -907,9 +1022,9 @@ time_to_wait.2:
 	.byte	0x11
 	.byte	0x1
 	.byte	0x5c
-	.byte	0x3
-	.byte	0xa
-	.2byte	0x400
+	.byte	0x2
+	.byte	0x78
+	.byte	0
 	.byte	0x11
 	.byte	0x1
 	.byte	0x5d
@@ -928,16 +1043,115 @@ time_to_wait.2:
 	.4byte	.LANCHOR7
 	.byte	0
 	.byte	0
+	.byte	0xd
+	.4byte	.LASF66
+	.byte	0x1
+	.byte	0x7c
+	.byte	0x6
+	.4byte	.LFB32
+	.4byte	.LFE32-.LFB32
+	.byte	0x1
+	.byte	0x9c
+	.4byte	0x3f1
+	.byte	0xe
+	.4byte	.LASF67
+	.byte	0x1
+	.byte	0x7c
+	.byte	0x16
+	.4byte	0x83
+	.4byte	.LLST0
+	.byte	0xc
+	.4byte	.LASF68
+	.byte	0x1
+	.byte	0x7f
+	.byte	0xe
+	.4byte	0x5b
+	.byte	0x1
+	.byte	0x58
+	.byte	0xf
+	.4byte	.LASF69
+	.byte	0x1
+	.byte	0x80
+	.byte	0xd
+	.4byte	0x41
+	.4byte	.LLST1
+	.byte	0x10
+	.4byte	.LVL14
+	.4byte	0x566
+	.4byte	0x398
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x1
+	.byte	0x30
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x1
+	.byte	0x30
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5c
+	.byte	0x1
+	.byte	0x30
+	.byte	0
+	.byte	0x12
+	.4byte	.LVL15
+	.4byte	0x5a4
+	.byte	0x12
+	.4byte	.LVL18
+	.4byte	0x5a4
+	.byte	0x12
+	.4byte	.LVL19
+	.4byte	0x5a4
+	.byte	0x10
+	.4byte	.LVL21
+	.4byte	0x57e
+	.4byte	0x3cc
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x1
+	.byte	0x30
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x2
+	.byte	0x83
+	.byte	0
+	.byte	0
+	.byte	0x10
+	.4byte	.LVL23
+	.4byte	0x5b1
+	.4byte	0x3e0
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x2
+	.byte	0x79
+	.byte	0
+	.byte	0
+	.byte	0x13
+	.4byte	.LVL25
+	.4byte	0x58a
+	.byte	0x11
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x2
+	.byte	0x8
+	.byte	0x32
+	.byte	0
+	.byte	0
 	.byte	0x14
-	.4byte	.LASF84
+	.4byte	.LASF87
 	.byte	0x1
 	.byte	0x45
 	.byte	0xf
 	.4byte	0x208
 	.byte	0x1
-	.4byte	0x392
+	.4byte	0x44b
 	.byte	0xc
-	.4byte	.LASF65
+	.4byte	.LASF70
 	.byte	0x1
 	.byte	0x46
 	.byte	0x14
@@ -946,7 +1160,7 @@ time_to_wait.2:
 	.byte	0x3
 	.4byte	status.1
 	.byte	0xc
-	.4byte	.LASF66
+	.4byte	.LASF71
 	.byte	0x1
 	.byte	0x47
 	.byte	0x15
@@ -955,7 +1169,7 @@ time_to_wait.2:
 	.byte	0x3
 	.4byte	time_to_wait.2
 	.byte	0xc
-	.4byte	.LASF67
+	.4byte	.LASF68
 	.byte	0x1
 	.byte	0x48
 	.byte	0x15
@@ -964,7 +1178,7 @@ time_to_wait.2:
 	.byte	0x3
 	.4byte	old_tick_ms.3
 	.byte	0xc
-	.4byte	.LASF68
+	.4byte	.LASF72
 	.byte	0x1
 	.byte	0x49
 	.byte	0x15
@@ -974,7 +1188,7 @@ time_to_wait.2:
 	.4byte	time_long_click.0
 	.byte	0
 	.byte	0x15
-	.4byte	.LASF85
+	.4byte	.LASF88
 	.byte	0x1
 	.byte	0x40
 	.byte	0x9
@@ -983,10 +1197,10 @@ time_to_wait.2:
 	.4byte	.LFE30-.LFB30
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x3bc
+	.4byte	0x475
 	.byte	0x13
 	.4byte	.LVL4
-	.4byte	0x4eb
+	.4byte	0x5be
 	.byte	0x11
 	.byte	0x1
 	.byte	0x5a
@@ -995,14 +1209,14 @@ time_to_wait.2:
 	.byte	0
 	.byte	0
 	.byte	0x16
-	.4byte	.LASF86
+	.4byte	.LASF89
 	.byte	0x1
 	.byte	0x31
 	.byte	0x6
 	.byte	0x1
-	.4byte	0x3dc
+	.4byte	0x495
 	.byte	0xc
-	.4byte	.LASF67
+	.4byte	.LASF68
 	.byte	0x1
 	.byte	0x32
 	.byte	0x15
@@ -1012,27 +1226,27 @@ time_to_wait.2:
 	.4byte	old_tick_ms.4
 	.byte	0
 	.byte	0x17
-	.4byte	0x3bc
+	.4byte	0x475
 	.4byte	.LFB29
 	.4byte	.LFE29-.LFB29
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x433
+	.4byte	0x4ec
 	.byte	0x18
-	.4byte	0x3bc
+	.4byte	0x475
 	.4byte	.LBB4
 	.4byte	.LBE4-.LBB4
 	.byte	0x1
 	.byte	0x31
 	.byte	0x6
-	.4byte	0x429
+	.4byte	0x4e2
 	.byte	0x12
 	.4byte	.LVL1
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0x10
 	.4byte	.LVL2
-	.4byte	0x4c5
-	.4byte	0x41f
+	.4byte	0x57e
+	.4byte	0x4d8
 	.byte	0x11
 	.byte	0x1
 	.byte	0x5a
@@ -1041,101 +1255,107 @@ time_to_wait.2:
 	.byte	0
 	.byte	0x12
 	.4byte	.LVL3
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0
 	.byte	0x12
 	.4byte	.LVL0
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0
 	.byte	0x17
-	.4byte	0x338
+	.4byte	0x3f1
 	.4byte	.LFB31
 	.4byte	.LFE31-.LFB31
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x4a1
+	.4byte	0x55a
 	.byte	0x19
-	.4byte	0x338
+	.4byte	0x3f1
 	.4byte	.LBB8
 	.4byte	.Ldebug_ranges0+0
 	.byte	0x1
 	.byte	0x45
 	.byte	0xf
-	.4byte	0x497
+	.4byte	0x550
 	.byte	0x1a
 	.4byte	.Ldebug_ranges0+0
 	.byte	0x12
 	.4byte	.LVL6
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0x12
 	.4byte	.LVL7
-	.4byte	0x392
+	.4byte	0x44b
 	.byte	0x12
 	.4byte	.LVL8
-	.4byte	0x392
+	.4byte	0x44b
 	.byte	0x12
 	.4byte	.LVL9
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0x12
 	.4byte	.LVL10
-	.4byte	0x392
+	.4byte	0x44b
 	.byte	0x12
 	.4byte	.LVL11
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0
 	.byte	0
 	.byte	0x12
 	.4byte	.LVL5
-	.4byte	0x4f7
+	.4byte	0x5a4
 	.byte	0
 	.byte	0x1b
-	.4byte	.LASF69
-	.4byte	.LASF69
+	.4byte	.LASF73
+	.4byte	.LASF73
 	.byte	0x9
 	.byte	0x10
 	.byte	0x5
 	.byte	0x1b
-	.4byte	.LASF70
-	.4byte	.LASF70
+	.4byte	.LASF74
+	.4byte	.LASF74
 	.byte	0x9
 	.byte	0xf
 	.byte	0x5
 	.byte	0x1b
-	.4byte	.LASF71
-	.4byte	.LASF71
+	.4byte	.LASF75
+	.4byte	.LASF75
 	.byte	0xa
 	.byte	0xc8
 	.byte	0x5
 	.byte	0x1b
-	.4byte	.LASF72
-	.4byte	.LASF72
+	.4byte	.LASF76
+	.4byte	.LASF76
 	.byte	0x9
 	.byte	0x11
 	.byte	0x5
 	.byte	0x1c
-	.4byte	.LASF73
-	.4byte	.LASF73
+	.4byte	.LASF77
+	.4byte	.LASF77
 	.byte	0x3
 	.2byte	0x2f6
 	.byte	0x6
 	.byte	0x1c
-	.4byte	.LASF74
-	.4byte	.LASF74
+	.4byte	.LASF78
+	.4byte	.LASF78
 	.byte	0x3
 	.2byte	0x14a
 	.byte	0xd
-	.byte	0x1b
-	.4byte	.LASF75
-	.4byte	.LASF75
-	.byte	0x9
-	.byte	0x13
-	.byte	0x5
 	.byte	0x1c
-	.4byte	.LASF76
-	.4byte	.LASF76
+	.4byte	.LASF79
+	.4byte	.LASF79
 	.byte	0x3
 	.2byte	0x547
 	.byte	0xc
+	.byte	0x1c
+	.4byte	.LASF80
+	.4byte	.LASF80
+	.byte	0x3
+	.2byte	0x2c2
+	.byte	0x6
+	.byte	0x1b
+	.4byte	.LASF81
+	.4byte	.LASF81
+	.byte	0x9
+	.byte	0x13
+	.byte	0x5
 	.byte	0
 	.section	.debug_abbrev,"",@progbits
 .Ldebug_abbrev0:
@@ -1580,6 +1800,36 @@ time_to_wait.2:
 	.byte	0
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
+.LLST2:
+	.4byte	.LVL28
+	.4byte	.LVL29
+	.2byte	0x1
+	.byte	0x5a
+	.4byte	.LVL29
+	.4byte	.LFE33
+	.2byte	0x4
+	.byte	0xf3
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x9f
+	.4byte	0
+	.4byte	0
+.LLST3:
+	.4byte	.LVL31
+	.4byte	.LVL32
+	.2byte	0x2
+	.byte	0x30
+	.byte	0x9f
+	.4byte	.LVL34
+	.4byte	.LVL35
+	.2byte	0x1
+	.byte	0x5a
+	.4byte	.LVL39
+	.4byte	.LVL40-1
+	.2byte	0x1
+	.byte	0x5a
+	.4byte	0
+	.4byte	0
 .LLST0:
 	.4byte	.LVL12
 	.4byte	.LVL13
@@ -1595,23 +1845,39 @@ time_to_wait.2:
 	.4byte	0
 	.4byte	0
 .LLST1:
-	.4byte	.LVL15
 	.4byte	.LVL16
+	.4byte	.LVL17
 	.2byte	0x2
 	.byte	0x30
 	.byte	0x9f
-	.4byte	.LVL18
-	.4byte	.LVL19
+	.4byte	.LVL17
+	.4byte	.LVL20
 	.2byte	0x1
-	.byte	0x5a
-	.4byte	.LVL23
-	.4byte	.LVL24-1
+	.byte	0x59
+	.4byte	.LVL20
+	.4byte	.LVL22
+	.2byte	0x5
+	.byte	0x79
+	.byte	0
+	.byte	0x31
+	.byte	0x27
+	.byte	0x9f
+	.4byte	.LVL24
+	.4byte	.LVL26
 	.2byte	0x1
-	.byte	0x5a
+	.byte	0x59
+	.4byte	.LVL26
+	.4byte	.LVL27
+	.2byte	0x5
+	.byte	0x79
+	.byte	0
+	.byte	0x31
+	.byte	0x27
+	.byte	0x9f
 	.4byte	0
 	.4byte	0
 	.section	.debug_aranges,"",@progbits
-	.4byte	0x34
+	.4byte	0x3c
 	.2byte	0x2
 	.4byte	.Ldebug_info0
 	.byte	0x4
@@ -1626,6 +1892,8 @@ time_to_wait.2:
 	.4byte	.LFE31-.LFB31
 	.4byte	.LFB32
 	.4byte	.LFE32-.LFB32
+	.4byte	.LFB33
+	.4byte	.LFE33-.LFB33
 	.4byte	0
 	.4byte	0
 	.section	.debug_ranges,"",@progbits
@@ -1644,6 +1912,8 @@ time_to_wait.2:
 	.4byte	.LFE31
 	.4byte	.LFB32
 	.4byte	.LFE32
+	.4byte	.LFB33
+	.4byte	.LFE33
 	.4byte	0
 	.4byte	0
 	.section	.debug_line,"",@progbits
@@ -1679,13 +1949,13 @@ time_to_wait.2:
 	.string	"PM_MODE_MAX"
 .LASF6:
 	.string	"uint8_t"
-.LASF66:
+.LASF71:
 	.string	"time_to_wait"
 .LASF16:
 	.string	"MEMP_TCP_PCB_LISTEN"
-.LASF82:
+.LASF65:
 	.string	"button_manual_task"
-.LASF67:
+.LASF68:
 	.string	"old_tick_ms"
 .LASF7:
 	.string	"uint32_t"
@@ -1697,15 +1967,15 @@ time_to_wait.2:
 	.string	"TASK_APM"
 .LASF36:
 	.string	"PM_MODE_STA_MESH"
-.LASF72:
+.LASF76:
 	.string	"bl_gpio_output_set"
-.LASF86:
+.LASF89:
 	.string	"blink_led_200"
 .LASF3:
 	.string	"long long int"
 .LASF58:
 	.string	"CONFIG"
-.LASF69:
+.LASF73:
 	.string	"bl_gpio_enable_input"
 .LASF59:
 	.string	"HOLD_BUTTON"
@@ -1715,15 +1985,15 @@ time_to_wait.2:
 	.string	"TASK_CFG"
 .LASF31:
 	.string	"LWIP_NETIF_CLIENT_DATA_INDEX_MAX"
-.LASF71:
+.LASF75:
 	.string	"printf"
-.LASF80:
+.LASF85:
 	.string	"tskTaskControlBlock"
 .LASF40:
 	.string	"PM_MODE_AP_IDLE"
-.LASF76:
+.LASF79:
 	.string	"xTaskGetTickCount"
-.LASF70:
+.LASF74:
 	.string	"bl_gpio_enable_output"
 .LASF64:
 	.string	"button_status"
@@ -1747,19 +2017,19 @@ time_to_wait.2:
 	.string	"signed char"
 .LASF30:
 	.string	"LWIP_NETIF_CLIENT_DATA_INDEX_IGMP"
-.LASF73:
+.LASF77:
 	.string	"vTaskDelay"
 .LASF10:
 	.string	"unsigned int"
 .LASF44:
 	.string	"TASK_MM"
-.LASF81:
+.LASF86:
 	.string	"mainTaskHandle"
 .LASF23:
 	.string	"MEMP_IGMP_GROUP"
-.LASF83:
+.LASF67:
 	.string	"param"
-.LASF65:
+.LASF70:
 	.string	"status"
 .LASF5:
 	.string	"short unsigned int"
@@ -1767,37 +2037,43 @@ time_to_wait.2:
 	.string	"wifi_fw_task_id"
 .LASF56:
 	.string	"NO_CLICK"
-.LASF85:
+.LASF88:
 	.string	"get_button_status"
 .LASF11:
 	.string	"char"
 .LASF21:
 	.string	"MEMP_TCPIP_MSG_API"
+.LASF80:
+	.string	"vTaskDelete"
 .LASF37:
 	.string	"PM_MODE_STA_DOZE"
 .LASF62:
 	.string	"led_status"
-.LASF75:
+.LASF81:
 	.string	"bl_gpio_input_get_value"
-.LASF74:
+.LASF78:
 	.string	"xTaskCreate"
+.LASF69:
+	.string	"led4_state"
 .LASF26:
 	.string	"MEMP_PBUF"
 .LASF45:
 	.string	"TASK_SCAN"
-.LASF68:
+.LASF72:
 	.string	"time_long_click"
 .LASF8:
 	.string	"long unsigned int"
 .LASF13:
 	.string	"MEMP_RAW_PCB"
-.LASF84:
+.LASF87:
 	.string	"button_state"
-.LASF78:
+.LASF83:
 	.string	"/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.c"
 .LASF27:
 	.string	"MEMP_PBUF_POOL"
-.LASF79:
+.LASF66:
+	.string	"test_task"
+.LASF84:
 	.string	"/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/build_out/config_wifi"
 .LASF20:
 	.string	"MEMP_NETCONN"
@@ -1821,6 +2097,6 @@ time_to_wait.2:
 	.string	"TASK_ME"
 .LASF19:
 	.string	"MEMP_NETBUF"
-.LASF77:
+.LASF82:
 	.string	"GNU C99 10.2.0 -march=rv32imfc -mabi=ilp32f -march=rv32imfc -gdwarf -Os -std=gnu99 -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -fcommon -ffreestanding -fno-strict-aliasing"
 	.ident	"GCC: (SiFive GCC-Metal 10.2.0-2020.12.8) 10.2.0"

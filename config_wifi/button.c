@@ -121,7 +121,28 @@ button_states button_state(void){
     return status;
 }
 
+void test_task(void *param){
+    bl_gpio_enable_output(LED4, 0, 0);
 
+    uint32_t old_tick_ms = xTaskGetTickCount();
+    uint8_t led4_state = LED_OFF;
+
+    while(1){
+        if(xTaskGetTickCount() - old_tick_ms >= 5000){
+            old_tick_ms = xTaskGetTickCount();
+            led4_state = !led4_state;
+            bl_gpio_output_set(LED4, led4_state);
+            if(led4_state == 0){
+                IS_CONFIG = 0;
+                vTaskDelete(NULL);
+                mainTaskHandle = NULL;
+            }
+        }
+        vTaskDelay(50);
+
+    }
+    
+}
 
 void button_manual_task(void *param){
 
@@ -146,9 +167,12 @@ void button_manual_task(void *param){
             // hal_wifi_start_firmware_task();
             // aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
             // vTaskDelete(NULL);
-            if(mainTaskHandle == NULL){
-                xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, NULL, 15, &mainTaskHandle);
-            }    
+            
+            //xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, NULL, 15, NULL);
+            if (mainTaskHandle == NULL) {
+                //xTaskCreate(test_task, "test_task", 1024, NULL, 15, &mainTaskHandle);
+                xTaskCreate(proc_main_entry, (char*)"main_entry", 1024*3, NULL, 15, &mainTaskHandle);
+            }
         }
         vTaskDelay(50);
     }

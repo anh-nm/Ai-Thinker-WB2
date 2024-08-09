@@ -5651,6 +5651,546 @@ typedef struct _blog_info {
 
     int blog_set_level_log_component(char* level, char* component_name);
 # 16 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 1
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 1
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 1
+# 76 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+struct tmrTimerControl;
+typedef struct tmrTimerControl * TimerHandle_t;
+
+
+
+
+typedef void (*TimerCallbackFunction_t)( TimerHandle_t xTimer );
+
+
+
+
+
+typedef void (*PendedFunction_t)( void *, uint32_t );
+# 228 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+ TimerHandle_t xTimerCreate( const char * const pcTimerName,
+        const TickType_t xTimerPeriodInTicks,
+        const UBaseType_t uxAutoReload,
+        void * const pvTimerID,
+        TimerCallbackFunction_t pxCallbackFunction ) ;
+# 358 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+ TimerHandle_t xTimerCreateStatic( const char * const pcTimerName,
+          const TickType_t xTimerPeriodInTicks,
+          const UBaseType_t uxAutoReload,
+          void * const pvTimerID,
+          TimerCallbackFunction_t pxCallbackFunction,
+          StaticTimer_t *pxTimerBuffer ) ;
+# 386 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void *pvTimerGetTimerID( const TimerHandle_t xTimer ) ;
+# 407 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void vTimerSetTimerID( TimerHandle_t xTimer, void *pvNewID ) ;
+# 444 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerIsTimerActive( TimerHandle_t xTimer ) ;
+
+
+
+
+
+
+
+TaskHandle_t xTimerGetTimerDaemonTaskHandle( void ) ;
+# 1187 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerPendFunctionCallFromISR( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 1221 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+BaseType_t xTimerPendFunctionCall( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, TickType_t xTicksToWait ) ;
+# 1232 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+const char * pcTimerGetName( TimerHandle_t xTimer ) ;
+# 1249 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+void vTimerSetReloadMode( TimerHandle_t xTimer, const UBaseType_t uxAutoReload ) ;
+# 1260 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+TickType_t xTimerGetPeriod( TimerHandle_t xTimer ) ;
+# 1275 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
+TickType_t xTimerGetExpiryTime( TimerHandle_t xTimer ) ;
+
+
+
+
+
+BaseType_t xTimerCreateTimerTask( void ) ;
+BaseType_t xTimerGenericCommand( TimerHandle_t xTimer, const BaseType_t xCommandID, const TickType_t xOptionalValue, BaseType_t * const pxHigherPriorityTaskWoken, const TickType_t xTicksToWait ) ;
+
+
+ void vTimerSetTimerNumber( TimerHandle_t xTimer, UBaseType_t uxTimerNumber ) ;
+ UBaseType_t uxTimerGetTimerNumber( TimerHandle_t xTimer ) ;
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 2
+# 81 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+struct EventGroupDef_t;
+typedef struct EventGroupDef_t * EventGroupHandle_t;
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+typedef TickType_t EventBits_t;
+# 147 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreate( void ) ;
+# 200 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreateStatic( StaticEventGroup_t *pxEventGroupBuffer ) ;
+# 295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToWaitFor, const BaseType_t xClearOnExit, const BaseType_t xWaitForAllBits, TickType_t xTicksToWait ) ;
+# 352 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 408 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupClearBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 485 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet ) ;
+# 560 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupSetBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 689 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, const EventBits_t uxBitsToWaitFor, TickType_t xTicksToWait ) ;
+# 725 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup ) ;
+# 739 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+void vEventGroupDelete( EventGroupHandle_t xEventGroup ) ;
+
+
+void vEventGroupSetBitsCallback( void *pvEventGroup, const uint32_t ulBitsToSet ) ;
+void vEventGroupClearBitsCallback( void *pvEventGroup, const uint32_t ulBitsToClear ) ;
+
+
+
+ UBaseType_t uxEventGroupGetNumber( void* xEventGroup ) ;
+ void vEventGroupSetNumber( void* xEventGroup, UBaseType_t uxEventGroupNumber ) ;
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h" 1
+# 43 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 1
+# 50 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/errno.h" 1
+# 177 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/errno.h"
+extern int errno;
+# 51 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h" 2
+# 61 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef u8_t sa_family_t;
+
+
+
+
+typedef u16_t in_port_t;
+
+
+
+
+struct sockaddr_in {
+  u8_t sin_len;
+  sa_family_t sin_family;
+  in_port_t sin_port;
+  struct in_addr sin_addr;
+
+  char sin_zero[8];
+};
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct sockaddr {
+  u8_t sa_len;
+  sa_family_t sa_family;
+  char sa_data[14];
+};
+
+struct sockaddr_storage {
+  u8_t s2_len;
+  sa_family_t ss_family;
+  char s2_data1[2];
+  u32_t s2_data2[3];
+
+
+
+};
+
+
+
+
+typedef u32_t socklen_t;
+# 121 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct iovec {
+  void *iov_base;
+  size_t iov_len;
+};
+
+
+struct msghdr {
+  void *msg_name;
+  socklen_t msg_namelen;
+  struct iovec *msg_iov;
+  int msg_iovlen;
+  void *msg_control;
+  socklen_t msg_controllen;
+  int msg_flags;
+};
+
+
+
+
+
+
+struct cmsghdr {
+  socklen_t cmsg_len;
+  int cmsg_level;
+  int cmsg_type;
+};
+# 183 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct ifreq {
+  char ifr_name[6];
+};
+# 226 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+struct linger {
+  int l_onoff;
+  int l_linger;
+};
+# 319 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef struct ip_mreq {
+    struct in_addr imr_multiaddr;
+    struct in_addr imr_interface;
+} ip_mreq;
+
+
+
+struct in_pktinfo {
+  unsigned int ipi_ifindex;
+  struct in_addr ipi_addr;
+};
+# 506 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+typedef unsigned int nfds_t;
+struct pollfd
+{
+  int fd;
+  short events;
+  short revents;
+};
+# 529 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+void lwip_socket_thread_init(void);
+void lwip_socket_thread_cleanup(void);
+# 576 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/sockets.h"
+int lwip_accept(int s, struct sockaddr *addr, socklen_t *addrlen);
+int lwip_bind(int s, const struct sockaddr *name, socklen_t namelen);
+int lwip_shutdown(int s, int how);
+int lwip_getpeername (int s, struct sockaddr *name, socklen_t *namelen);
+int lwip_getsockname (int s, struct sockaddr *name, socklen_t *namelen);
+int lwip_getsockopt (int s, int level, int optname, void *optval, socklen_t *optlen);
+int lwip_setsockopt (int s, int level, int optname, const void *optval, socklen_t optlen);
+ int lwip_close(int s);
+int lwip_connect(int s, const struct sockaddr *name, socklen_t namelen);
+int lwip_listen(int s, int backlog);
+ssize_t lwip_recv(int s, void *mem, size_t len, int flags);
+ssize_t lwip_read(int s, void *mem, size_t len);
+ssize_t lwip_readv(int s, const struct iovec *iov, int iovcnt);
+ssize_t lwip_recvfrom(int s, void *mem, size_t len, int flags,
+      struct sockaddr *from, socklen_t *fromlen);
+ssize_t lwip_recvmsg(int s, struct msghdr *message, int flags);
+ssize_t lwip_send(int s, const void *dataptr, size_t size, int flags);
+ssize_t lwip_sendmsg(int s, const struct msghdr *message, int flags);
+ssize_t lwip_sendto(int s, const void *dataptr, size_t size, int flags,
+    const struct sockaddr *to, socklen_t tolen);
+int lwip_socket(int domain, int type, int protocol);
+ssize_t lwip_write(int s, const void *dataptr, size_t size);
+ssize_t lwip_writev(int s, const struct iovec *iov, int iovcnt);
+
+int lwip_select(int maxfdp1, fd_set *readset, fd_set *writeset, fd_set *exceptset,
+                struct timeval *timeout);
+
+
+int lwip_poll(struct pollfd *fds, nfds_t nfds, int timeout);
+
+int lwip_ioctl(int s, long cmd, void *argp);
+int lwip_fcntl(int s, int cmd, int val);
+const char *lwip_inet_ntop(int af, const void *src, char *dst, socklen_t size);
+int lwip_inet_pton(int af, const char *src, void *dst);
+# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h" 2
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h"
+struct hostent {
+    char *h_name;
+    char **h_aliases;
+
+    int h_addrtype;
+    int h_length;
+    char **h_addr_list;
+
+
+};
+
+struct addrinfo {
+    int ai_flags;
+    int ai_family;
+    int ai_socktype;
+    int ai_protocol;
+    socklen_t ai_addrlen;
+    struct sockaddr *ai_addr;
+    char *ai_canonname;
+    struct addrinfo *ai_next;
+};
+
+
+
+
+
+
+extern int h_errno;
+
+
+struct hostent *lwip_gethostbyname(const char *name);
+int lwip_gethostbyname_r(const char *name, struct hostent *ret, char *buf,
+                size_t buflen, struct hostent **result, int *h_errnop);
+void lwip_freeaddrinfo(struct addrinfo *ai);
+int lwip_getaddrinfo(const char *nodename,
+       const char *servname,
+       const struct addrinfo *hints,
+       struct addrinfo **res);
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 1
+# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h" 1
+# 60 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h"
+struct netbuf {
+  struct pbuf *p, *ptr;
+  ip_addr_t addr;
+  u16_t port;
+
+  u8_t flags;
+  u16_t toport_chksum;
+
+
+
+
+};
+
+
+struct netbuf * netbuf_new (void);
+void netbuf_delete (struct netbuf *buf);
+void * netbuf_alloc (struct netbuf *buf, u16_t size);
+void netbuf_free (struct netbuf *buf);
+err_t netbuf_ref (struct netbuf *buf,
+                                   const void *dataptr, u16_t size);
+void netbuf_chain (struct netbuf *head, struct netbuf *tail);
+
+err_t netbuf_data (struct netbuf *buf,
+                                   void **dataptr, u16_t *len);
+s8_t netbuf_next (struct netbuf *buf);
+void netbuf_first (struct netbuf *buf);
+# 48 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 2
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_type {
+  NETCONN_INVALID = 0,
+
+  NETCONN_TCP = 0x10,
+
+
+
+
+
+  NETCONN_UDP = 0x20,
+
+  NETCONN_UDPLITE = 0x21,
+
+  NETCONN_UDPNOCHKSUM = 0x22,
+# 138 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+  NETCONN_RAW = 0x40
+
+
+
+
+};
+
+
+
+enum netconn_state {
+  NETCONN_NONE,
+  NETCONN_WRITE,
+  NETCONN_LISTEN,
+  NETCONN_CONNECT,
+  NETCONN_CLOSE
+};
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_evt {
+  NETCONN_EVT_RCVPLUS,
+  NETCONN_EVT_RCVMINUS,
+  NETCONN_EVT_SENDPLUS,
+  NETCONN_EVT_SENDMINUS,
+  NETCONN_EVT_ERROR
+};
+
+
+
+enum netconn_igmp {
+  NETCONN_JOIN,
+  NETCONN_LEAVE
+};
+# 207 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct ip_pcb;
+struct tcp_pcb;
+struct udp_pcb;
+struct raw_pcb;
+struct netconn;
+struct api_msg;
+
+
+typedef void (* netconn_callback)(struct netconn *, enum netconn_evt, u16_t len);
+
+
+struct netconn {
+
+  enum netconn_type type;
+
+  enum netconn_state state;
+
+  union {
+    struct ip_pcb *ip;
+    struct tcp_pcb *tcp;
+    struct udp_pcb *udp;
+    struct raw_pcb *raw;
+  } pcb;
+
+  err_t pending_err;
+
+
+
+
+
+
+  sys_mbox_t recvmbox;
+
+
+
+  sys_mbox_t acceptmbox;
+
+
+
+
+  int mbox_threads_waiting;
+
+
+
+  int socket;
+
+
+
+
+  s32_t send_timeout;
+
+
+
+
+  u32_t recv_timeout;
+
+
+
+
+  int recv_bufsize;
+
+
+
+  int recv_avail;
+
+
+
+  s16_t linger;
+
+
+  u8_t flags;
+
+
+
+
+  struct api_msg *current_msg;
+
+
+  netconn_callback callback;
+};
+
+
+
+
+
+
+struct netvector {
+
+  const void *ptr;
+
+  size_t len;
+};
+# 312 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct netconn *netconn_new_with_proto_and_callback(enum netconn_type t, u8_t proto,
+                                             netconn_callback callback);
+err_t netconn_prepare_delete(struct netconn *conn);
+err_t netconn_delete(struct netconn *conn);
+
+
+
+err_t netconn_getaddr(struct netconn *conn, ip_addr_t *addr,
+                        u16_t *port, u8_t local);
+
+
+
+
+
+err_t netconn_bind(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_bind_if(struct netconn *conn, u8_t if_idx);
+err_t netconn_connect(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_disconnect (struct netconn *conn);
+err_t netconn_listen_with_backlog(struct netconn *conn, u8_t backlog);
+
+
+err_t netconn_accept(struct netconn *conn, struct netconn **new_conn);
+err_t netconn_recv(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf_flags(struct netconn *conn, struct netbuf **new_buf, u8_t apiflags);
+err_t netconn_recv_tcp_pbuf(struct netconn *conn, struct pbuf **new_buf);
+err_t netconn_recv_tcp_pbuf_flags(struct netconn *conn, struct pbuf **new_buf, u8_t apiflags);
+err_t netconn_tcp_recvd(struct netconn *conn, size_t len);
+err_t netconn_sendto(struct netconn *conn, struct netbuf *buf,
+                             const ip_addr_t *addr, u16_t port);
+err_t netconn_send(struct netconn *conn, struct netbuf *buf);
+err_t netconn_write_partly(struct netconn *conn, const void *dataptr, size_t size,
+                             u8_t apiflags, size_t *bytes_written);
+err_t netconn_write_vectors_partly(struct netconn *conn, struct netvector *vectors, u16_t vectorcnt,
+                                     u8_t apiflags, size_t *bytes_written);
+
+
+
+err_t netconn_close(struct netconn *conn);
+err_t netconn_shutdown(struct netconn *conn, u8_t shut_rx, u8_t shut_tx);
+
+
+err_t netconn_join_leave_group(struct netconn *conn, const ip_addr_t *multiaddr,
+                             const ip_addr_t *netif_addr, enum netconn_igmp join_or_leave);
+err_t netconn_join_leave_group_netif(struct netconn *conn, const ip_addr_t *multiaddr,
+                             u8_t if_idx, enum netconn_igmp join_or_leave);
+
+
+
+
+
+
+err_t netconn_gethostbyname(const char *name, ip_addr_t *addr);
+
+
+
+
+err_t netconn_err(struct netconn *conn);
+# 418 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+void netconn_thread_init(void);
+void netconn_thread_cleanup(void);
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h" 1
+
+
+
+
+void web_server2(void *pvParameters);
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+void http_server_start(void *pvParameters);
+# 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
 
 
 
@@ -5745,7 +6285,7 @@ static void wifi_ap_start()
 
 }
 
-void event_cb_wifi_event(input_event_t* event, void* private_data)
+void event_ap_wifi_event(input_event_t* event, void* private_data)
 {
     switch (event->code) {
         case 1:
@@ -5758,16 +6298,29 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
             break;
         case 11:
             ;
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
 
             break;
         case 12:
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP <<<<<<<<<<<<<<<<<<<<\r\n");
             break;
         case 21:
             ;
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+            xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, 
+# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
+                                                                           ((void *)0)
+# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
+                                                                               , 15, 
+# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
+                                                                                     ((void *)0)
+# 97 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
+                                                                                         );
 
             break;
         case 22:
             ;
+            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
 
             break;
         default:
@@ -5778,17 +6331,16 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
 
 void proc_main_entry(void* pvParameters)
 {
-
-    aos_register_event_filter(0x0002, event_cb_wifi_event, 
-# 109 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
+    aos_register_event_filter(0x0002, event_ap_wifi_event, 
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
                                                            ((void *)0)
-# 109 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
                                                                );
     hal_wifi_start_firmware_task();
     aos_post_event(0x0002, 1, 0);
     vTaskDelete(
-# 112 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
+# 116 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c" 3 4
                ((void *)0)
-# 112 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
+# 116 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.c"
                    );
 }

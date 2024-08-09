@@ -24,7 +24,7 @@ COMPONENTS_BLSYS   := bltime blfdt blmtd blota bloop loopadc looprt loopset
 COMPONENTS_VFS     := romfs cjson
 COMPONENTS_MQTT    := axk_common tcp_transport http-parser axk_tls axk_mqtt
 
-INCLUDE_COMPONENTS += freertos_riscv_ram bl602 bl602_std newlibc wifi wifi_manager wpa_supplicant bl602_os_adapter wifi_hosal hosal mbedtls_lts lwip lwip_dhcpd vfs yloop utils cli aws-iot httpc netutils bl_os_adapter  blog blog_testc blcrypto_suite lwip_netif
+INCLUDE_COMPONENTS += freertos_riscv_ram bl602 bl602_std newlibc wifi wifi_manager wpa_supplicant bl602_os_adapter wifi_hosal hosal mbedtls_lts lwip lwip_dhcpd vfs yloop utils cli aws-iot httpc dns_server netutils bl_os_adapter  blog blog_testc blcrypto_suite lwip_netif
 INCLUDE_COMPONENTS += easyflash4 coredump
 INCLUDE_COMPONENTS += rfparam_adapter_tmp
 INCLUDE_COMPONENTS += $(COMPONENTS_NETWORK)

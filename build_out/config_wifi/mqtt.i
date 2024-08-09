@@ -3,6 +3,13 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 1
+
+
+
+
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -1301,7 +1308,7 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 2 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
 # 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
@@ -1612,7 +1619,7 @@ typedef struct xSTATIC_STREAM_BUFFER
 
 
 typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 3 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
 # 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h" 1
@@ -1949,7 +1956,7 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
 
 
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 1
 # 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdbool.h" 1 3 4
@@ -2389,7 +2396,7 @@ axk_err_t axk_mqtt_set_config(axk_mqtt_client_handle_t client, const axk_mqtt_cl
 axk_err_t axk_mqtt_client_register_event(axk_mqtt_client_handle_t client, axk_mqtt_event_id_t event, axk_event_handler_t event_handler, void *event_handler_arg);
 # 417 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
 int axk_mqtt_client_get_outbox_size(axk_mqtt_client_handle_t client);
-# 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 1
 # 28 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 1 3
@@ -3130,7 +3137,7 @@ extern cJSON *cJSON_Duplicate(cJSON *item,int recurse);
 extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated);
 
 extern void cJSON_Minify(char *json);
-# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h" 1
 
@@ -3156,7 +3163,7 @@ int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
 void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
 void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
 void bl_gpio_register(gpio_ctx_t *pstnode);
-# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 1
 # 41 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h" 1
@@ -3197,15 +3204,16 @@ typedef struct _blog_info {
     void blog_hexdump_out(const char* name, uint8_t width, uint8_t* buf, uint16_t size);
 
     int blog_set_level_log_component(char* level, char* component_name);
-# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h" 1
-# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
-# 21 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
-static void log_error_if_nonzero(const char *message, int error_code);
-static axk_err_t event_cb(axk_mqtt_event_handle_t event);
-static void control_button(cJSON *Switch, cJSON *getctr);
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
+
+
+
 void mqtt_start(void);
 void button_task(void *param);
+void control_button(cJSON *Switch, cJSON *getctr);
+# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 2
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -3285,9 +3293,9 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
         cJSON *json = cJSON_Parse(json_data);
 
         if(json == 
-# 104 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 82 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                   ((void *)0)
-# 104 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 82 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                       ){
             ;
         }else{
@@ -3366,13 +3374,13 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
                 cJSON *SWITCH = cJSON_GetObjectItem(json, "switch");
                 cJSON *ctr = cJSON_GetObjectItem(json, "ctr");
                 if( SWITCH!=
-# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 159 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                            ((void *)0) 
-# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 159 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                                 && ctr!= 
-# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
+# 159 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c" 3 4
                                          ((void *)0)
-# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 159 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
                                              ){
                     control_button(SWITCH, ctr);
 
@@ -3391,7 +3399,7 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
             }
 
         }
-# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
+# 194 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.c"
         cJSON_Delete(json);
         free(json_data);
 
@@ -3503,7 +3511,7 @@ void button_task(void *param){
     }
 }
 
-static void control_button(cJSON *Switch, cJSON *getctr){
+void control_button(cJSON *Switch, cJSON *getctr){
 
     int switch_val = Switch->valueint;
     int ctr = getctr->valueint;

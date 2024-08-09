@@ -1,28 +1,6 @@
-#include <stdio.h>
-#include <FreeRTOS.h>
-#include <task.h>
-#include <mqtt_client.h>
-#include <cJSON.h> //Thư viện xử lý JSON
-#include <ctype.h>
-#include <bl_gpio.h>
-#include "blog.h"
-#include "hardware_config.h"
 
-// #define BUTTON1    1
-// #define BUTTON2    5
-// #define BUTTON3   21
-// #define BUTTON4   20
 
-// #define SWITCH1   14
-// #define SWITCH2   17 
-// #define SWITCH3    3
-// #define SWITCH4    0
-
-static void log_error_if_nonzero(const char *message, int error_code);
-static axk_err_t event_cb(axk_mqtt_event_handle_t event);
-static void control_button(cJSON *Switch, cJSON *getctr);  // Khai báo hàm control_button
-void mqtt_start(void);
-void button_task(void *param);
+#include "mqtt.h"
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -324,7 +302,7 @@ void button_task(void *param){
     }
 }
 
-static void control_button(cJSON *Switch, cJSON *getctr){
+void control_button(cJSON *Switch, cJSON *getctr){
 
     int switch_val = Switch->valueint;
     int ctr = getctr->valueint;

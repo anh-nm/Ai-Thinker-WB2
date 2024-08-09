@@ -21,7 +21,7 @@
 	.string	"[OS] Starting TCP/IP Stack..."
 	.align	2
 .LC4:
-	.string	"[OS] button_manual_task task..."
+	.string	"[OS] button_manual_task ..."
 	.align	2
 .LC5:
 	.string	"button_manual_task"
@@ -109,15 +109,15 @@ main:
 	.file 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_type.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x1c6
+	.4byte	0x1b8
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.byte	0x1
-	.4byte	.LASF23
+	.4byte	.LASF21
 	.byte	0xc
-	.4byte	.LASF24
-	.4byte	.LASF25
+	.4byte	.LASF22
+	.4byte	.LASF23
 	.4byte	.Ldebug_ranges0+0
 	.4byte	0
 	.4byte	.Ldebug_line0
@@ -166,7 +166,7 @@ main:
 	.byte	0x8
 	.4byte	.LASF9
 	.byte	0x4
-	.4byte	.LASF26
+	.4byte	.LASF24
 	.byte	0x7
 	.byte	0x4
 	.4byte	0x64
@@ -196,16 +196,8 @@ main:
 	.4byte	.LASF16
 	.byte	0x6
 	.byte	0
-	.byte	0x2
-	.byte	0x4
-	.byte	0x4
-	.4byte	.LASF17
-	.byte	0x2
-	.byte	0x8
-	.byte	0x4
-	.4byte	.LASF18
 	.byte	0x6
-	.4byte	.LASF27
+	.4byte	.LASF25
 	.byte	0x1
 	.byte	0x7d
 	.byte	0x6
@@ -213,11 +205,11 @@ main:
 	.4byte	.LFE29-.LFB29
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x197
+	.4byte	0x189
 	.byte	0x7
 	.4byte	.LVL0
-	.4byte	0x197
-	.4byte	0xef
+	.4byte	0x189
+	.4byte	0xe1
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -232,8 +224,8 @@ main:
 	.byte	0
 	.byte	0x7
 	.4byte	.LVL1
-	.4byte	0x197
-	.4byte	0x10b
+	.4byte	0x189
+	.4byte	0xfd
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -248,8 +240,8 @@ main:
 	.byte	0
 	.byte	0x7
 	.4byte	.LVL2
-	.4byte	0x197
-	.4byte	0x127
+	.4byte	0x189
+	.4byte	0x119
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -264,8 +256,8 @@ main:
 	.byte	0
 	.byte	0x7
 	.4byte	.LVL3
-	.4byte	0x1a4
-	.4byte	0x13e
+	.4byte	0x196
+	.4byte	0x130
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -275,8 +267,8 @@ main:
 	.byte	0
 	.byte	0x7
 	.4byte	.LVL4
-	.4byte	0x1b0
-	.4byte	0x156
+	.4byte	0x1a2
+	.4byte	0x148
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -290,8 +282,8 @@ main:
 	.byte	0
 	.byte	0x7
 	.4byte	.LVL5
-	.4byte	0x1a4
-	.4byte	0x16d
+	.4byte	0x196
+	.4byte	0x15f
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5a
@@ -301,7 +293,7 @@ main:
 	.byte	0
 	.byte	0x9
 	.4byte	.LVL6
-	.4byte	0x1bc
+	.4byte	0x1ae
 	.byte	0x8
 	.byte	0x1
 	.byte	0x5b
@@ -332,26 +324,26 @@ main:
 	.byte	0
 	.byte	0
 	.byte	0xa
-	.4byte	.LASF19
-	.4byte	.LASF19
+	.4byte	.LASF17
+	.4byte	.LASF17
 	.byte	0x2
 	.2byte	0x158
 	.byte	0x9
 	.byte	0xb
-	.4byte	.LASF20
-	.4byte	.LASF20
+	.4byte	.LASF18
+	.4byte	.LASF18
 	.byte	0x3
 	.byte	0xdd
 	.byte	0x5
 	.byte	0xb
-	.4byte	.LASF21
-	.4byte	.LASF21
+	.4byte	.LASF19
+	.4byte	.LASF19
 	.byte	0x4
 	.byte	0x4d
 	.byte	0x6
 	.byte	0xa
-	.4byte	.LASF22
-	.4byte	.LASF22
+	.4byte	.LASF20
+	.4byte	.LASF20
 	.byte	0x5
 	.2byte	0x14a
 	.byte	0xd
@@ -551,27 +543,25 @@ main:
 	.string	"BLOG_LEVEL_ASSERT"
 .LASF8:
 	.string	"unsigned int"
-.LASF20:
+.LASF18:
 	.string	"puts"
-.LASF21:
+.LASF19:
 	.string	"tcpip_init"
-.LASF26:
-	.string	"_blog_leve"
 .LASF24:
+	.string	"_blog_leve"
+.LASF22:
 	.string	"/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-.LASF25:
-	.string	"/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/build_out/config_wifi"
 .LASF6:
 	.string	"long unsigned int"
 .LASF7:
 	.string	"long long unsigned int"
-.LASF22:
+.LASF20:
 	.string	"xTaskCreate"
 .LASF12:
 	.string	"BLOG_LEVEL_INFO"
 .LASF4:
 	.string	"unsigned char"
-.LASF27:
+.LASF25:
 	.string	"main"
 .LASF16:
 	.string	"BLOG_LEVEL_NEVER"
@@ -579,25 +569,23 @@ main:
 	.string	"long int"
 .LASF13:
 	.string	"BLOG_LEVEL_WARN"
-.LASF18:
-	.string	"double"
 .LASF11:
 	.string	"BLOG_LEVEL_DEBUG"
 .LASF5:
 	.string	"short unsigned int"
 .LASF0:
 	.string	"signed char"
-.LASF19:
-	.string	"blog_set_level_log_component"
 .LASF17:
-	.string	"float"
+	.string	"blog_set_level_log_component"
+.LASF23:
+	.string	"/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/build_out/config_wifi"
 .LASF10:
 	.string	"BLOG_LEVEL_ALL"
 .LASF1:
 	.string	"short int"
 .LASF14:
 	.string	"BLOG_LEVEL_ERROR"
-.LASF23:
+.LASF21:
 	.string	"GNU C99 10.2.0 -march=rv32imfc -mabi=ilp32f -march=rv32imfc -gdwarf -Os -std=gnu99 -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -fcommon -ffreestanding -fno-strict-aliasing"
 .LASF9:
 	.string	"char"

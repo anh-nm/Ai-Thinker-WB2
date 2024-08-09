@@ -541,13 +541,13 @@ log_port_reset:
 	.string	"Build Date: "
 	.align	2
 .LC21:
-	.string	"Aug  7 2024"
+	.string	"Aug  9 2024"
 	.align	2
 .LC22:
 	.string	"Build Time: "
 	.align	2
 .LC23:
-	.string	"14:16:03"
+	.string	"09:07:12"
 	.align	2
 .LC24:
 	.string	"[OS] Starting aos_loop_proc task...\r\n"

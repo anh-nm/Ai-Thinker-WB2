@@ -5902,6 +5902,340 @@ typedef struct _blog_info {
 
     int blog_set_level_log_component(char* level, char* component_name);
 # 16 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 1
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 1
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 1
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h" 2
+# 81 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+struct EventGroupDef_t;
+typedef struct EventGroupDef_t * EventGroupHandle_t;
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+typedef TickType_t EventBits_t;
+# 147 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreate( void ) ;
+# 200 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ EventGroupHandle_t xEventGroupCreateStatic( StaticEventGroup_t *pxEventGroupBuffer ) ;
+# 295 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToWaitFor, const BaseType_t xClearOnExit, const BaseType_t xWaitForAllBits, TickType_t xTicksToWait ) ;
+# 352 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 408 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupClearBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear ) ;
+# 485 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet ) ;
+# 560 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+ BaseType_t xEventGroupSetBitsFromISR( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, BaseType_t *pxHigherPriorityTaskWoken ) ;
+# 689 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet, const EventBits_t uxBitsToWaitFor, TickType_t xTicksToWait ) ;
+# 725 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup ) ;
+# 739 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/event_groups.h"
+void vEventGroupDelete( EventGroupHandle_t xEventGroup ) ;
+
+
+void vEventGroupSetBitsCallback( void *pvEventGroup, const uint32_t ulBitsToSet ) ;
+void vEventGroupClearBitsCallback( void *pvEventGroup, const uint32_t ulBitsToClear ) ;
+
+
+
+ UBaseType_t uxEventGroupGetNumber( void* xEventGroup ) ;
+ void vEventGroupSetNumber( void* xEventGroup, UBaseType_t uxEventGroupNumber ) ;
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h" 1
+# 92 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h"
+struct hostent {
+    char *h_name;
+    char **h_aliases;
+
+    int h_addrtype;
+    int h_length;
+    char **h_addr_list;
+
+
+};
+
+struct addrinfo {
+    int ai_flags;
+    int ai_family;
+    int ai_socktype;
+    int ai_protocol;
+    socklen_t ai_addrlen;
+    struct sockaddr *ai_addr;
+    char *ai_canonname;
+    struct addrinfo *ai_next;
+};
+
+
+
+
+
+
+extern int h_errno;
+
+
+struct hostent *lwip_gethostbyname(const char *name);
+int lwip_gethostbyname_r(const char *name, struct hostent *ret, char *buf,
+                size_t buflen, struct hostent **result, int *h_errnop);
+void lwip_freeaddrinfo(struct addrinfo *ai);
+int lwip_getaddrinfo(const char *nodename,
+       const char *servname,
+       const struct addrinfo *hints,
+       struct addrinfo **res);
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 1
+# 47 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h" 1
+# 60 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h"
+struct netbuf {
+  struct pbuf *p, *ptr;
+  ip_addr_t addr;
+  u16_t port;
+
+  u8_t flags;
+  u16_t toport_chksum;
+
+
+
+
+};
+
+
+struct netbuf * netbuf_new (void);
+void netbuf_delete (struct netbuf *buf);
+void * netbuf_alloc (struct netbuf *buf, u16_t size);
+void netbuf_free (struct netbuf *buf);
+err_t netbuf_ref (struct netbuf *buf,
+                                   const void *dataptr, u16_t size);
+void netbuf_chain (struct netbuf *head, struct netbuf *tail);
+
+err_t netbuf_data (struct netbuf *buf,
+                                   void **dataptr, u16_t *len);
+s8_t netbuf_next (struct netbuf *buf);
+void netbuf_first (struct netbuf *buf);
+# 48 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h" 2
+# 113 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_type {
+  NETCONN_INVALID = 0,
+
+  NETCONN_TCP = 0x10,
+
+
+
+
+
+  NETCONN_UDP = 0x20,
+
+  NETCONN_UDPLITE = 0x21,
+
+  NETCONN_UDPNOCHKSUM = 0x22,
+# 138 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+  NETCONN_RAW = 0x40
+
+
+
+
+};
+
+
+
+enum netconn_state {
+  NETCONN_NONE,
+  NETCONN_WRITE,
+  NETCONN_LISTEN,
+  NETCONN_CONNECT,
+  NETCONN_CLOSE
+};
+# 181 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+enum netconn_evt {
+  NETCONN_EVT_RCVPLUS,
+  NETCONN_EVT_RCVMINUS,
+  NETCONN_EVT_SENDPLUS,
+  NETCONN_EVT_SENDMINUS,
+  NETCONN_EVT_ERROR
+};
+
+
+
+enum netconn_igmp {
+  NETCONN_JOIN,
+  NETCONN_LEAVE
+};
+# 207 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct ip_pcb;
+struct tcp_pcb;
+struct udp_pcb;
+struct raw_pcb;
+struct netconn;
+struct api_msg;
+
+
+typedef void (* netconn_callback)(struct netconn *, enum netconn_evt, u16_t len);
+
+
+struct netconn {
+
+  enum netconn_type type;
+
+  enum netconn_state state;
+
+  union {
+    struct ip_pcb *ip;
+    struct tcp_pcb *tcp;
+    struct udp_pcb *udp;
+    struct raw_pcb *raw;
+  } pcb;
+
+  err_t pending_err;
+
+
+
+
+
+
+  sys_mbox_t recvmbox;
+
+
+
+  sys_mbox_t acceptmbox;
+
+
+
+
+  int mbox_threads_waiting;
+
+
+
+  int socket;
+
+
+
+
+  s32_t send_timeout;
+
+
+
+
+  u32_t recv_timeout;
+
+
+
+
+  int recv_bufsize;
+
+
+
+  int recv_avail;
+
+
+
+  s16_t linger;
+
+
+  u8_t flags;
+
+
+
+
+  struct api_msg *current_msg;
+
+
+  netconn_callback callback;
+};
+
+
+
+
+
+
+struct netvector {
+
+  const void *ptr;
+
+  size_t len;
+};
+# 312 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+struct netconn *netconn_new_with_proto_and_callback(enum netconn_type t, u8_t proto,
+                                             netconn_callback callback);
+err_t netconn_prepare_delete(struct netconn *conn);
+err_t netconn_delete(struct netconn *conn);
+
+
+
+err_t netconn_getaddr(struct netconn *conn, ip_addr_t *addr,
+                        u16_t *port, u8_t local);
+
+
+
+
+
+err_t netconn_bind(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_bind_if(struct netconn *conn, u8_t if_idx);
+err_t netconn_connect(struct netconn *conn, const ip_addr_t *addr, u16_t port);
+err_t netconn_disconnect (struct netconn *conn);
+err_t netconn_listen_with_backlog(struct netconn *conn, u8_t backlog);
+
+
+err_t netconn_accept(struct netconn *conn, struct netconn **new_conn);
+err_t netconn_recv(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf(struct netconn *conn, struct netbuf **new_buf);
+err_t netconn_recv_udp_raw_netbuf_flags(struct netconn *conn, struct netbuf **new_buf, u8_t apiflags);
+err_t netconn_recv_tcp_pbuf(struct netconn *conn, struct pbuf **new_buf);
+err_t netconn_recv_tcp_pbuf_flags(struct netconn *conn, struct pbuf **new_buf, u8_t apiflags);
+err_t netconn_tcp_recvd(struct netconn *conn, size_t len);
+err_t netconn_sendto(struct netconn *conn, struct netbuf *buf,
+                             const ip_addr_t *addr, u16_t port);
+err_t netconn_send(struct netconn *conn, struct netbuf *buf);
+err_t netconn_write_partly(struct netconn *conn, const void *dataptr, size_t size,
+                             u8_t apiflags, size_t *bytes_written);
+err_t netconn_write_vectors_partly(struct netconn *conn, struct netvector *vectors, u16_t vectorcnt,
+                                     u8_t apiflags, size_t *bytes_written);
+
+
+
+err_t netconn_close(struct netconn *conn);
+err_t netconn_shutdown(struct netconn *conn, u8_t shut_rx, u8_t shut_tx);
+
+
+err_t netconn_join_leave_group(struct netconn *conn, const ip_addr_t *multiaddr,
+                             const ip_addr_t *netif_addr, enum netconn_igmp join_or_leave);
+err_t netconn_join_leave_group_netif(struct netconn *conn, const ip_addr_t *multiaddr,
+                             u8_t if_idx, enum netconn_igmp join_or_leave);
+
+
+
+
+
+
+err_t netconn_gethostbyname(const char *name, ip_addr_t *addr);
+
+
+
+
+err_t netconn_err(struct netconn *conn);
+# 418 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h"
+void netconn_thread_init(void);
+void netconn_thread_cleanup(void);
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h" 1
+
+
+
+
+void web_server2(void *pvParameters);
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/http_server.h" 2
+
+
+void http_server_start(void *pvParameters);
+# 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/ap.h" 2
 
 
 
@@ -5959,359 +6293,6 @@ int bl_sys_isxipaddr(uint32_t addr);
 int bl_sys_early_init(void);
 int bl_sys_init(void);
 # 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 1
-# 28 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 1 3
-
-
-
-
-
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/machine/ieeefp.h" 1 3
-# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 2 3
-
-
-
-# 86 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-
-# 86 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern double atan (double);
-extern double cos (double);
-extern double sin (double);
-extern double tan (double);
-extern double tanh (double);
-extern double frexp (double, int *);
-extern double modf (double, double *);
-extern double ceil (double);
-extern double fabs (double);
-extern double floor (double);
-
-
-
-
-
-
-extern double acos (double);
-extern double asin (double);
-extern double atan2 (double, double);
-extern double cosh (double);
-extern double sinh (double);
-extern double exp (double);
-extern double ldexp (double, int);
-extern double log (double);
-extern double log10 (double);
-extern double pow (double, double);
-extern double sqrt (double);
-extern double fmod (double, double);
-
-
-
-
-extern int finite (double);
-extern int finitef (float);
-extern int finitel (long double);
-extern int isinff (float);
-extern int isnanf (float);
-
-
-
-
-
-extern int isinf (double);
-
-
-
-
-extern int isnan (double);
-# 150 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-    typedef float float_t;
-    typedef double double_t;
-# 204 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern int __isinff (float);
-extern int __isinfd (double);
-extern int __isnanf (float);
-extern int __isnand (double);
-extern int __fpclassifyf (float);
-extern int __fpclassifyd (double);
-extern int __signbitf (float);
-extern int __signbitd (double);
-# 300 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern double infinity (void);
-extern double nan (const char *);
-extern double copysign (double, double);
-extern double logb (double);
-extern int ilogb (double);
-
-extern double asinh (double);
-extern double cbrt (double);
-extern double nextafter (double, double);
-extern double rint (double);
-extern double scalbn (double, int);
-
-extern double exp2 (double);
-extern double scalbln (double, long int);
-extern double tgamma (double);
-extern double nearbyint (double);
-extern long int lrint (double);
-extern long long int llrint (double);
-extern double round (double);
-extern long int lround (double);
-extern long long int llround (double);
-extern double trunc (double);
-extern double remquo (double, double, int *);
-extern double fdim (double, double);
-extern double fmax (double, double);
-extern double fmin (double, double);
-extern double fma (double, double, double);
-
-
-extern double log1p (double);
-extern double expm1 (double);
-
-
-
-extern double acosh (double);
-extern double atanh (double);
-extern double remainder (double, double);
-extern double gamma (double);
-extern double lgamma (double);
-extern double erf (double);
-extern double erfc (double);
-extern double log2 (double);
-
-
-
-
-
-extern double hypot (double, double);
-
-
-
-
-
-
-extern float atanf (float);
-extern float cosf (float);
-extern float sinf (float);
-extern float tanf (float);
-extern float tanhf (float);
-extern float frexpf (float, int *);
-extern float modff (float, float *);
-extern float ceilf (float);
-extern float fabsf (float);
-extern float floorf (float);
-
-
-extern float acosf (float);
-extern float asinf (float);
-extern float atan2f (float, float);
-extern float coshf (float);
-extern float sinhf (float);
-extern float expf (float);
-extern float ldexpf (float, int);
-extern float logf (float);
-extern float log10f (float);
-extern float powf (float, float);
-extern float sqrtf (float);
-extern float fmodf (float, float);
-
-
-
-
-extern float exp2f (float);
-extern float scalblnf (float, long int);
-extern float tgammaf (float);
-extern float nearbyintf (float);
-extern long int lrintf (float);
-extern long long int llrintf (float);
-extern float roundf (float);
-extern long int lroundf (float);
-extern long long int llroundf (float);
-extern float truncf (float);
-extern float remquof (float, float, int *);
-extern float fdimf (float, float);
-extern float fmaxf (float, float);
-extern float fminf (float, float);
-extern float fmaf (float, float, float);
-
-extern float infinityf (void);
-extern float nanf (const char *);
-extern float copysignf (float, float);
-extern float logbf (float);
-extern int ilogbf (float);
-
-extern float asinhf (float);
-extern float cbrtf (float);
-extern float nextafterf (float, float);
-extern float rintf (float);
-extern float scalbnf (float, int);
-extern float log1pf (float);
-extern float expm1f (float);
-
-
-extern float acoshf (float);
-extern float atanhf (float);
-extern float remainderf (float, float);
-extern float gammaf (float);
-extern float lgammaf (float);
-extern float erff (float);
-extern float erfcf (float);
-extern float log2f (float);
-extern float hypotf (float, float);
-# 500 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern long double hypotl (long double, long double);
-extern long double sqrtl (long double);
-# 513 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern double drem (double, double);
-extern float dremf (float, float);
-
-
-
-extern double gamma_r (double, int *);
-extern double lgamma_r (double, int *);
-extern float gammaf_r (float, int *);
-extern float lgammaf_r (float, int *);
-
-
-
-extern double y0 (double);
-extern double y1 (double);
-extern double yn (int, double);
-extern double j0 (double);
-extern double j1 (double);
-extern double jn (int, double);
-
-
-
-extern float y0f (float);
-extern float y1f (float);
-extern float ynf (int, float);
-extern float j0f (float);
-extern float j1f (float);
-extern float jnf (int, float);
-
-
-
-
-extern void sincos (double, double *, double *);
-extern void sincosf (float, float *, float *);
-
-
-
-
-extern double exp10 (double);
-
-
-extern double pow10 (double);
-
-
-extern float exp10f (float);
-
-
-extern float pow10f (float);
-# 575 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-extern int *__signgam (void);
-# 617 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
-
-# 29 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
-
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/float.h" 1 3 4
-# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
-# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include-fixed/limits.h" 1 3 4
-# 32 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
-# 52 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
-
-# 52 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
-typedef struct cJSON {
- struct cJSON *next,*prev;
- struct cJSON *child;
-
- int type;
-
- char *valuestring;
- int valueint;
- double valuedouble;
-
- char *string;
-} cJSON;
-
-typedef struct cJSON_Hooks {
-      void *(*malloc_fn)(size_t sz);
-      void (*free_fn)(void *ptr);
-} cJSON_Hooks;
-
-
-extern void cJSON_InitHooks(cJSON_Hooks* hooks);
-
-
-
-extern cJSON *cJSON_Parse(const char *value);
-
-extern char *cJSON_Print(cJSON *item);
-
-extern char *cJSON_PrintUnformatted(cJSON *item);
-
-extern char *cJSON_PrintBuffered(cJSON *item,int prebuffer,int fmt);
-
-extern void cJSON_Delete(cJSON *c);
-
-
-extern int cJSON_GetArraySize(cJSON *array);
-
-extern cJSON *cJSON_GetArrayItem(cJSON *array,int item);
-
-extern cJSON *cJSON_GetObjectItem(cJSON *object,const char *string);
-
-
-extern const char *cJSON_GetErrorPtr(void);
-
-
-extern cJSON *cJSON_CreateNull(void);
-extern cJSON *cJSON_CreateTrue(void);
-extern cJSON *cJSON_CreateFalse(void);
-extern cJSON *cJSON_CreateBool(int b);
-extern cJSON *cJSON_CreateNumber(double num);
-extern cJSON *cJSON_CreateString(const char *string);
-extern cJSON *cJSON_CreateArray(void);
-extern cJSON *cJSON_CreateObject(void);
-
-
-extern cJSON *cJSON_CreateIntArray(const int *numbers,int count);
-extern cJSON *cJSON_CreateFloatArray(const float *numbers,int count);
-extern cJSON *cJSON_CreateDoubleArray(const double *numbers,int count);
-extern cJSON *cJSON_CreateStringArray(const char **strings,int count);
-
-
-extern void cJSON_AddItemToArray(cJSON *array, cJSON *item);
-extern void cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item);
-extern void cJSON_AddItemToObjectCS(cJSON *object,const char *string,cJSON *item);
-
-extern void cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item);
-extern void cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item);
-
-
-extern cJSON *cJSON_DetachItemFromArray(cJSON *array,int which);
-extern void cJSON_DeleteItemFromArray(cJSON *array,int which);
-extern cJSON *cJSON_DetachItemFromObject(cJSON *object,const char *string);
-extern void cJSON_DeleteItemFromObject(cJSON *object,const char *string);
-
-
-extern void cJSON_InsertItemInArray(cJSON *array,int which,cJSON *newitem);
-extern void cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem);
-extern void cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem);
-
-
-extern cJSON *cJSON_Duplicate(cJSON *item,int recurse);
-
-
-
-
-
-extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated);
-
-extern void cJSON_Minify(char *json);
-# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 2
 # 125 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
 void main()
 {
@@ -6329,7 +6310,7 @@ void main()
 # 131 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
                         );
 # 140 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c"
-    puts("[OS] button_manual_task task...");
+    puts("[OS] button_manual_task ...");
 
     xTaskCreate(button_manual_task, "button_manual_task", 2048, 
 # 142 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/main.c" 3 4

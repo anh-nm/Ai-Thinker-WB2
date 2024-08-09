@@ -4,6 +4,11 @@
 # 1 "<command-line>"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c"
 
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 1
+
+
+
+
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
 # 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
@@ -322,7 +327,7 @@ typedef struct xSTATIC_STREAM_BUFFER
 
 
 typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 3 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h" 1
 # 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/task.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/list.h" 1
@@ -659,7 +664,7 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
 
 
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 4 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -1952,7 +1957,7 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 5 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 1 3
 # 17 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 3
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h" 1 3 4
@@ -2122,7 +2127,7 @@ static __inline unsigned long __libc_detect_null(unsigned long w)
 # 176 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
 
 
-# 6 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h" 1
 # 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/event_type_code.h" 1
@@ -2203,7 +2208,7 @@ void *aos_loop_schedule_work(int ms, aos_call_t action, void *arg1,
                              aos_call_t fini_cb, void *arg2);
 # 271 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/yloop.h"
 void aos_cancel_work(void *work, aos_call_t action, void *arg1);
-# 7 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/yloop/include/aos/kernel.h" 1
 
 
@@ -2450,7 +2455,7 @@ void aos_cancel_work(void *work, aos_call_t action, void *arg1);
 
 
     void aos_start(void);
-# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h" 1
 # 40 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/tcpip.h"
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/opt.h" 1
@@ -4180,7 +4185,7 @@ err_t tcpip_callbackmsg_trycallback_fromisr(struct tcpip_callback_msg* msg);
 
 err_t pbuf_free_callback(struct pbuf *p);
 err_t mem_free_callback(void *m);
-# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/wifi_manager/bl60x_wifi_driver/include/wifi_mgmr_ext.h" 1
 
 
@@ -5568,7 +5573,7 @@ int wifi_mgmr_bcnind_auth_to_ext(int auth);
 int wifi_mgmr_bcnind_cipher_to_ext(int cipher);
 struct sm_connect_tlv_desc* wifi_mgmr_diagnose_tlv_get_ele(void);
 void wifi_mgmr_diagnose_tlv_free_ele(struct sm_connect_tlv_desc* ele);
-# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/hal_wifi.h" 1
 
 
@@ -5578,7 +5583,7 @@ void wifi_mgmr_diagnose_tlv_free_ele(struct sm_connect_tlv_desc* ele);
 
 
 int hal_wifi_start_firmware_task(void);
-# 11 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_sys.h" 1
 
 
@@ -5605,7 +5610,7 @@ void bl_sys_reset_system(void);
 int bl_sys_isxipaddr(uint32_t addr);
 int bl_sys_early_init(void);
 int bl_sys_init(void);
-# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 15 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
 # 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h" 1
 # 76 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/timers.h"
 struct tmrTimerControl;
@@ -5671,7 +5676,832 @@ BaseType_t xTimerGenericCommand( TimerHandle_t xTimer, const BaseType_t xCommand
 
  void vTimerSetTimerNumber( TimerHandle_t xTimer, UBaseType_t uxTimerNumber ) ;
  UBaseType_t uxTimerGetTimerNumber( TimerHandle_t xTimer ) ;
-# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
-# 26 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c"
+# 16 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 1
+# 35 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdbool.h" 1 3 4
+# 36 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 2
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h" 1
+# 56 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h"
+typedef enum LOG_BUF_OUT_DATA_TYPE {
+    LOG_BUF_OUT_DATA_TYPE_HEX,
+    LOG_BUF_OUT_DATA_TYPE_INT8,
+    LOG_BUF_OUT_DATA_TYPE_UNT8,
+} LOG_BUF_OUT_DATA_TYPE_T;
+# 127 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/utils/include/utils_log.h"
+int log_buf_out(const char *file, int line, const void *inbuf, int len, LOG_BUF_OUT_DATA_TYPE_T type);
+
+void bl_printk(const char *format, ...);
+# 42 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_type.h" 1
+# 34 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_type.h"
+typedef enum _blog_leve {
+    BLOG_LEVEL_ALL = 0,
+    BLOG_LEVEL_DEBUG,
+    BLOG_LEVEL_INFO,
+    BLOG_LEVEL_WARN,
+    BLOG_LEVEL_ERROR,
+    BLOG_LEVEL_ASSERT,
+    BLOG_LEVEL_NEVER,
+} blog_level_t;
+
+typedef struct _blog_info {
+    blog_level_t *level;
+    char *name;
+} blog_info_t;
+# 44 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog_cfg.h" 1
+# 45 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h" 2
+# 340 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/blog/blog.h"
+    void blog_init(void);
+
+    void blog_hexdump_out(const char* name, uint8_t width, uint8_t* buf, uint16_t size);
+
+    int blog_set_level_log_component(char* level, char* component_name);
+# 19 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 1
+
+
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 1
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h" 1
+
+
+
+
+
+
+       
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/assert.h" 1 3
+# 39 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/assert.h" 3
+
+# 39 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/assert.h" 3
+void __assert (const char *, int, const char *)
+     __attribute__ ((__noreturn__));
+void __assert_func (const char *, int, const char *, const char *)
+     __attribute__ ((__noreturn__));
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_compiler.h" 1
+# 13 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h" 2
+
+
+
+
+
+
+# 18 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h"
+typedef int axk_err_t;
+# 57 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h"
+const char *axk_err_to_name(axk_err_t code);
+# 75 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h"
+const char *axk_err_to_name_r(axk_err_t code, char *buf, size_t buflen);
+
+
+void _axk_error_check_failed(axk_err_t rc, const char *file, int line, const char *function, const char *expression) __attribute__((noreturn));
+
+
+void _axk_error_check_failed_without_abort(axk_err_t rc, const char *file, int line, const char *function, const char *expression);
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 2
+# 22 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+typedef void *axk_event_loop_handle_t;
+typedef void *axk_event_handler_t;
+
+
+typedef struct axk_mqtt_client *axk_mqtt_client_handle_t;
+# 37 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+typedef enum {
+    MQTT_EVENT_ANY = -1,
+    MQTT_EVENT_ERROR = 0,
+    MQTT_EVENT_CONNECTED,
+    MQTT_EVENT_DISCONNECTED,
+    MQTT_EVENT_SUBSCRIBED,
+
+
+
+
+    MQTT_EVENT_UNSUBSCRIBED,
+    MQTT_EVENT_PUBLISHED,
+    MQTT_EVENT_DATA,
+# 65 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+    MQTT_EVENT_BEFORE_CONNECT,
+    MQTT_EVENT_DELETED,
+
+
+
+
+
+
+} axk_mqtt_event_id_t;
+
+
+
+
+typedef enum {
+    MQTT_CONNECTION_ACCEPTED = 0,
+    MQTT_CONNECTION_REFUSE_PROTOCOL,
+    MQTT_CONNECTION_REFUSE_ID_REJECTED,
+    MQTT_CONNECTION_REFUSE_SERVER_UNAVAILABLE,
+    MQTT_CONNECTION_REFUSE_BAD_USERNAME,
+    MQTT_CONNECTION_REFUSE_NOT_AUTHORIZED
+} axk_mqtt_connect_return_code_t;
+
+
+
+
+typedef enum {
+    MQTT_ERROR_TYPE_NONE = 0,
+    MQTT_ERROR_TYPE_TCP_TRANSPORT,
+    MQTT_ERROR_TYPE_CONNECTION_REFUSED,
+} axk_mqtt_error_type_t;
+# 103 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+typedef enum {
+    MQTT_TRANSPORT_UNKNOWN = 0x0,
+    MQTT_TRANSPORT_OVER_TCP,
+    MQTT_TRANSPORT_OVER_SSL,
+    MQTT_TRANSPORT_OVER_WS,
+    MQTT_TRANSPORT_OVER_WSS
+} axk_mqtt_transport_t;
+
+
+
+
+typedef enum {
+    MQTT_PROTOCOL_UNDEFINED = 0,
+    MQTT_PROTOCOL_V_3_1,
+    MQTT_PROTOCOL_V_3_1_1
+} axk_mqtt_protocol_ver_t;
+# 132 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+typedef struct axk_mqtt_error_codes {
+
+    axk_err_t axk_tls_last_axk_err;
+    int axk_tls_stack_err;
+    int axk_tls_cert_verify_flags;
+
+    axk_mqtt_error_type_t error_type;
+    axk_mqtt_connect_return_code_t connect_return_code;
+
+    int axk_transport_sock_errno;
+
+} axk_mqtt_error_codes_t;
+
+
+
+
+typedef struct {
+    axk_mqtt_event_id_t event_id;
+    axk_mqtt_client_handle_t client;
+    void *user_context;
+    char *data;
+    int data_len;
+    int total_data_len;
+    int current_data_offset;
+    char *topic;
+    int topic_len;
+    int msg_id;
+    int session_present;
+    axk_mqtt_error_codes_t *error_handle;
+    
+# 161 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 161 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        retain;
+    int qos;
+    
+# 163 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 163 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        dup;
+} axk_mqtt_event_t;
+
+typedef axk_mqtt_event_t *axk_mqtt_event_handle_t;
+
+typedef axk_err_t (* mqtt_event_callback_t)(axk_mqtt_event_handle_t event);
+
+
+
+
+typedef struct {
+    mqtt_event_callback_t event_handle;
+    axk_event_loop_handle_t event_loop_handle;
+    const char *host;
+    const char *uri;
+    uint32_t port;
+    
+# 179 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 179 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        set_null_client_id;
+    const char *client_id;
+
+
+
+    const char *username;
+    const char *password;
+    const char *lwt_topic;
+    const char *lwt_msg;
+    int lwt_qos;
+    int lwt_retain;
+    int lwt_msg_len;
+    int disable_clean_session;
+    int keepalive;
+    
+# 193 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 193 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        disable_auto_reconnect;
+    void *user_context;
+    int task_prio;
+    int task_stack;
+    int buffer_size;
+    const char *cert_pem;
+    size_t cert_len;
+    const char *client_cert_pem;
+    size_t client_cert_len;
+    const char *client_key_pem;
+    size_t client_key_len;
+    axk_mqtt_transport_t transport;
+    int refresh_connection_after_ms;
+    const struct psk_key_hint *psk_hint_key;
+    
+# 207 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 207 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+                 use_global_ca_store;
+    axk_err_t (*crt_bundle_attach)(void *conf);
+    int reconnect_timeout_ms;
+    const char **alpn_protos;
+    const char *clientkey_password;
+    int clientkey_password_len;
+    axk_mqtt_protocol_ver_t protocol_ver;
+    int out_buffer_size;
+    
+# 215 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 215 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        skip_cert_common_name_check;
+    
+# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 216 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        use_secure_element;
+    void *ds_data;
+    int network_timeout_ms;
+    
+# 219 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+   _Bool 
+# 219 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+        disable_keepalive;
+    const char *path;
+    int message_retransmit_timeout;
+} axk_mqtt_client_config_t;
+# 231 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_mqtt_client_handle_t axk_mqtt_client_init(const axk_mqtt_client_config_t *config);
+# 242 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_set_uri(axk_mqtt_client_handle_t client, const char *uri);
+# 253 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_start(axk_mqtt_client_handle_t client);
+# 264 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_reconnect(axk_mqtt_client_handle_t client);
+# 274 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_disconnect(axk_mqtt_client_handle_t client);
+# 288 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_stop(axk_mqtt_client_handle_t client);
+# 307 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+int axk_mqtt_client_subscribe(axk_mqtt_client_handle_t client, const char *topic, int qos);
+# 322 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+int axk_mqtt_client_unsubscribe(axk_mqtt_client_handle_t client, const char *topic);
+# 347 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+int axk_mqtt_client_publish(axk_mqtt_client_handle_t client, const char *topic, const char *data, int len, int qos, int retain);
+# 368 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+int axk_mqtt_client_enqueue(axk_mqtt_client_handle_t client, const char *topic, const char *data, int len, int qos, int retain, 
+# 368 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h" 3 4
+                                                                                                                               _Bool 
+# 368 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+                                                                                                                                    store);
+# 381 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_destroy(axk_mqtt_client_handle_t client);
+# 394 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_set_config(axk_mqtt_client_handle_t client, const axk_mqtt_client_config_t *config);
+# 408 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+axk_err_t axk_mqtt_client_register_event(axk_mqtt_client_handle_t client, axk_mqtt_event_id_t event, axk_event_handler_t event_handler, void *event_handler_arg);
+# 417 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h"
+int axk_mqtt_client_get_outbox_size(axk_mqtt_client_handle_t client);
+# 9 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 1
+# 28 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 1 3
+
+
+
+
+
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/machine/ieeefp.h" 1 3
+# 8 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 2 3
+
+
+
+# 86 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+
+# 86 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern double atan (double);
+extern double cos (double);
+extern double sin (double);
+extern double tan (double);
+extern double tanh (double);
+extern double frexp (double, int *);
+extern double modf (double, double *);
+extern double ceil (double);
+extern double fabs (double);
+extern double floor (double);
+
+
+
+
+
+
+extern double acos (double);
+extern double asin (double);
+extern double atan2 (double, double);
+extern double cosh (double);
+extern double sinh (double);
+extern double exp (double);
+extern double ldexp (double, int);
+extern double log (double);
+extern double log10 (double);
+extern double pow (double, double);
+extern double sqrt (double);
+extern double fmod (double, double);
+
+
+
+
+extern int finite (double);
+extern int finitef (float);
+extern int finitel (long double);
+extern int isinff (float);
+extern int isnanf (float);
+
+
+
+
+
+extern int isinf (double);
+
+
+
+
+extern int isnan (double);
+# 150 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+    typedef float float_t;
+    typedef double double_t;
+# 204 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern int __isinff (float);
+extern int __isinfd (double);
+extern int __isnanf (float);
+extern int __isnand (double);
+extern int __fpclassifyf (float);
+extern int __fpclassifyd (double);
+extern int __signbitf (float);
+extern int __signbitd (double);
+# 300 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern double infinity (void);
+extern double nan (const char *);
+extern double copysign (double, double);
+extern double logb (double);
+extern int ilogb (double);
+
+extern double asinh (double);
+extern double cbrt (double);
+extern double nextafter (double, double);
+extern double rint (double);
+extern double scalbn (double, int);
+
+extern double exp2 (double);
+extern double scalbln (double, long int);
+extern double tgamma (double);
+extern double nearbyint (double);
+extern long int lrint (double);
+extern long long int llrint (double);
+extern double round (double);
+extern long int lround (double);
+extern long long int llround (double);
+extern double trunc (double);
+extern double remquo (double, double, int *);
+extern double fdim (double, double);
+extern double fmax (double, double);
+extern double fmin (double, double);
+extern double fma (double, double, double);
+
+
+extern double log1p (double);
+extern double expm1 (double);
+
+
+
+extern double acosh (double);
+extern double atanh (double);
+extern double remainder (double, double);
+extern double gamma (double);
+extern double lgamma (double);
+extern double erf (double);
+extern double erfc (double);
+extern double log2 (double);
+
+
+
+
+
+extern double hypot (double, double);
+
+
+
+
+
+
+extern float atanf (float);
+extern float cosf (float);
+extern float sinf (float);
+extern float tanf (float);
+extern float tanhf (float);
+extern float frexpf (float, int *);
+extern float modff (float, float *);
+extern float ceilf (float);
+extern float fabsf (float);
+extern float floorf (float);
+
+
+extern float acosf (float);
+extern float asinf (float);
+extern float atan2f (float, float);
+extern float coshf (float);
+extern float sinhf (float);
+extern float expf (float);
+extern float ldexpf (float, int);
+extern float logf (float);
+extern float log10f (float);
+extern float powf (float, float);
+extern float sqrtf (float);
+extern float fmodf (float, float);
+
+
+
+
+extern float exp2f (float);
+extern float scalblnf (float, long int);
+extern float tgammaf (float);
+extern float nearbyintf (float);
+extern long int lrintf (float);
+extern long long int llrintf (float);
+extern float roundf (float);
+extern long int lroundf (float);
+extern long long int llroundf (float);
+extern float truncf (float);
+extern float remquof (float, float, int *);
+extern float fdimf (float, float);
+extern float fmaxf (float, float);
+extern float fminf (float, float);
+extern float fmaf (float, float, float);
+
+extern float infinityf (void);
+extern float nanf (const char *);
+extern float copysignf (float, float);
+extern float logbf (float);
+extern int ilogbf (float);
+
+extern float asinhf (float);
+extern float cbrtf (float);
+extern float nextafterf (float, float);
+extern float rintf (float);
+extern float scalbnf (float, int);
+extern float log1pf (float);
+extern float expm1f (float);
+
+
+extern float acoshf (float);
+extern float atanhf (float);
+extern float remainderf (float, float);
+extern float gammaf (float);
+extern float lgammaf (float);
+extern float erff (float);
+extern float erfcf (float);
+extern float log2f (float);
+extern float hypotf (float, float);
+# 500 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern long double hypotl (long double, long double);
+extern long double sqrtl (long double);
+# 513 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern double drem (double, double);
+extern float dremf (float, float);
+
+
+
+extern double gamma_r (double, int *);
+extern double lgamma_r (double, int *);
+extern float gammaf_r (float, int *);
+extern float lgammaf_r (float, int *);
+
+
+
+extern double y0 (double);
+extern double y1 (double);
+extern double yn (int, double);
+extern double j0 (double);
+extern double j1 (double);
+extern double jn (int, double);
+
+
+
+extern float y0f (float);
+extern float y1f (float);
+extern float ynf (int, float);
+extern float j0f (float);
+extern float j1f (float);
+extern float jnf (int, float);
+
+
+
+
+extern void sincos (double, double *, double *);
+extern void sincosf (float, float *, float *);
+
+
+
+
+extern double exp10 (double);
+
+
+extern double pow10 (double);
+
+
+extern float exp10f (float);
+
+
+extern float pow10f (float);
+# 575 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+extern int *__signgam (void);
+# 617 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/riscv64-unknown-elf/include/math.h" 3
+
+# 29 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include/float.h" 1 3 4
+# 31 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/10.2.0/include-fixed/limits.h" 1 3 4
+# 32 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h" 2
+# 52 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
+
+# 52 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h"
+typedef struct cJSON {
+ struct cJSON *next,*prev;
+ struct cJSON *child;
+
+ int type;
+
+ char *valuestring;
+ int valueint;
+ double valuedouble;
+
+ char *string;
+} cJSON;
+
+typedef struct cJSON_Hooks {
+      void *(*malloc_fn)(size_t sz);
+      void (*free_fn)(void *ptr);
+} cJSON_Hooks;
+
+
+extern void cJSON_InitHooks(cJSON_Hooks* hooks);
+
+
+
+extern cJSON *cJSON_Parse(const char *value);
+
+extern char *cJSON_Print(cJSON *item);
+
+extern char *cJSON_PrintUnformatted(cJSON *item);
+
+extern char *cJSON_PrintBuffered(cJSON *item,int prebuffer,int fmt);
+
+extern void cJSON_Delete(cJSON *c);
+
+
+extern int cJSON_GetArraySize(cJSON *array);
+
+extern cJSON *cJSON_GetArrayItem(cJSON *array,int item);
+
+extern cJSON *cJSON_GetObjectItem(cJSON *object,const char *string);
+
+
+extern const char *cJSON_GetErrorPtr(void);
+
+
+extern cJSON *cJSON_CreateNull(void);
+extern cJSON *cJSON_CreateTrue(void);
+extern cJSON *cJSON_CreateFalse(void);
+extern cJSON *cJSON_CreateBool(int b);
+extern cJSON *cJSON_CreateNumber(double num);
+extern cJSON *cJSON_CreateString(const char *string);
+extern cJSON *cJSON_CreateArray(void);
+extern cJSON *cJSON_CreateObject(void);
+
+
+extern cJSON *cJSON_CreateIntArray(const int *numbers,int count);
+extern cJSON *cJSON_CreateFloatArray(const float *numbers,int count);
+extern cJSON *cJSON_CreateDoubleArray(const double *numbers,int count);
+extern cJSON *cJSON_CreateStringArray(const char **strings,int count);
+
+
+extern void cJSON_AddItemToArray(cJSON *array, cJSON *item);
+extern void cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item);
+extern void cJSON_AddItemToObjectCS(cJSON *object,const char *string,cJSON *item);
+
+extern void cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item);
+extern void cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item);
+
+
+extern cJSON *cJSON_DetachItemFromArray(cJSON *array,int which);
+extern void cJSON_DeleteItemFromArray(cJSON *array,int which);
+extern cJSON *cJSON_DetachItemFromObject(cJSON *object,const char *string);
+extern void cJSON_DeleteItemFromObject(cJSON *object,const char *string);
+
+
+extern void cJSON_InsertItemInArray(cJSON *array,int which,cJSON *newitem);
+extern void cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem);
+extern void cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem);
+
+
+extern cJSON *cJSON_Duplicate(cJSON *item,int recurse);
+
+
+
+
+
+extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated);
+
+extern void cJSON_Minify(char *json);
+# 10 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h" 1
+
+
+
+
+typedef struct _gpio_ctx_desc {
+    struct _gpio_ctx_desc *next;
+    void (*gpio_handler)(void *);
+    void *arg;
+
+    uint8_t gpioPin;
+    uint8_t intCtrlMod;
+    uint8_t intTrgMod;
+} gpio_ctx_t;
+
+int bl_gpio_enable_output(uint8_t pin, uint8_t pullup, uint8_t pulldown);
+int bl_gpio_enable_input(uint8_t pin, uint8_t pullup, uint8_t pulldown);
+int bl_gpio_output_set(uint8_t pin, uint8_t value);
+int bl_gpio_input_get(uint8_t pin, uint8_t *value);
+int bl_gpio_input_get_value(uint8_t pin);
+int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
+void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
+void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
+void bl_gpio_register(gpio_ctx_t *pstnode);
+# 12 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
+
+# 1 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/hardware_config.h" 1
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h" 2
+
+
+
+void mqtt_start(void);
+void button_task(void *param);
+void control_button(cJSON *Switch, cJSON *getctr);
+# 20 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h" 2
+# 3 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 2
+# 14 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c"
 char ssid[32];
 char password[64];
+
+
+
+
+static wifi_conf_t conf =
+{
+    .country_code = "CN",
+};
+
+
+
+static void wifi_sta_connect(char* ssid, char* password){
+    wifi_interface_t wifi_interface;
+    wifi_interface = wifi_mgmr_sta_enable();
+    wifi_mgmr_sta_connect(wifi_interface, ssid, password, 
+# 30 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 3 4
+                                                         ((void *)0)
+# 30 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c"
+                                                             , 
+# 30 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c" 3 4
+                                                               ((void *)0)
+# 30 "/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.c"
+                                                                   , 0, 0);
+}
+
+
+
+static void event_cb_wifi_event(input_event_t* event, void* private_data)
+{
+    switch (event->code)
+    {
+        case 1:
+        {
+            ;
+            wifi_mgmr_start_background(&conf);
+        }
+        break;
+        case 2:
+        {
+            ;
+            wifi_sta_connect(ssid, password);
+        }
+        break;
+        case 9:
+        {
+            ;
+        }
+        break;
+        case 5:
+        {
+            ;
+        }
+        break;
+        case 8:
+        {
+            ;
+        }
+        break;
+        case 3:
+        {
+            ;
+        }
+        break;
+        case 4:
+        {
+            ;
+        }
+        break;
+        case 6:
+        {
+            ;
+        }
+        break;
+        case 7:
+        {
+            ;
+            ;
+            mqtt_start();
+        }
+        break;
+        case 13:
+        break;
+        case 14:
+        {
+           
+
+                                                                        ;
+            if (event->value)
+            {
+                vPortFree((void*)event->value);
+            }
+        }
+        break;
+        case 15:
+        break;
+        case 16:
+        break;
+        case 17:
+        {
+            ;
+        }
+        break;
+        default:
+        {
+            ;
+
+        }
+    }
+}

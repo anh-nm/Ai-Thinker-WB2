@@ -13,6 +13,7 @@
 #include <lwip/netif.h>
 #include <lwip/inet.h>
 #include <blog.h>
+#include "http_server.h"
 
 #define AP_SSID "ai-thinker"
 #define AP_PWD "12345678"
