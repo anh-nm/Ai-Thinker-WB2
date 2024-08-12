@@ -1,117 +1,181 @@
 
 #include "wifi.h"
-//#include <event_groups.h>
 
+#define STA_SSID "RD_Hunonic_Mesh"
+#define STA_PASSWORD "66668888"
 
-// #define WIFI_CONFIG_MODE_BIT        BIT0;
-// //extern button_timer;
-// extern void button_timer_callback(TimerHandle_t xTimer);
-// extern EventGroupHandler_t event_group;
-// extern TimerHandle_t button_timer;
-
-//extern static void event_cb_wifi_event(input_event_t* event, void* private_data);
-
-char ssid[32];
-char password[64];
-
-//static EventGroupHandler_t event_group
-
+//static wifi_interface_t g_wifi_sta_interface = NULL;
+static int g_wifi_sta_is_connected = 0;
+//wifi_sta_reconnect_t sta_reconn_params = {15, 10}; // set connection interval = 15, reconntction times = 10
 
 static wifi_conf_t conf =
 {
     .country_code = "CN",
 };
 
-// //static void proc_main_entry(void* param);
 
-static void wifi_sta_connect(char* ssid, char* password){
+int wifi_sta_connect(char* ssid, char* password){
+
+    // g_wifi_sta_interface = wifi_mgmr_sta_enable();
+
+    // if (g_wifi_sta_is_connected == 1)
+    // {
+    //     printf("sta has connect\n");
+    //     return 0;
+    // }
+    // else
+    // {
+    //     wifi_mgmr_sta_autoconnect_enable();
+    //     printf("connect to wifi %s\n", ssid);
+    //     return wifi_mgmr_sta_connect(g_wifi_sta_interface, ssid, password, NULL, NULL, 0, 0);
+    // }
     wifi_interface_t wifi_interface;
     wifi_interface = wifi_mgmr_sta_enable();
     wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+    return 0;
 }
 
+// void wifi_stop_connect(void){
+//     if(g_wifi_sta_is_connected){
+//         wifi_mgmr_sta_disconnect();
+//         g_wifi_sta_is_connected = 0;
+//         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
+
+//     }else{
+//         printf("\r\n<<<<<<<<<<<<<<<<< NO ACTIVE WIFI CONNECTTION TO DISCONNECT <<<<<<<<<<<<<<<<<<<\r\n");
+
+//     }
+// }
 
 
-static void event_cb_wifi_event(input_event_t* event, void* private_data)
+
+void event_cb_wifi_event(input_event_t* event, void* private_data)
 {
+    static char *ssid;
+    static char *password;
+
+    printf("[APP] [EVT] event->code %d\r\n", event->code);
+
+    printf("[SYS] Memory left is %d Bytes\r\n", xPortGetFreeHeapSize());
+
     switch (event->code)
     {
-        case CODE_WIFI_ON_INIT_DONE:
+    case CODE_WIFI_ON_AP_STARTED:   
+        printf("[APP] [EVT] AP INIT DONE %lld\r\n", aos_now_ms());
+        printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
+        //xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+        break;
+
+    case CODE_WIFI_ON_AP_STOPPED:
+        printf("[APP] [EVT] AP STOP DONE %lld\r\n", aos_now_ms());
+        printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP OK <<<<<<<<<<<<<<<<<<<<<\r\n");
+        set_is_config(0);
+        reset_flag(0); 
+        break;
+
+    case CODE_WIFI_ON_AP_STA_ADD:
+        blog_info("<<<<<<<<< station connent ap <<<<<<<<<<<");
+        printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+        xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+        break;
+
+    case CODE_WIFI_ON_AP_STA_DEL:
+        blog_info("<<<<<<<<< station disconnet ap <<<<<<<<<<<");
+        printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+        break;
+
+    case CODE_WIFI_ON_INIT_DONE:
+        printf("[APP] [EVT] INIT DONE %lld\r\n", aos_now_ms());
+        wifi_mgmr_start_background(&conf);
+        //wifi_sta_connect(STA_SSID, STA_PASSWORD);  
+        break;
+
+    case CODE_WIFI_ON_MGMR_DONE:
+        printf("[APP] [EVT] MGMR DONE %lld\r\n", aos_now_ms());
+        break;
+
+    case CODE_WIFI_ON_SCAN_DONE:
+        printf("[APP] [EVT] SCAN Done %lld\r\n", aos_now_ms());
+        // wifi_mgmr_cli_scanlist();
+        break;
+
+    case CODE_WIFI_ON_DISCONNECT:
+        //g_wifi_sta_is_connected = 0;
+        printf("wifi sta disconnected\n");
+        printf("[APP] [EVT] disconnect %lld\r\n", aos_now_ms());
+        break;
+
+    case CODE_WIFI_ON_CONNECTING:
+        printf("[APP] [EVT] Connecting %lld\r\n", aos_now_ms());  
+        break;
+
+    case CODE_WIFI_CMD_RECONNECT:
+        printf("[APP] [EVT] Reconnect %lld\r\n", aos_now_ms());
+        break;
+
+    case CODE_WIFI_ON_CONNECTED:
+        printf("wifi sta connected\n");
+        printf("[APP] [EVT] connected %lld\r\n", aos_now_ms());
+        break;
+
+    case CODE_WIFI_ON_PRE_GOT_IP:
+        printf("[APP] [EVT] connected %lld\r\n", aos_now_ms());
+        break;
+
+    case CODE_WIFI_ON_GOT_IP:
+        printf("WIFI STA GOT IP\n");
+        printf("[APP] [EVT] GOT IP %lld\r\n", aos_now_ms());
+        /* create http server task */
+        //wifi_ap_stop();
+        mqtt_start();
+    
+        break;
+
+    case CODE_WIFI_ON_PROV_SSID:
+        // printf("[APP] [EVT] [PROV] [SSID] %lld: %s\r\n",
+        //        aos_now_ms(),
+        //        event->value ? (const char *)event->value : "UNKNOWN");
+        // if (ssid)
+        // {
+        //     vPortFree(ssid);
+        //     ssid = NULL;
+        // }
+        // ssid = (char *)event->value;
+        break;
+
+    case CODE_WIFI_ON_PROV_BSSID:
+        printf("[APP] [EVT] [PROV] [BSSID] %lld: %s\r\n",
+               aos_now_ms(),
+               event->value ? (const char *)event->value : "UNKNOWN");
+        if (event->value)
         {
-            blog_info("[APP] [EVT] INIT DONE %lld", aos_now_ms());
-            wifi_mgmr_start_background(&conf);
+            vPortFree((void *)event->value);
         }
         break;
-        case CODE_WIFI_ON_MGMR_DONE:
-        {
-            blog_info("[APP] [EVT] MGMR DONE %lld", aos_now_ms());
-            wifi_sta_connect(ssid, password);
-        }
+
+    case CODE_WIFI_ON_PROV_PASSWD: 
+        // printf("[APP] [EVT] [PROV] [PASSWD] %lld: %s\r\n", aos_now_ms(),
+        //        event->value ? (const char *)event->value : "UNKNOWN");
+        // if (password)
+        // {
+        //     vPortFree(password);
+        //     password = NULL;
+        // }
+        // password = (char *)event->value;    
         break;
-        case CODE_WIFI_ON_SCAN_DONE:
-        {
-            blog_info("[APP] [EVT] SCAN Done %lld", aos_now_ms());
-        }
+
+    case CODE_WIFI_ON_PROV_CONNECT:
+        printf("connecting to %s:%s...\r\n", ssid, password);
         break;
-        case CODE_WIFI_ON_DISCONNECT:
-        {
-            blog_info("[APP] [EVT] disconnect %lld", aos_now_ms());
-        }
+
+    case CODE_WIFI_ON_PROV_DISCONNECT:
+        printf("[APP] [EVT] [PROV] [DISCONNECT] %lld\r\n", aos_now_ms());
         break;
-        case CODE_WIFI_ON_CONNECTING:
-        {
-            blog_info("[APP] [EVT] Connecting %lld", aos_now_ms());
-        }
-        break;
-        case CODE_WIFI_CMD_RECONNECT:
-        {
-            blog_info("[APP] [EVT] Reconnect %lld", aos_now_ms());
-        }
-        break;
-        case CODE_WIFI_ON_CONNECTED:
-        {
-            blog_info("[APP] [EVT] connected %lld", aos_now_ms());
-        }
-        break;
-        case CODE_WIFI_ON_PRE_GOT_IP:
-        {
-            blog_info("[APP] [EVT] connected %lld", aos_now_ms());
-        }
-        break;
-        case CODE_WIFI_ON_GOT_IP:
-        {
-            blog_info("[APP] [EVT] GOT IP %lld", aos_now_ms());
-            blog_info("[SYS] Memory left is %d Bytes", xPortGetFreeHeapSize());
-            mqtt_start();
-        }
-        break;
-        case CODE_WIFI_ON_PROV_SSID:
-        break;
-        case CODE_WIFI_ON_PROV_BSSID:
-        {
-            blog_info("[APP] [EVT] [PROV] [BSSID] %lld: %s",
-                   aos_now_ms(),
-                   event->value ? (const char*)event->value : "UNKNOWN");
-            if (event->value)
-            {
-                vPortFree((void*)event->value);
-            }
-        }
-        break;
-        case CODE_WIFI_ON_PROV_PASSWD:
-        break;
-        case CODE_WIFI_ON_PROV_CONNECT:
-        break;
-        case CODE_WIFI_ON_PROV_DISCONNECT:
-        {
-            blog_info("[APP] [EVT] [PROV] [DISCONNECT] %lld", aos_now_ms());
-        }
-        break;
-        default:
-        {
-            blog_info("[APP] [EVT] Unknown code %u, %lld", event->code, aos_now_ms());
-            /*nothing*/
-        }
+
+    default:
+        printf("[APP] [EVT] Unknown code %u, %lld\r\n", event->code, aos_now_ms());
+        /*nothing*/
+    
     }
 }
 
@@ -123,52 +187,23 @@ static void event_cb_wifi_event(input_event_t* event, void* private_data)
 //     vTaskDelete(NULL);
 // }
 
+void wifi_execute(void *pvParameters)
+{
+    aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
+    // static uint8_t stack_wifi_init = 0;
 
-// void wifi_config_task(void *param) {
-//     uint32_t server_fd, new_socket;
-//     struct sockaddr_in address;
-//     uint16_t addrlen = sizeof(address);
-//     uint8_t opt = 1;
+    // if (1 == stack_wifi_init)
+    // {
+    //     printf("Wi-Fi Stack Started already!!!\r\n");
+    //     return;
+    // }
+    // stack_wifi_init = 1;
+    printf("Wi-Fi init successful\r\n");
+    hal_wifi_start_firmware_task();
+    /*Trigger to start Wi-Fi*/
+    aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
 
-//     EventBits_t bits = xEventGroupWaitBits(event_group, WIFI_CONFIG_MODE_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
-//     if (bits & WIFI_CONFIG_MODE_BIT) {
-//         printf("Entering Wifi config \r\n");
+    vTaskDelete(NULL);
+}
 
-//         if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
-//             perror("socket failed");
-//             return;
-//         }
-//         if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
-//             perror("setsockopt");
-//             return;
-//         }
 
-//         address.sin_family = AF_INET;
-//         address.sin_addr.s_addr = INADDR_ANY;
-//         address.sin_port = htons(8080);
-
-//         if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
-//             perror("bind failed");
-//             return;
-//         }
-//         if (listen(server_fd, 3) < 0) {
-//             perror("listen");
-//             return;
-//         }
-//         if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen)) < 0) {
-//             perror("accept");
-//             return;
-//         }
-
-//         read(new_socket, ssid, sizeof(ssid));
-//         read(new_socket, password, sizeof(password));
-//         printf("Received SSID: %s\r\n", ssid);
-//         printf("Received Password: %s\r\n", password);
-
-//         // Áp dụng cấu hình wifi
-//         aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
-//         hal_wifi_start_firmware_task();
-//         aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
-//         vTaskDelete(NULL);
-//     }
-// }

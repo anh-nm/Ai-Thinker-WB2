@@ -12,6 +12,8 @@ static wifi_interface_t ap_interface;
  * @param netmask netmask
  * @param gw DNS
  */
+
+
 static void wifi_ap_ip_set(char* ip_addr, char* netmask, char* gw)
 {
     struct netif* ap_netif = netif_find("ap1");
@@ -61,15 +63,24 @@ static void wifi_ap_ip_set(char* ip_addr, char* netmask, char* gw)
  * @brief wifi_ap_start
  *
  */
-static void wifi_ap_start()
+void wifi_ap_start()
 {
     ap_interface = wifi_mgmr_ap_enable();
-    wifi_mgmr_conf_max_sta(4);
+    //wifi_mgmr_conf_max_sta(4);
     wifi_mgmr_ap_start(ap_interface, AP_SSID, 0, AP_PWD, 6);
     wifi_ap_ip_set("192.168.169.1", "255.255.255.0", "192.168.169.1");  //defaut gateway ip is "192.168.169.1",if you want usb other gateway ip ,please change components/network/lwip_dhcpd/dhcp_server_raw.c：42   DHCPD_SERVER_IP 
                                                                         //for example, gateway ip:"192.168.4.1" , change DHCPD_SERVER_IP to "192.168.4.1"  :
                                                                         //wifi_ap_ip_set("192.168.4.1", "255.255.255.0", "192.168.4.1");
                                                                         //components/network/lwip_dhcpd/dhcp_server_raw.c：42   #define DHCPD_SERVER_IP "192.168.4.1"
+}
+
+void wifi_ap_stop()
+{
+    if (ap_interface != NULL)
+    {
+        wifi_mgmr_ap_stop(ap_interface);
+        ap_interface = NULL;  // Reset the interface pointer to NULL after stopping AP
+    }
 }
 
 void event_ap_wifi_event(input_event_t* event, void* private_data)
@@ -102,17 +113,18 @@ void event_ap_wifi_event(input_event_t* event, void* private_data)
             printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
 
             break;
+
         default:
             break;
 
     }
 }
 
-void proc_main_entry(void* pvParameters)
-{
-    aos_register_event_filter(EV_WIFI, event_ap_wifi_event, NULL);
-    hal_wifi_start_firmware_task();
-    aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
-    vTaskDelete(NULL);
-}
+// void proc_main_entry(void* pvParameters)
+// {
+//     aos_register_event_filter(EV_WIFI, event_ap_wifi_event, NULL);
+//     hal_wifi_start_firmware_task();
+//     aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
+//     vTaskDelete(NULL);
+// }
 

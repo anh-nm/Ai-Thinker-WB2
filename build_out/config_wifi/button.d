@@ -72,7 +72,14 @@ button.o: \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netdb.h \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h \
  /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h \
- /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_sys.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h \
+ /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_compiler.h
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/button.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_gpio.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/soc/bl602/freertos_riscv_ram/config/FreeRTOS.h:
@@ -146,4 +153,11 @@ button.o: \
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/api.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/lwip/src/include/lwip/netbuf.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/dns_server/include/web_server.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/stage/cjson/cJSON.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/wifi.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/platform/hosal/bl602_hal/bl_sys.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/mqtt.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_mqtt/include/mqtt_client.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_err.h:
+/home/anh/Desktop/wb2/Ai-Thinker-WB2/components/network/axk_protocol_stack/axk_common/include/axk_compiler.h:
 /home/anh/Desktop/wb2/Ai-Thinker-WB2/applications/get-started/config_wifi/config_wifi/./button.c:

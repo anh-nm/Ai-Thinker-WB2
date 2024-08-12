@@ -31,4 +31,7 @@ uint8_t get_button_status(void);
 button_states button_state(void);
 void button_manual_task(void *param);
 
+void set_is_config(uint8_t value);
+void reset_flag(uint8_t value);
+
 #endif /*_BUTTON_H_*/

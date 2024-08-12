@@ -1,5 +1,10 @@
 #include "http_server.h"
 
+//extern void set_is_config(uint8_t value);
+//extern TaskHandle_t mainTaskHandle;
+
+static uint8_t IS_HTTP_DONE = 0;
+
 const static char http_html_hdr[] =
     "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
 const static char http_index_hml[] = "<!DOCTYPE html>"
@@ -47,6 +52,47 @@ void web_http_server(struct netconn *conn){
                 netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
             }
         }
+
+        /* Judge if this is an HTTP POST command */
+        if (buflen >= 6 && buf[0] == 'P' && buf[1] == 'O' && buf[2] == 'S' && buf[3] == 'T' && buf[4] == ' ' && buf[5] == '/')
+        {
+            if (strstr(buf, "POST /?Wifi_Config=send HTTP/1.1") != NULL) {
+                /* Tìm vị trí bắt đầu của payload JSON trong yêu cầu */
+                char *json_start = strstr(buf, "\r\n\r\n");
+                if (json_start) {
+                    json_start += 4; /*Bỏ qua ký tự xuống dòng kép*/
+
+                    cJSON *json = cJSON_Parse(json_start);
+                    if (json) {
+
+                        cJSON *ssid = cJSON_GetObjectItem(json, "ssid");
+                        cJSON *password = cJSON_GetObjectItem(json, "password");
+
+                        if (ssid && password) {
+                            printf("Received SSID: %s\r\n", ssid->valuestring);
+                            printf("Received Password: %s\r\n", password->valuestring);
+                            wifi_ap_stop();
+                            wifi_sta_connect(ssid->valuestring, password->valuestring);
+                            //printf("Task is being deleted\n");
+                            //set_is_config(0);
+                            //cJSON_Delete(json);
+
+                            //aos_unregister_event_filter(EV_WIFI, event_ap_wifi_event, NULL);
+                            //aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
+
+                            // if(mainTaskHandle != NULL){
+                            //     vTaskDelete(mainTaskHandle);
+                            //     mainTaskHandle = NULL;
+                            // }
+                            IS_HTTP_DONE = 1;               
+                        }
+
+                        cJSON_Delete(json);
+                    }
+                }
+            }
+        }
+
     }
     netconn_close(conn);
     netbuf_delete(inputbuf);
@@ -67,6 +113,9 @@ void http_server_start(void *param){
         {
             web_http_server(newconn);
             netconn_delete(newconn);
+            if(IS_HTTP_DONE == 1){
+                vTaskDelete(NULL); // Xóa task chính nó
+            }
         }
         else
         {

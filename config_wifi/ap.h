@@ -21,7 +21,9 @@
 #define TAG "softAP"
 
 
-void event_cb_wifi_event(input_event_t* event, void* private_data);
+void event_ap_wifi_event(input_event_t* event, void* private_data);
+void wifi_ap_stop();
+void wifi_ap_start();
 void proc_main_entry(void* pvParameters);
 
 
