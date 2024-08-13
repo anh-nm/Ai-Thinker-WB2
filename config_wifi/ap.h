@@ -12,7 +12,7 @@
 #include <hal_wifi.h>
 #include <lwip/netif.h>
 #include <lwip/inet.h>
-#include <blog.h>
+#include "blog.h"
 #include "http_server.h"
 
 #define AP_SSID "ai-thinker"

@@ -15,13 +15,16 @@
 #include <timers.h>
 #include <stdlib.h>
 #include <queue.h>
-#include <blog.h>
+#include "blog.h"
 #include "mqtt.h"
 #include "http_server.h"
 #include "button.h"
 
 #define WIFI_RECONN_INTERVAL_SEC 15
 #define WIFI_RECONN_REPEAT_TIMES 10
+
+#define SSID_LEN        34
+#define PASSWORD_LEN    67
 
 typedef struct
 {
@@ -45,5 +48,6 @@ typedef enum
 int wifi_sta_connect(char* ssid, char* password);
 //void event_cb_wifi_event(input_event_t* event, void* private_data);
 void wifi_execute(void *pvParameters);
+void listTask(void);
 
 #endif /*_WIFI_H_*/

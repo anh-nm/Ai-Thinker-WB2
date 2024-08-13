@@ -39,18 +39,18 @@ void web_http_server(struct netconn *conn){
         {
             netconn_write(conn, http_html_hdr, sizeof(http_html_hdr) - 1, NETCONN_NOCOPY);
 
-            if (buf[5] == 'h')
-            {
-                netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
-            }
-            else if (buf[5] == 'l')
-            {
-                netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
-            }
-            else
-            {
-                netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
-            }
+            // if (buf[5] == 'h')
+            // {
+            //     netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
+            // }
+            // else if (buf[5] == 'l')
+            // {
+            //     netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
+            // }
+            // else
+            // {
+            //     netconn_write(conn, http_index_hml, sizeof(http_index_hml) - 1, NETCONN_NOCOPY);
+            // }
         }
 
         /* Judge if this is an HTTP POST command */
@@ -103,9 +103,25 @@ void http_server_start(void *param){
 
     struct netconn *conn, *newconn;
     err_t err;
+
     conn = netconn_new(NETCONN_TCP);
-    netconn_bind(conn, NULL, SERVER_PORT);
+    if (conn == NULL) {
+        printf("\r\nFailed to create server socket\r\n");
+        vTaskDelete(NULL);
+    }
+
+    err_t ret = ERR_OK;
+    ret = netconn_bind(conn, NULL, SERVER_PORT);
+    if (ret != ERR_OK)
+    {
+        blog_error("bind fail: %d ", ret);
+    }
+    else
+    {
+        blog_info(" bind success ");
+    }
     netconn_listen(conn);
+    //printf("\r\n                LISTEN CONN              \r\n");
     while (1)
     {
         err = netconn_accept(conn, &newconn);
@@ -114,15 +130,21 @@ void http_server_start(void *param){
             web_http_server(newconn);
             netconn_delete(newconn);
             if(IS_HTTP_DONE == 1){
-                vTaskDelete(NULL); // Xóa task chính nó
+                netconn_close(conn);
+                //netconn_shutdown(conn, 1, 1);
+                netconn_delete(conn);
+                IS_HTTP_DONE = 0;
+                printf("/r/n                Close httpserver                /r/n");
+                vTaskDelete(NULL);
             }
         }
         else
         {
+            printf("\r\n Error accepting connection \r\n");
             netconn_close(conn);
             netconn_delete(conn);
-            break;
         }
     }
 
 }
+

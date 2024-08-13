@@ -4,14 +4,14 @@
 #include "button.h"
 
 
-//extern EventGroupHandler_t event_group;
-//extern TimerHandle_t button_timer;
 //TaskHandle_t mainTaskHandle = NULL;
 
 static uint8_t led_status = LED_OFF;
 static uint8_t IS_CONFIG  = 0;
 static uint8_t flag = 0;
 
+extern int get_g_wifi_sta_is_connected(void);
+extern void wifi_stop_connect(void);
 
 //uint8_t button_state();
 
@@ -119,6 +119,9 @@ void button_manual_task(void *param){
             IS_CONFIG = 1;
             blink_led_200();
             if(flag == 0){
+                if(get_g_wifi_sta_is_connected()){
+                    wifi_stop_connect();
+                }
                 wifi_ap_start();
                 //vTaskDelay(500);
                 flag = 1;

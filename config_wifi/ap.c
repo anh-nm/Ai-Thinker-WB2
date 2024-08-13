@@ -13,6 +13,7 @@ static wifi_interface_t ap_interface;
  * @param gw DNS
  */
 
+//static TaskHandle_t xHandle = NULL;
 
 static void wifi_ap_ip_set(char* ip_addr, char* netmask, char* gw)
 {
@@ -83,42 +84,44 @@ void wifi_ap_stop()
     }
 }
 
-void event_ap_wifi_event(input_event_t* event, void* private_data)
-{
-    switch (event->code) {
-        case CODE_WIFI_ON_INIT_DONE:
-            blog_info("<<<<<<<<<  init wifi done  <<<<<<<<<<");
-            wifi_mgmr_start_background(&ap_conf);
-            break;
-        case CODE_WIFI_ON_MGMR_DONE:
-            blog_info("<<<<<<<<< startting soft ap <<<<<<<<<<<");
-            wifi_ap_start();
-            break;
-        case CODE_WIFI_ON_AP_STARTED:
-            blog_info("<<<<<<<<< startt soft ap OK<<<<<<<<<<<");
-            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
+// void event_ap_wifi_event(input_event_t* event, void* private_data)
+// {
+//     switch (event->code) {
+//         case CODE_WIFI_ON_INIT_DONE:
+//             blog_info("<<<<<<<<<  init wifi done  <<<<<<<<<<");
+//             wifi_mgmr_start_background(&ap_conf);
+//             break;
+//         case CODE_WIFI_ON_MGMR_DONE:
+//             blog_info("<<<<<<<<< startting soft ap <<<<<<<<<<<");
+//             wifi_ap_start();
+//             break;
+//         case CODE_WIFI_ON_AP_STARTED:
+//             blog_info("<<<<<<<<< startt soft ap OK<<<<<<<<<<<");
+//             printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
 
-            break;
-        case CODE_WIFI_ON_AP_STOPPED:
-            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP <<<<<<<<<<<<<<<<<<<<\r\n");
-            break;
-        case CODE_WIFI_ON_AP_STA_ADD:
-            blog_info("<<<<<<<<< station connent ap <<<<<<<<<<<");
-            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
-            xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+//             break;
+//         case CODE_WIFI_ON_AP_STOPPED:
+//             printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+//             break;
 
-            break;
-        case CODE_WIFI_ON_AP_STA_DEL:
-            blog_info("<<<<<<<<< station disconnet ap <<<<<<<<<<<");
-            printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+//         case CODE_WIFI_ON_AP_STA_ADD:
+//             blog_info("<<<<<<<<< station connent ap <<<<<<<<<<<");
+//             printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
+//             xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+            
+//             break;
 
-            break;
+//         case CODE_WIFI_ON_AP_STA_DEL:
+//             blog_info("<<<<<<<<< station disconnet ap <<<<<<<<<<<");
+//             printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
 
-        default:
-            break;
+//             break;
 
-    }
-}
+//         default:
+//             break;
+
+//     }
+// }
 
 // void proc_main_entry(void* pvParameters)
 // {

@@ -4,7 +4,7 @@
 #define STA_SSID "RD_Hunonic_Mesh"
 #define STA_PASSWORD "66668888"
 
-//static wifi_interface_t g_wifi_sta_interface = NULL;
+static wifi_interface_t g_wifi_sta_interface = NULL;
 static int g_wifi_sta_is_connected = 0;
 //wifi_sta_reconnect_t sta_reconn_params = {15, 10}; // set connection interval = 15, reconntction times = 10
 
@@ -13,8 +13,23 @@ static wifi_conf_t conf =
     .country_code = "CN",
 };
 
+static char* ssid[SSID_LEN];
+static char* password[PASSWORD_LEN];
 
-int wifi_sta_connect(char* ssid, char* password){
+int get_g_wifi_sta_is_connected(void){
+    return g_wifi_sta_is_connected;
+}
+
+void get_ssid_password(char* re_ssid, char* re_password){
+    memset(ssid, 0, SSID_LEN);
+    memset(password, 0, PASSWORD_LEN);
+
+    memcpy(ssid, re_ssid, strlen(re_ssid));
+    memcpy(password, re_password, strlen(re_password));
+}
+
+
+int wifi_sta_connect(char* re_ssid, char* re_password){
 
     // g_wifi_sta_interface = wifi_mgmr_sta_enable();
 
@@ -27,25 +42,78 @@ int wifi_sta_connect(char* ssid, char* password){
     // {
     //     wifi_mgmr_sta_autoconnect_enable();
     //     printf("connect to wifi %s\n", ssid);
-    //     return wifi_mgmr_sta_connect(g_wifi_sta_interface, ssid, password, NULL, NULL, 0, 0);
+    //     //g_wifi_sta_is_connected = 1;
+    //     return wifi_mgmr_sta_connect(g_wifi_sta_interface, re_ssid, re_password, NULL, NULL, 0, 0);
     // }
-    wifi_interface_t wifi_interface;
-    wifi_interface = wifi_mgmr_sta_enable();
-    wifi_mgmr_sta_connect(wifi_interface, ssid, password, NULL, NULL, 0, 0);
+
+    //wifi_interface_t wifi_interface;
+    wifi_mgmr_sta_autoconnect_enable();
+    g_wifi_sta_interface = wifi_mgmr_sta_enable();
+    wifi_mgmr_sta_connect(g_wifi_sta_interface, re_ssid, re_password, NULL, NULL, 0, 0);
+    g_wifi_sta_is_connected = 1;
+    printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
     return 0;
 }
 
-// void wifi_stop_connect(void){
-//     if(g_wifi_sta_is_connected){
-//         wifi_mgmr_sta_disconnect();
-//         g_wifi_sta_is_connected = 0;
-//         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
+void wifi_stop_connect(void){
+    // if(g_wifi_sta_is_connected){
 
-//     }else{
-//         printf("\r\n<<<<<<<<<<<<<<<<< NO ACTIVE WIFI CONNECTTION TO DISCONNECT <<<<<<<<<<<<<<<<<<<\r\n");
+    //     if (g_wifi_sta_interface != NULL)
+    //     {
+    //         //wifi_mgmr_ap_stop(ap_interface);
+    //         wifi_mgmr_sta_autoconnect_disable();
+    //         wifi_mgmr_sta_disconnect();
+    //         //g_wifi_sta_interface = NULL;
+    //         wifi_mgmr_sta_disable(g_wifi_sta_interface);
+    //         wifi_mgmr_deinit();
 
-//     }
-// }
+    //         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
+    //     }
+    //     g_wifi_sta_is_connected = 0;
+    //     //printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
+
+    // }else{
+    //     printf("\r\n<<<<<<<<<<<<<<<<< NO ACTIVE WIFI CONNECTTION TO DISCONNECT <<<<<<<<<<<<<<<<<<<\r\n");
+
+    // }
+    int i;
+    int state;
+
+    if (g_wifi_sta_interface)
+    {
+        wifi_mgmr_sta_autoconnect_disable();
+        /*XXX Must make sure sta is already disconnect, otherwise sta disable won't work*/
+        vTaskDelay(1000);
+
+        wifi_mgmr_sta_disconnect();
+        for (i = 0; i < 200; i++)
+        {
+            wifi_mgmr_state_get(&state);
+            if (state == WIFI_STATE_IDLE || state == WIFI_STATE_WITH_AP_IDLE ||
+                state == WIFI_STATE_DISCONNECT || state == WIFI_STATE_WITH_AP_DISCONNECT)
+                break;
+            vTaskDelay(100);
+        }
+
+        wifi_mgmr_sta_disable(NULL);
+        for (i = 0; i < 200; i++)
+        {
+            wifi_mgmr_state_get(&state);
+            if (state == WIFI_STATE_IDLE || state == WIFI_STATE_WITH_AP_IDLE)
+                break;
+            vTaskDelay(100);
+        }
+
+        //mqtt_stop();
+
+        printf("\r\n                DONE                \r\n");
+        g_wifi_sta_interface = NULL;
+        // g_wifi_sta_is_connected = 0;
+    }
+    listTask();
+}
+
+void wifi_reconnect(void);
 
 
 
@@ -63,7 +131,14 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_AP_STARTED:   
         printf("[APP] [EVT] AP INIT DONE %lld\r\n", aos_now_ms());
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< START SOFT AP OK <<<<<<<<<<<<<<<<<<<<\r\n");
-        //xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+        BaseType_t result = xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+
+        if (result == pdPASS) {
+            blog_info("\t\tTask created successfully");
+        } else {
+            blog_error("\t\tTask creation failed with error code %d", result);
+        }
+
         break;
 
     case CODE_WIFI_ON_AP_STOPPED:
@@ -76,7 +151,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_AP_STA_ADD:
         blog_info("<<<<<<<<< station connent ap <<<<<<<<<<<");
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECT AP <<<<<<<<<<<<<<<<<<<<\r\n");
-        xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
+
         break;
 
     case CODE_WIFI_ON_AP_STA_DEL:
@@ -101,7 +176,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
 
     case CODE_WIFI_ON_DISCONNECT:
         //g_wifi_sta_is_connected = 0;
-        printf("wifi sta disconnected\n");
+        printf("\r\n<<<<<<<<<<<<<<<<<<<<<< wifi sta disconnected <<<<<<<<<<<<<<<<<<<<<\r\n");
         printf("[APP] [EVT] disconnect %lld\r\n", aos_now_ms());
         break;
 
@@ -180,13 +255,6 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
 }
 
 
-// static void proc_main_entry(void* param){
-//     aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
-//     hal_wifi_start_firmware_task();
-//     aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);
-//     vTaskDelete(NULL);
-// }
-
 void wifi_execute(void *pvParameters)
 {
     aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
@@ -206,4 +274,32 @@ void wifi_execute(void *pvParameters)
     vTaskDelete(NULL);
 }
 
+
+void listTask(void){
+    UBaseType_t uxArraySize, x;
+    TaskStatus_t *pxTaskStatusArray;
+    volatile UBaseType_t uxTaskNum;
+
+    uxArraySize = uxTaskGetNumberOfTasks();
+    pxTaskStatusArray = pvPortMalloc(uxArraySize * sizeof(TaskStatus_t));
+
+    if (pxTaskStatusArray != NULL) {
+        // Lấy trạng thái hệ thống và số lượng task
+        uxTaskNum = uxTaskGetSystemState(pxTaskStatusArray, uxArraySize, NULL);
+
+        // In thông tin của từng task
+        for (x = 0; x < uxTaskNum; x++) {
+            printf("Task Name: %s, Task State: %d, Task Priority: %u, Stack High Water Mark: %u\r\n",
+                pxTaskStatusArray[x].pcTaskName,
+                pxTaskStatusArray[x].eCurrentState,
+                (unsigned int)pxTaskStatusArray[x].uxCurrentPriority,
+                (unsigned int)pxTaskStatusArray[x].usStackHighWaterMark);
+        }
+
+        // Giải phóng bộ nhớ sau khi dùng xong
+        vPortFree(pxTaskStatusArray);
+    } else {
+        printf("\r\n\tKhông đủ bộ nhớ để lấy thông tin task.\t\r\n");
+    }
+}
 
