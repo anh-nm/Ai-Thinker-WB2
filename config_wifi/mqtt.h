@@ -15,7 +15,8 @@
 
 
 void mqtt_start(void);
-void button_task(void *param);
+void mqtt_stop(void);
+//void button_task(void *param);
 void control_button(cJSON *Switch, cJSON *getctr);
 
 #endif /*_MQTT_H_*/

@@ -39,28 +39,28 @@ static axk_err_t event_cb(axk_mqtt_event_handle_t event)
     case MQTT_EVENT_SUBSCRIBED:
         blog_info("MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
 
-        //Sau khi sub thanh cong---------------------------------------------
+        // //Sau khi sub thanh cong---------------------------------------------
 
-        // Tao mot doi tuong json moi
-        cJSON *root = cJSON_CreateObject();
+        // // Tao mot doi tuong json moi
+        // cJSON *root = cJSON_CreateObject();
 
-        // Tao cac muc
-        cJSON *Switch = cJSON_CreateNumber(100);
-        cJSON *online = cJSON_CreateNumber(0);
+        // // Tao cac muc
+        // cJSON *Switch = cJSON_CreateNumber(100);
+        // cJSON *online = cJSON_CreateNumber(0);
 
-        //Them vao json
-        cJSON_AddItemToObject(root, "switch", Switch);
-        cJSON_AddItemToObject(root, "online", online);
+        // //Them vao json
+        // cJSON_AddItemToObject(root, "switch", Switch);
+        // cJSON_AddItemToObject(root, "online", online);
 
-        //json->chuoi
+        // //json->chuoi
 
-        char *json_string = cJSON_Print(root);
+        // char *json_string = cJSON_Print(root);
 
-        msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
-        blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
+        // msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
+        // blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
 
-        free(json_string);
-        cJSON_Delete(root);
+        // free(json_string);
+        // cJSON_Delete(root);
         break;
     case MQTT_EVENT_UNSUBSCRIBED:
         blog_info("MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
@@ -235,72 +235,87 @@ void mqtt_start(void)
     }
 }
 
-int flag = 0;
-
-void button_task(void *param){
-    bl_gpio_enable_input(BUTTON3, 1, 0); //Khi không nhấn, trạng thái nút luôn ở mức cao
-    bl_gpio_enable_output(LED3, 0, 0);
-    int msg_id;
-
-    while (1){
-        if (bl_gpio_input_get_value(BUTTON3) == 0){
-            
-            if(flag == 0){
-                bl_gpio_output_set(LED3, 1);
-                // Tao mot doi tuong json moi
-                cJSON *root = cJSON_CreateObject();
-
-                // Tao cac muc
-                cJSON *Switch = cJSON_CreateNumber(1);
-                cJSON *act = cJSON_CreateString("press");
-
-                //Them vao json
-                cJSON_AddItemToObject(root, "switch", Switch);
-                cJSON_AddItemToObject(root, "act", act);
-
-                //json->chuoi
-
-                char *json_string = cJSON_Print(root);
-
-                msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
-                blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
-
-                free(json_string);
-                cJSON_Delete(root);
-                flag = 1;
-                vTaskDelay(100);
-            }
+void mqtt_stop(void){
+    if(client != NULL){
+        axk_err_t rtn = axk_mqtt_client_stop(client);
+        if (rtn == AXK_OK){
+            printf("\r\nMQTT client stopped successfully.\r\n");
         }
         else{
-            if(flag == 1){
-                bl_gpio_output_set(LED3, 0);
-                // Tao mot doi tuong json moi
-                cJSON *root = cJSON_CreateObject();
-
-                // Tao cac muc
-                cJSON *Switch = cJSON_CreateNumber(1);
-                cJSON *act = cJSON_CreateString("release");
-
-                //Them vao json
-                cJSON_AddItemToObject(root, "switch", Switch);
-                cJSON_AddItemToObject(root, "act", act);
-
-                //json->chuoi
-
-                char *json_string = cJSON_Print(root);
-
-                msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
-                blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
-
-                free(json_string);
-                cJSON_Delete(root);
-                flag = 0;
-                vTaskDelay(100);
-            }
+            printf("\r\nError stopping MQTT client.\r\n");
         }
-        vTaskDelay(100);
+        axk_mqtt_client_destroy(client);
+        client = NULL;
+        printf("\r\nMQTT client resources destroyed.\r\n");
     }
 }
+
+//int flag = 0;
+
+// void button_task(void *param){
+//     bl_gpio_enable_input(BUTTON3, 1, 0); //Khi không nhấn, trạng thái nút luôn ở mức cao
+//     bl_gpio_enable_output(LED3, 0, 0);
+//     int msg_id;
+
+//     while (1){
+//         if (bl_gpio_input_get_value(BUTTON3) == 0){
+            
+//             if(flag == 0){
+//                 bl_gpio_output_set(LED3, 1);
+//                 // Tao mot doi tuong json moi
+//                 cJSON *root = cJSON_CreateObject();
+
+//                 // Tao cac muc
+//                 cJSON *Switch = cJSON_CreateNumber(1);
+//                 cJSON *act = cJSON_CreateString("press");
+
+//                 //Them vao json
+//                 cJSON_AddItemToObject(root, "switch", Switch);
+//                 cJSON_AddItemToObject(root, "act", act);
+
+//                 //json->chuoi
+
+//                 char *json_string = cJSON_Print(root);
+
+//                 msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
+//                 blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
+
+//                 free(json_string);
+//                 cJSON_Delete(root);
+//                 flag = 1;
+//                 vTaskDelay(100);
+//             }
+//         }
+//         else{
+//             if(flag == 1){
+//                 bl_gpio_output_set(LED3, 0);
+//                 // Tao mot doi tuong json moi
+//                 cJSON *root = cJSON_CreateObject();
+
+//                 // Tao cac muc
+//                 cJSON *Switch = cJSON_CreateNumber(1);
+//                 cJSON *act = cJSON_CreateString("release");
+
+//                 //Them vao json
+//                 cJSON_AddItemToObject(root, "switch", Switch);
+//                 cJSON_AddItemToObject(root, "act", act);
+
+//                 //json->chuoi
+
+//                 char *json_string = cJSON_Print(root);
+
+//                 msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", json_string, 0, 0, 0);
+//                 blog_info("\r\n\t\t\tSent publish successful, msg_id=%d", msg_id);
+
+//                 free(json_string);
+//                 cJSON_Delete(root);
+//                 flag = 0;
+//                 vTaskDelay(100);
+//             }
+//         }
+//         vTaskDelay(100);
+//     }
+// }
 
 void control_button(cJSON *Switch, cJSON *getctr){
 
