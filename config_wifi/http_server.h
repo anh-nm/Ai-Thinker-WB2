@@ -15,7 +15,7 @@
 #include "wifi.h"
 
 
-#define SERVER_PORT 80
+#define SERVER_PORT 1880
 void http_server_start(void *pvParameters);
 
 #endif /*_HTTP_SERVER_H_*/

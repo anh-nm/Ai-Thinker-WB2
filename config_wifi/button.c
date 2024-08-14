@@ -19,6 +19,16 @@ void reset_flag(uint8_t value){
     flag = 0;
 }
 
+static void enable_hardware(void){
+
+    bl_gpio_enable_input(BUTTON3, 1, 0);
+
+    bl_gpio_enable_output(LED1, 0, 0);
+    bl_gpio_enable_output(LED2, 0, 0);
+    bl_gpio_enable_output(LED3, 0, 0);
+    bl_gpio_enable_output(LED4, 0, 0);
+}
+
 void blink_led_200(void){
     static uint32_t old_tick_ms = 0;
 
@@ -97,8 +107,7 @@ button_states button_state(void){
 
 void button_manual_task(void *param){
 
-    bl_gpio_enable_input(BUTTON3, 1, 0);
-    bl_gpio_enable_output(LED3, 0, 0);
+    enable_hardware();
 
     uint8_t button_status = 0;
     
