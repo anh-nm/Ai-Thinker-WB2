@@ -18,28 +18,29 @@
 ### Máy tính có thể gửi nhiều lệnh trong 1 thời gian ngắn (10 lệnh) liền 1 lúc.
 
 # Thực hiện
-Dùng BUTTON 3 điều khiển LED 3, Khi kết nối thành công mqtt điều khiển LED 3 qua mqtt. Khi nhấn giữ BUTTON 3, vào chế độ config wifi LED 3 blink với tần số 200ms cho đến khi hoàn thành config.
+Dùng BUTTON 3 điều khiển LED 3, Khi kết nối thành công mqtt điều khiển LED 3 qua mqtt. Khi nhấn giữ BUTTON 3, vào chế độ config wifi LED 3 blink cho đến khi hoàn thành config.
 
 ## Cụ thể
 
---Start
-    |_ Wifi task
-    |   |_ Wifi init done
-    |       |_ Read flash
-    |           |_ flash != NULL
-    |               |_ Connect wifi
-    |               |_ Start mqtt
-    |
-    |_ Button task
-    |   |_ ON, OFF LED
-    |   |_ IS_CONFIG
-    |       |_ (Blink LED, Stop mqtt, stop wifi) Start AP
-    |           |_ Receive ssid, password
-    |               |_ Write flash
-    |               |_ stop AP
-    |               |_ connect wifi
-    |               |_ start mqtt
-    |_ END
+### --Start
+###     |_ Wifi task
+###     |   |_ Wifi init done
+###     |       |_ Read flash
+###     |           |_ flash != NULL
+###     |               |_ Connect wifi
+###     |               |_ Start mqtt
+###     |
+###     |_ Button task
+###     |   |_ ON, OFF LED
+###     |   |_ IS_CONFIG
+###     |       |_ (Blink LED, Stop mqtt, stop wifi) Start AP
+###     |           |_ Receive ssid, password
+###     |               |_ Write flash
+###     |               |_ stop AP
+###     |               |_ connect wifi
+###     |               |_ start mqtt
+###     |_ END
+
 ## Các trạng thái chính của hệ thống
 
 Wifi
