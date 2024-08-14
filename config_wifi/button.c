@@ -4,16 +4,12 @@
 #include "button.h"
 
 
-//TaskHandle_t mainTaskHandle = NULL;
-
 static uint8_t led_status = LED_OFF;
 static uint8_t IS_CONFIG  = 0;
 static uint8_t flag = 0;
 
 extern int get_g_wifi_sta_is_connected(void);
 extern void wifi_stop_connect(void);
-
-//uint8_t button_state();
 
 void set_is_config(uint8_t value){
     IS_CONFIG = value;
@@ -126,13 +122,6 @@ void button_manual_task(void *param){
                 //vTaskDelay(500);
                 flag = 1;
             }
-            
-            //xTaskCreate(proc_main_entry, (char*)"main_entry", 1024, NULL, 15, NULL);
-            //if(mainTaskHandle == NULL){
-                //xTaskCreate(proc_main_entry, (char*)"main_entry", 1024*3, NULL, 15, &mainTaskHandle);
-                //xTaskCreate(wifi_execute, (char *)"wifi execute", 1024 * 3, NULL, 15, NULL);
-                //wifi_ap_start();
-            //}
             
         }
         vTaskDelay(50);

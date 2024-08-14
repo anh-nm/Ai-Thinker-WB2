@@ -73,17 +73,7 @@ void web_http_server(struct netconn *conn){
                             printf("Received Password: %s\r\n", password->valuestring);
                             wifi_ap_stop();
                             wifi_sta_connect(ssid->valuestring, password->valuestring);
-                            //printf("Task is being deleted\n");
-                            //set_is_config(0);
-                            //cJSON_Delete(json);
-
-                            //aos_unregister_event_filter(EV_WIFI, event_ap_wifi_event, NULL);
-                            //aos_register_event_filter(EV_WIFI, event_cb_wifi_event, NULL);
-
-                            // if(mainTaskHandle != NULL){
-                            //     vTaskDelete(mainTaskHandle);
-                            //     mainTaskHandle = NULL;
-                            // }
+            
                             IS_HTTP_DONE = 1;               
                         }
 
@@ -131,7 +121,6 @@ void http_server_start(void *param){
             netconn_delete(newconn);
             if(IS_HTTP_DONE == 1){
                 netconn_close(conn);
-                //netconn_shutdown(conn, 1, 1);
                 netconn_delete(conn);
                 IS_HTTP_DONE = 0;
                 printf("/r/n                Close httpserver                /r/n");
