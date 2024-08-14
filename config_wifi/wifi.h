@@ -19,6 +19,7 @@
 #include "mqtt.h"
 #include "http_server.h"
 #include "button.h"
+#include "flash.h"
 
 #define WIFI_RECONN_INTERVAL_SEC 15
 #define WIFI_RECONN_REPEAT_TIMES 10

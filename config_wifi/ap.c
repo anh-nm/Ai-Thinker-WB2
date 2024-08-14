@@ -1,9 +1,7 @@
 
 #include "ap.h"
 
-static wifi_conf_t ap_conf = {
-    .country_code = "CN",
-};
+
 static wifi_interface_t ap_interface;
 /**
  * @brief wifi_ap_ip_set

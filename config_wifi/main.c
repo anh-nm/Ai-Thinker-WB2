@@ -15,6 +15,6 @@ void main()
     tcpip_init(NULL, NULL);
 
     puts("[OS] button_manual_task ...");
-    xTaskCreate(button_manual_task, "button_manual_task", 1024 * 2, NULL, 15, NULL);
     xTaskCreate(wifi_execute, (char *)"wifi execute", 1024 * 4, NULL, 15, NULL);
+    xTaskCreate(button_manual_task, "button_manual_task", 1024 * 2, NULL, 15, NULL);
 }

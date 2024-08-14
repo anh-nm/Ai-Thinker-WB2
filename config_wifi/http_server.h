@@ -13,6 +13,7 @@
 #include "cJSON.h"
 #include "ap.h"
 #include "wifi.h"
+#include "flash.h"
 
 
 #define SERVER_PORT 1880

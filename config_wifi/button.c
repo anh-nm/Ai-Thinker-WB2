@@ -125,6 +125,7 @@ void button_manual_task(void *param){
             blink_led_200();
             if(flag == 0){
                 if(get_g_wifi_sta_is_connected()){
+                    mqtt_stop();
                     wifi_stop_connect();
                 }
                 wifi_ap_start();

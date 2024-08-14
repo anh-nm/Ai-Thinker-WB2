@@ -1,12 +1,10 @@
 
 #include "wifi.h"
 
-#define STA_SSID "RD_Hunonic_Mesh"
-#define STA_PASSWORD "66668888"
 
 static wifi_interface_t g_wifi_sta_interface = NULL;
 static int g_wifi_sta_is_connected = 0;
-//wifi_sta_reconnect_t sta_reconn_params = {15, 10}; // set connection interval = 15, reconntction times = 10
+static uint8_t is_start = 1;
 
 static wifi_conf_t conf =
 {
@@ -31,22 +29,6 @@ void get_ssid_password(char* re_ssid, char* re_password){
 
 int wifi_sta_connect(char* re_ssid, char* re_password){
 
-    // g_wifi_sta_interface = wifi_mgmr_sta_enable();
-
-    // if (g_wifi_sta_is_connected == 1)
-    // {
-    //     printf("sta has connect\n");
-    //     return 0;
-    // }
-    // else
-    // {
-    //     wifi_mgmr_sta_autoconnect_enable();
-    //     printf("connect to wifi %s\n", ssid);
-    //     //g_wifi_sta_is_connected = 1;
-    //     return wifi_mgmr_sta_connect(g_wifi_sta_interface, re_ssid, re_password, NULL, NULL, 0, 0);
-    // }
-
-    //wifi_interface_t wifi_interface;
     wifi_mgmr_sta_autoconnect_enable();
     g_wifi_sta_interface = wifi_mgmr_sta_enable();
     wifi_mgmr_sta_connect(g_wifi_sta_interface, re_ssid, re_password, NULL, NULL, 0, 0);
@@ -56,26 +38,6 @@ int wifi_sta_connect(char* re_ssid, char* re_password){
 }
 
 void wifi_stop_connect(void){
-    // if(g_wifi_sta_is_connected){
-
-    //     if (g_wifi_sta_interface != NULL)
-    //     {
-    //         //wifi_mgmr_ap_stop(ap_interface);
-    //         wifi_mgmr_sta_autoconnect_disable();
-    //         wifi_mgmr_sta_disconnect();
-    //         //g_wifi_sta_interface = NULL;
-    //         wifi_mgmr_sta_disable(g_wifi_sta_interface);
-    //         wifi_mgmr_deinit();
-
-    //         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
-    //     }
-    //     g_wifi_sta_is_connected = 0;
-    //     //printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< DISCONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
-
-    // }else{
-    //     printf("\r\n<<<<<<<<<<<<<<<<< NO ACTIVE WIFI CONNECTTION TO DISCONNECT <<<<<<<<<<<<<<<<<<<\r\n");
-
-    // }
     int i;
     int state;
 
@@ -134,9 +96,9 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
         BaseType_t result = xTaskCreate(http_server_start, (char *)"http server", 1024 * 4, NULL, 15, NULL);
 
         if (result == pdPASS) {
-            blog_info("\t\tTask created successfully");
+            blog_info("Task created successfully");
         } else {
-            blog_error("\t\tTask creation failed with error code %d", result);
+            blog_error("Task creation failed with error code %d", result);
         }
 
         break;
@@ -162,7 +124,11 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_INIT_DONE:
         printf("[APP] [EVT] INIT DONE %lld\r\n", aos_now_ms());
         wifi_mgmr_start_background(&conf);
-        //wifi_sta_connect(STA_SSID, STA_PASSWORD);  
+        if(is_start){
+            read_ssid_password_from_flash();
+            is_start = 0;
+        }
+
         break;
 
     case CODE_WIFI_ON_MGMR_DONE:
@@ -200,8 +166,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_GOT_IP:
         printf("WIFI STA GOT IP\n");
         printf("[APP] [EVT] GOT IP %lld\r\n", aos_now_ms());
-        /* create http server task */
-        //wifi_ap_stop();
+        /* start mqtt */
         mqtt_start();
     
         break;
@@ -266,7 +231,7 @@ void wifi_execute(void *pvParameters)
     //     return;
     // }
     // stack_wifi_init = 1;
-    printf("Wi-Fi init successful\r\n");
+    blog_info("Wi-Fi init successful");
     hal_wifi_start_firmware_task();
     /*Trigger to start Wi-Fi*/
     aos_post_event(EV_WIFI, CODE_WIFI_ON_INIT_DONE, 0);

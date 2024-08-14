@@ -4,7 +4,7 @@
 
 axk_mqtt_client_handle_t client;
 
-void sent_current_led_state(void){blog_info("Sent current led state, msg_id=%d", msg_id);}
+void sent_current_led_state(void){blog_info("Sent current led state");}
 
 int subscribe_topic(char *topic, uint8_t Qos){
     int msg_id = axk_mqtt_client_subscribe(client, topic, Qos);
@@ -106,6 +106,7 @@ void mqtt_start(void)
         .event_handle = event_cb,
         .username = "utest",
         .password = "utest123",
+        .port = 1883,
     };
     client = axk_mqtt_client_init(&mqtt_cfg);//Khởi tạo mqtt với c
     axk_err_t rtn = axk_mqtt_client_start(client);
