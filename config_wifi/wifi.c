@@ -144,6 +144,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
         //g_wifi_sta_is_connected = 0;
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<< wifi sta disconnected <<<<<<<<<<<<<<<<<<<<<\r\n");
         printf("[APP] [EVT] disconnect %lld\r\n", aos_now_ms());
+        mqtt_stop();
         break;
 
     case CODE_WIFI_ON_CONNECTING:

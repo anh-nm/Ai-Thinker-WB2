@@ -19,6 +19,10 @@ void reset_flag(uint8_t value){
     flag = 0;
 }
 
+uint8_t get_led_status(void){
+    return led_status;
+}
+
 static void enable_hardware(void){
 
     bl_gpio_enable_input(BUTTON3, 1, 0);

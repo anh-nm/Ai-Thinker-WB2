@@ -29,6 +29,8 @@ typedef enum {
 #define TIME_BUTTON_PRESS_CONFIG    5000
 
 uint8_t get_button_status(void);
+uint8_t get_led_status(void);
+
 button_states button_state(void);
 void button_manual_task(void *param);
 

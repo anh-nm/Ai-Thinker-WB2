@@ -4,7 +4,26 @@
 
 axk_mqtt_client_handle_t client;
 
-void sent_current_led_state(void){blog_info("Sent current led state");}
+extern uint8_t get_led_status(void);
+
+void sent_current_led_state(void){
+    blog_info("Send current led state");
+    cJSON *json = cJSON_CreateObject();
+    cJSON_AddItemToObject(json, "led", cJSON_CreateNumber(3));
+    if(get_led_status()){
+        cJSON_AddItemToObject(json, "ctr", cJSON_CreateNumber(2));
+    }else{
+        cJSON_AddItemToObject(json, "ctr", cJSON_CreateNumber(1));
+    }
+    
+    cJSON_AddItemToObject(json, "ret", cJSON_CreateNumber(1));
+    char *jsonString = cJSON_Print(json);
+    int msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", jsonString, 0, 1, 0);
+    blog_info("Send publish successfully msg_id=%d", msg_id);
+
+    free(jsonString);
+    cJSON_Delete(json);
+}
 
 int subscribe_topic(char *topic, uint8_t Qos){
     int msg_id = axk_mqtt_client_subscribe(client, topic, Qos);
@@ -16,6 +35,39 @@ int unsubscribe_topic(char *topic){
     int msg_id = axk_mqtt_client_unsubscribe(client, topic);
     blog_info("sent unsubscribe successful, msg_id=%d", msg_id);
     return msg_id;
+}
+
+int publish_topic(char *json_data){
+
+    cJSON *json = cJSON_Parse(json_data);
+
+    if(json == NULL){
+        blog_error("Error parsing JSON data");
+    }else{
+        cJSON *LED = cJSON_GetObjectItem(json, "led");
+        cJSON *ctr = cJSON_GetObjectItem(json, "ctr");
+        if( LED!=NULL && ctr!= NULL){
+            control_button(LED, ctr);
+
+            //phan hoi
+            cJSON *ret = cJSON_CreateNumber(1);
+            cJSON_AddItemToObject(json, "ret", ret);
+
+            //Chuyen JSON sang dang string va publish
+            char *update = cJSON_PrintUnformatted(json);
+            int msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", update, 0, 1, 0);
+            blog_info("Sent publish successful, msg_id=%d", msg_id);
+            printf("\r\nReply\r\n");
+            return msg_id;
+        }else{
+            printf("\r\nValue missing");
+        }    
+        
+    }
+    //giai phong bo nho
+    cJSON_Delete(json);
+
+    return 0;
 }
 
 
@@ -133,41 +185,6 @@ void mqtt_stop(void){
 }
 
 
-int publish_topic(char *json_data){
-
-    cJSON *json = cJSON_Parse(json_data);
-
-    if(json == NULL){
-        blog_error("Error parsing JSON data");
-    }else{
-        cJSON *LED = cJSON_GetObjectItem(json, "led");
-        cJSON *ctr = cJSON_GetObjectItem(json, "ctr");
-        if( LED!=NULL && ctr!= NULL){
-            control_button(LED, ctr);
-
-            //phan hoi
-            cJSON *ret = cJSON_CreateNumber(1);
-            cJSON_AddItemToObject(json, "ret", ret);
-
-            //Chuyen JSON sang dang string va publish
-            char *update = cJSON_PrintUnformatted(json);
-            int msg_id = axk_mqtt_client_publish(client, "hunonic/demo/mqtt/pub", update, 0, 1, 0);
-            blog_info("Sent publish successful, msg_id=%d", msg_id);
-            printf("\r\nReply\r\n");
-            return msg_id;
-        }else{
-            printf("\r\nValue missing");
-        }    
-        
-    }
-
-    //giai phong bo nho
-    cJSON_Delete(json);
-
-    return 0;
-}
-
-
 void control_button(cJSON *Led, cJSON *getctr){
 
     int led_val = Led->valueint;
@@ -187,3 +204,4 @@ void control_button(cJSON *Led, cJSON *getctr){
     }
 
 }
+
