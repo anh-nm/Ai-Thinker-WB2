@@ -10,7 +10,7 @@ void write_ssid_password_from_flash(char* ssid, char* password){
     uint8_t *p_wbuf;
     char data_to_write[128];
 
-    /* Erase old data from data */
+    /* Erase old data from flash */
     hosal_flash_raw_erase(DEMO_HOSAL_FLASH_TEST_ADDR, sizeof(data_to_write));
 
     p_wbuf = malloc(sizeof(data_to_write));

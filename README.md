@@ -3,7 +3,9 @@
 ## Yêu cầu
 
 1. Hỗ trợ tính năng cấu hình wifi. Người dùng sẽ truyền ssid, password của wifi cho thiết bị kết nối tới.
-    - Về phần cấu hình. Thiết bị sẽ được đưa về trạng thái cấu hình bằng cách giữ nút nhấn trong 5s rồi nhả ra.
+    - Về phần cấu hình: 
+        + Thiết bị sẽ được đưa về trạng thái cấu hình qua AP bằng cách giữ nút nhấn trong 5s rồi nhả ra.
+        + Thiết bị được đưa về trạng thái cấu hình qua bluetooth bằng cách giữ nút nhấn trong 10s
     - Khi đó LED nháy liên tục với chu kỳ 200ms.
     - Khi truyền dữ liệu cho chip, kết nối với wifi mà chip phát ra và gửi dữ liệu.
     - Sửng dụng socket tcp/http...
@@ -32,13 +34,16 @@ Dùng BUTTON 3 điều khiển LED 3, Khi kết nối thành công mqtt điều 
 ###     |
 ###     |_ Button task
 ###     |   |_ ON, OFF LED
-###     |   |_ IS_CONFIG
-###     |       |_ (Blink LED, Stop mqtt, stop wifi) Start AP
-###     |           |_ Receive ssid, password
-###     |               |_ Write flash
-###     |               |_ stop AP
-###     |               |_ connect wifi
-###     |               |_ start mqtt
+###     |   |_ IS_CONFIG_AP
+###     |   |   |_ (Blink LED, Stop mqtt, stop wifi) Start AP
+###     |   |       |_ Receive ssid, password
+###     |   |           |_ Write flash
+###     |   |           |_ stop AP
+###     |   |           |_ connect wifi
+###     |   |           |_ start mqtt
+###     |   |_ IS_CONFIG_BLE
+###     |       |_
+###     |           |_
 ###     |_ END
 
 ## Các trạng thái chính của hệ thống
