@@ -3,26 +3,31 @@
 //#include "nvs_flash.h"
 #include "button.h"
 
+extern int get_g_wifi_sta_is_connected(void);
+extern void wifi_stop_connect(void);
+extern void listTask(void);
 
 static uint8_t led_status = LED_OFF;
-static uint8_t IS_CONFIG_AP  = 0;
-static uint8_t IS_CONFIG_BLE = 0;
+// static uint8_t IS_CONFIG_AP  = 0;
+// static uint8_t IS_CONFIG_BLE = 0;
 static uint8_t flag_ap = 0;
 static uint8_t flag_ble = 0;
 
-extern int get_g_wifi_sta_is_connected(void);
-extern void wifi_stop_connect(void);
 
-void set_is_config_ap(uint8_t value){
-    IS_CONFIG_AP = value;
-}
+// void set_is_config_ap(uint8_t value){
+//     IS_CONFIG_AP = value;
+// }
 
-void set_is_config_ble(uint8_t value){
-    IS_CONFIG_BLE = value;
-}
+// void set_is_config_ble(uint8_t value){
+//     IS_CONFIG_BLE = value;
+// }
 
 void reset_flag_ap(uint8_t value){
     flag_ap = 0;
+}
+
+void reset_flag_ble(uint8_t value){
+    flag_ble = 0;
 }
 
 uint8_t get_led_status(void){
@@ -101,17 +106,20 @@ button_states button_state(void){
 
         case CONFIG_AP:
             //printf("\r\nCONFIG\r\n");
-            if(IS_CONFIG_AP == 0){
+            //if(IS_CONFIG_AP == 0){
                 status = NO_CLICK;
-            }
+            //}
             //return CONFIG;
             break;
+
         case CONFIG_BLE:
             //printf("\r\nCONFIG BLUETOOTH");
-            if(IS_CONFIG_BLE == 0){
+            //if(IS_CONFIG_BLE == 0){
                 printf("\r\nCONFIG DONE\r\n");
                 status = NO_CLICK;
-            }
+            //}
+            break;
+
         case HOLD_BUTTON:
             if(get_button_status() == 0){
                 status = HOLD_BUTTON_LONG;
@@ -120,6 +128,9 @@ button_states button_state(void){
             break;
 
         case HOLD_BUTTON_LONG:
+            if(xTaskGetTickCount() - time_long_click == TIME_BLE){
+                printf("\r\nYOU HOLD BUTTON 10s\r\n");
+            }
             if(get_button_status() == 1){
                 if(xTaskGetTickCount() - time_long_click >= TIME_AP && xTaskGetTickCount() - time_long_click < TIME_BLE){
                     status = CONFIG_AP;
@@ -127,7 +138,7 @@ button_states button_state(void){
 
                 }else if(xTaskGetTickCount() - time_long_click >= TIME_BLE){
                     status = CONFIG_BLE;
-                    time_long_click = xTaskGetTickCount();
+                    time_long_click = 0;
                 
                 }else{
                     status = CLICK;
@@ -139,6 +150,27 @@ button_states button_state(void){
     return status;
 }
 
+static void check_stop_all_before_ap(void){
+    if(get_stop_ble()){
+        apps_ble_stop();
+        set_stop_ble(0);
+    }
+    if(get_g_wifi_sta_is_connected()){
+        mqtt_stop();
+        wifi_stop_connect();
+    }
+}
+
+static void check_stop_all_before_ble(void){
+    if(get_flag_stop_ap()){
+        wifi_ap_stop();
+    }
+    if(get_g_wifi_sta_is_connected()){
+        mqtt_stop();
+        wifi_stop_connect();
+    }
+}
+
 
 void button_manual_task(void *param){
 
@@ -148,25 +180,34 @@ void button_manual_task(void *param){
     
 
     while (1){
+
+        /* check stop ble  */
+        if (get_start_stop())
+        {
+            /* stop */
+            apps_ble_stop();
+            set_stop_ble(0);
+            set_start_stop(0);
+        }
         button_status = button_state();
         switch(button_status){
             case CLICK:
             {
                 printf("\r\nPRINT CLICK\r\n");
+                blog_info(" click ");
                 led_status = !led_status;
                 bl_gpio_output_set(LED3, led_status);
+                listTask();
                 break;
             }
             case CONFIG_AP:
             {
                 //printf("\r\nGET CONFIG\r\n");
-                IS_CONFIG_AP = 1;
+                blog_info(" ap config ");
+                //IS_CONFIG_AP = 1;
                 blink_led_200();
                 if(flag_ap == 0){
-                    if(get_g_wifi_sta_is_connected()){
-                        mqtt_stop();
-                        wifi_stop_connect();
-                    }
+                    check_stop_all_before_ap();
                     wifi_ap_start();
                     //vTaskDelay(500);
                     flag_ap = 1;
@@ -175,39 +216,19 @@ void button_manual_task(void *param){
             }
             case CONFIG_BLE:
             {
-                IS_CONFIG_BLE = 1;
+                //IS_CONFIG_BLE = 1;
+                blink_led_100();
                 if(!flag_ble){
                     //wifi_stop_connect();
-                    //printf("\r\nGET_CONFIG_BLUETOOTH\r\n");
-                    xTaskCreate(TaskUart, "TaskUart", 2048, NULL, 15, NULL);
+                    check_stop_all_before_ble();
+                    blog_info(" create ble task ");
                     xTaskCreate(BLE_Task, (char *)"BLE_Task", 1024, NULL, 15, NULL);
                     flag_ble = 1;
                 }
-                //printf("\r\nGET_CONFIG_BLUETOOTH\r\n");
-                //apps_ble_start();
                 break;
+
             }
         }
-        // if(button_status == CLICK){
-        //     printf("\r\nPRINT CLICK\r\n");
-        //     led_status = !led_status;
-        //     bl_gpio_output_set(LED3, led_status);
-        // }
-        // if(button_status == CONFIG_AP){
-        //     //printf("\r\nGET CONFIG\r\n");
-        //     IS_CONFIG_AP = 1;
-        //     blink_led_200();
-        //     if(flag == 0){
-        //         if(get_g_wifi_sta_is_connected()){
-        //             mqtt_stop();
-        //             wifi_stop_connect();
-        //         }
-        //         wifi_ap_start();
-        //         //vTaskDelay(500);
-        //         flag = 1;
-        //     }
-            
-        // }
         
         vTaskDelay(50);
     }

@@ -2,6 +2,9 @@
 
 #include "ble.h"
 
+extern void set_is_config_ble(uint8_t value);
+extern void reset_flag_ble(uint8_t value);
+
 
 
 static struct bt_conn *conn_cur;
@@ -40,62 +43,65 @@ static struct bt_gatt_attr salve_uuid1_server[] = {
                            NULL),
 };
 
-static struct bt_gatt_attr salve_uuid2_server[] = {
-    /* Primary Service */
-    BT_GATT_PRIMARY_SERVICE(UUID2_USER_SER),
+// static struct bt_gatt_attr salve_uuid2_server[] = {
+//     /* Primary Service */
+//     BT_GATT_PRIMARY_SERVICE(UUID2_USER_SER),
 
-    /* Characteristic && Characteristic User Declaration */
-    BT_GATT_CHARACTERISTIC(UUID2_USER_TXD,
-                           BT_GATT_CHRC_NOTIFY,
-                           BT_GATT_PERM_READ, NULL, NULL,
-                           NULL),
-    BT_GATT_CCC(ble_ccc_cfg_changed, BT_GATT_PERM_READ | BT_GATT_PERM_WRITE),
+//     /* Characteristic && Characteristic User Declaration */
+//     BT_GATT_CHARACTERISTIC(UUID2_USER_TXD,
+//                            BT_GATT_CHRC_NOTIFY,
+//                            BT_GATT_PERM_READ, NULL, NULL,
+//                            NULL),
+//     BT_GATT_CCC(ble_ccc_cfg_changed, BT_GATT_PERM_READ | BT_GATT_PERM_WRITE),
 
-    /* Characteristic && Characteristic User Declaration */
-    BT_GATT_CHARACTERISTIC(UUID2_USER_RXD,
-                           BT_GATT_CHRC_WRITE_WITHOUT_RESP,
-                           BT_GATT_PERM_WRITE, NULL, ble_uuid2_write_val,
-                           NULL),
-};
+//     /* Characteristic && Characteristic User Declaration */
+//     BT_GATT_CHARACTERISTIC(UUID2_USER_RXD,
+//                            BT_GATT_CHRC_WRITE_WITHOUT_RESP,
+//                            BT_GATT_PERM_WRITE, NULL, ble_uuid2_write_val,
+//                            NULL),
+// };
 
 
 static struct bt_gatt_service ble_uuid1_server = BT_GATT_SERVICE(salve_uuid1_server);
-static struct bt_gatt_service ble_uuid2_server = BT_GATT_SERVICE(salve_uuid2_server);
+//static struct bt_gatt_service ble_uuid2_server = BT_GATT_SERVICE(salve_uuid2_server);
+
+
 
 static ssize_t ble_uuid1_write_val(struct bt_conn *conn, const struct bt_gatt_attr *attr,
                                    const void *buf, u16_t len, u16_t offset,
                                    u8_t flags)
 {
     uint8_t *recv_buffer;
-    recv_buffer = pvPortMalloc(sizeof(uint8_t) * len);
+    recv_buffer = pvPortMalloc(sizeof(uint8_t) * (len + 1)); /* Them mot byte chua ky tu ket thuc chuoi */
     memcpy(recv_buffer, buf, len);
+    recv_buffer[len] = '\0';
     printf("recv ble data len: %d\r\n", len);
     for (size_t i = 0; i < len; i++)
     {
-        printf("0x%x ", recv_buffer[i]);
+        printf("%c", recv_buffer[i]);
     }
     printf("\r\n");
-    vPortFree(recv_buffer);
-
-    return len;
-}
-
-static ssize_t ble_uuid2_write_val(struct bt_conn *conn, const struct bt_gatt_attr *attr,
-                                   const void *buf, u16_t len, u16_t offset,
-                                   u8_t flags)
-{
-    uint8_t *recv_buffer;
-    recv_buffer = pvPortMalloc(sizeof(uint8_t) * len);
-    memcpy(recv_buffer, buf, len);
-    printf("recv ble data len: %d\r\n", len);
-    for (size_t i = 0; i < len; i++)
-    {
-        printf("0x%x ", recv_buffer[i]);
-    }
-    printf("\r\n");
+    handle_data(recv_buffer);
     vPortFree(recv_buffer);
     return len;
 }
+
+// static ssize_t ble_uuid2_write_val(struct bt_conn *conn, const struct bt_gatt_attr *attr,
+//                                    const void *buf, u16_t len, u16_t offset,
+//                                    u8_t flags)
+// {
+//     uint8_t *recv_buffer;
+//     recv_buffer = pvPortMalloc(sizeof(uint8_t) * len);
+//     memcpy(recv_buffer, buf, len);
+//     printf("recv ble data len: %d\r\n", len);
+//     for (size_t i = 0; i < len; i++)
+//     {
+//         printf("0x%x ", recv_buffer[i]);
+//     }
+//     printf("\r\n");
+//     vPortFree(recv_buffer);
+//     return len;
+// }
 
 static void ble_ccc_cfg_changed(const struct bt_gatt_attr *attr,
                                 u16_t value)
@@ -114,6 +120,7 @@ static void ble_ccc_cfg_changed(const struct bt_gatt_attr *attr,
     printf("[BLE] ccc change %s", str);
 }
 
+
 static void _connected(struct bt_conn *conn, u8_t err)
 {
     if (conn_cb)
@@ -131,7 +138,8 @@ static void _connected(struct bt_conn *conn, u8_t err)
 
     conn_cur = conn;
 
-    printf("[BLE] connected \r\n");
+    blog_info("[BLE] connected \r\n");
+    //s_time_connect = aos_now_ms();
     BleSetMtu();
     return;
 }
@@ -189,6 +197,7 @@ static struct bt_conn_cb conn_callbacks = {
 
 static void ble_disconnect_all(struct bt_conn *conn, void *data)
 {
+    printf("[BLE]: BLE disconnect all start\r\n");
     if (conn->state == BT_CONN_CONNECTED)
     {
         printf("[BLE] disconn id:%d \r\n", conn->id);
@@ -322,35 +331,35 @@ int ble_uuid1_notify_data(void *handle, void *data, uint16_t length)
 }
 
 
-int ble_uuid2_notify_data(void *handle, void *data, uint16_t length)
-{
-    int ret;
-    uint16_t mtu;
-    uint16_t offset;
-    uint16_t send_len;
+// int ble_uuid2_notify_data(void *handle, void *data, uint16_t length)
+// {
+//     int ret;
+//     uint16_t mtu;
+//     uint16_t offset;
+//     uint16_t send_len;
 
-    offset = 0;
-    mtu = bt_gatt_get_mtu(handle) - 3;
-    while (length > 0)
-    {
-        /* calculate send_len */
-        send_len = length > mtu ? mtu : length;
-        /* send data */
-        ret = bt_gatt_notify(handle, &salve_uuid2_server[SALVE_CMD_SERVER_TX_INDEX], data + offset, send_len);
-        /* set offset */
-        offset += send_len;
-        length -= send_len;
+//     offset = 0;
+//     mtu = bt_gatt_get_mtu(handle) - 3;
+//     while (length > 0)
+//     {
+//         /* calculate send_len */
+//         send_len = length > mtu ? mtu : length;
+//         /* send data */
+//         ret = bt_gatt_notify(handle, &salve_uuid2_server[SALVE_CMD_SERVER_TX_INDEX], data + offset, send_len);
+//         /* set offset */
+//         offset += send_len;
+//         length -= send_len;
 
-        printf("[BLE] notify len:%d \r\n", send_len);
+//         printf("[BLE] notify len:%d \r\n", send_len);
 
-        if (ret != 0)
-        {
-            break;
-        }
-    }
+//         if (ret != 0)
+//         {
+//             break;
+//         }
+//     }
 
-    return ret;
-}
+//     return ret;
+// }
 
 int UUID1_SendNotify(uint16_t len, uint8_t *data)
 {
@@ -373,25 +382,25 @@ int UUID1_SendNotify(uint16_t len, uint8_t *data)
 }
 
 
-int UUID2_SendNotify(uint16_t len, uint8_t *data)
-{
-    int ret;
-    struct bt_conn *conn;
+// int UUID2_SendNotify(uint16_t len, uint8_t *data)
+// {
+//     int ret;
+//     struct bt_conn *conn;
 
-    conn = ble_get_conn_cur();
-    if (conn == NULL)
-    {
-        return -1;
-    }
+//     conn = ble_get_conn_cur();
+//     if (conn == NULL)
+//     {
+//         return -1;
+//     }
 
-    ret = ble_uuid2_notify_data(conn, (void *)data, len);
-    if (ret != 0)
-    {
-        return -4;
-    }
+//     ret = ble_uuid2_notify_data(conn, (void *)data, len);
+//     if (ret != 0)
+//     {
+//         return -4;
+//     }
 
-    return len;
-}
+//     return len;
+// }
 
 
 static void exchange_func(struct bt_conn *conn, u8_t err,
@@ -442,6 +451,8 @@ int ble_slave_deinit(void)
     ble_regist_conn(NULL);
     ble_regist_disconn(NULL);
 
+    //ble_server_deinit();
+
     return 0;
 }
 
@@ -450,7 +461,7 @@ int ble_server_init()
     int ret = 0;
 
     ret = bt_gatt_service_register(&ble_uuid1_server);
-    ret |= bt_gatt_service_register(&ble_uuid2_server);
+    //ret |= bt_gatt_service_register(&ble_uuid2_server);
 
     return ret;
 }
@@ -460,7 +471,9 @@ int ble_server_deinit(void)
     int ret = 0;
 
     ret = bt_gatt_service_unregister(&ble_uuid1_server);
-    ret |= bt_gatt_service_unregister(&ble_uuid2_server);
+
+    blog_info("ret unregist %d ", ret);
+    //ret |= bt_gatt_service_unregister(&ble_uuid2_server);
 
     return ret;
 }
@@ -475,8 +488,31 @@ void ble_stack_start(void)
     printf("[ERR]: %d\r\n", err_log);
     //printf("[BLE] LOG HERE\r\n");
     int err = bt_enable(bt_enable_cb);
-    printf("[ERR]: %d\r\n", err);
+    printf("[ERR] %d\r\n", err);
 }
+
+
+
+static uint8_t s_flag_stop_ble = 0;
+static uint8_t s_flag_start_stop = 0;
+uint8_t get_stop_ble(void)
+{
+    return s_flag_stop_ble;
+}
+uint8_t get_start_stop(void){
+
+    return s_flag_start_stop;
+}
+void set_stop_ble(uint8_t value)
+{
+    s_flag_stop_ble = value;
+}
+void set_start_stop(uint8_t value)
+{
+    s_flag_start_stop = value;
+}
+
+
 
 // start ble
 void apps_ble_start()
@@ -485,9 +521,11 @@ void apps_ble_start()
     ble_slave_init();
     bt_gatt_register_mtu_callback(_ble_mtu_changed_cb);
     bt_conn_cb_register(&conn_callbacks);
+    s_flag_stop_ble = 1;
     /* avoid callback infinite loop */
     conn_callbacks._next = NULL;
 }
+
 
 // stop ble
 void apps_ble_stop()
@@ -495,20 +533,84 @@ void apps_ble_stop()
     ble_slave_deinit();
 
     bt_conn_foreach(BT_CONN_TYPE_ALL, ble_disconnect_all, NULL);
-
     int disconn_cnt = 0;
     while (le_check_valid_conn() && disconn_cnt++ < 10)
     {
         printf("[BLE] wait for ble_disconnect_all\r\n");
         vTaskDelay(pdMS_TO_TICKS(500));
     }
-    bt_disable();
+
+    //printf("Flags: %x\r\n", bt_dev.flags);
+
+    if(le_check_valid_conn()){
+        printf("Valid conn still active\r\n");
+    }else{
+        printf("Valid conn has beeb stopped\r\n");
+    }
+
+    if (atomic_test_bit(bt_dev.flags, BT_DEV_ADVERTISING)) {
+        printf("Advertising is still active.\r\n");
+    } else {
+        printf("Advertising has been stopped.\n\n");
+    }
+
+    int err = bt_disable();
+    printf("[ERR] %d\r\n", err);
 }
+
 
 void BLE_Task(void *param){
     printf("[BLE] start task BLE\r\n");
     apps_ble_start();
     vTaskDelete(NULL);
+}
+
+void handle_data(uint8_t *recv_buffer){
+
+    char ssid[34];
+    char password[67];
+    uint8_t ssid_found = 0; 
+    uint8_t password_found = 0;
+
+    /* Tach ssid */
+    char *ssid_start = strstr((char*)recv_buffer, "ssid:");
+    if (ssid_start != NULL) {
+        ssid_start += 5; // Bỏ qua "ssid:"
+        char *ssid_end = strchr(ssid_start, ';');
+        if (ssid_end != NULL) {
+            int ssid_len = ssid_end - ssid_start;
+            if (ssid_len > 0 && ssid_len < sizeof(ssid)) {
+                strncpy(ssid, ssid_start, ssid_len);
+                ssid[ssid_len] = '\0';
+                ssid_found = 1;
+            }
+        }
+    }
+
+    char *pwd_start = strstr((char*)recv_buffer, "password:");
+    if (pwd_start != NULL) {
+        pwd_start += 9; // Bỏ qua "password:"
+        strncpy(password, pwd_start, sizeof(password) - 1);
+        password[sizeof(password) - 1] = '\0';
+        password_found = 1;
+    }
+
+    if(ssid_found != 1 || password_found != 1){
+        printf("[BLE] SSID & PASSWORD FAILED");
+    }else{
+        printf("[BLE] READ SSID: %s\r\n", ssid);
+        printf("[BLE] READ PASSWORD: %s\r\n", password);
+        //s_time_connect = aos_now_ms();
+
+        /* stop ble */
+        s_flag_start_stop = 1;
+        //s_flag_stop_ble = 1;
+
+        
+        /* set flags */
+        //set_is_config_ble(0);
+        reset_flag_ble(0);
+    }
 }
 
 

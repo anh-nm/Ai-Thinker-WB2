@@ -12,7 +12,7 @@
 #include "hardware_config.h"
 #include "ap.h"
 #include "mqtt.h"
-#include "uart.h"
+#include "ble.h"
 
 #define LED_ON                      1
 #define LED_OFF                     0
@@ -40,5 +40,6 @@ void button_manual_task(void *param);
 void set_is_config_ap(uint8_t value);
 void set_is_config_ble(uint8_t value);
 void reset_flag_ap(uint8_t value);
+void reset_flag_ble(uint8_t value);
 
 #endif /*_BUTTON_H_*/

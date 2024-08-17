@@ -22,9 +22,9 @@
 
 
 void event_ap_wifi_event(input_event_t* event, void* private_data);
+uint8_t get_flag_stop_ap(void);
 void wifi_ap_stop();
 void wifi_ap_start();
-void proc_main_entry(void* pvParameters);
 
 
 #endif /*_AP_H_*/

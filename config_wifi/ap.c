@@ -62,6 +62,13 @@ static void wifi_ap_ip_set(char* ip_addr, char* netmask, char* gw)
  * @brief wifi_ap_start
  *
  */
+
+static uint8_t s_flag_stop_ap = 0;
+
+uint8_t get_flag_stop_ap(void){
+    return s_flag_stop_ap;
+}
+
 void wifi_ap_start()
 {
     ap_interface = wifi_mgmr_ap_enable();
@@ -71,6 +78,7 @@ void wifi_ap_start()
                                                                         //for example, gateway ip:"192.168.4.1" , change DHCPD_SERVER_IP to "192.168.4.1"  :
                                                                         //wifi_ap_ip_set("192.168.4.1", "255.255.255.0", "192.168.4.1");
                                                                         //components/network/lwip_dhcpd/dhcp_server_raw.c：42   #define DHCPD_SERVER_IP "192.168.4.1"
+    s_flag_stop_ap = 1;
 }
 
 void wifi_ap_stop()
@@ -79,6 +87,7 @@ void wifi_ap_stop()
     {
         wifi_mgmr_ap_stop(ap_interface);
         ap_interface = NULL;  // Reset the interface pointer to NULL after stopping AP
+        s_flag_stop_ap = 0;
     }
 }
 

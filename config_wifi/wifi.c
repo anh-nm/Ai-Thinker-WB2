@@ -106,7 +106,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_AP_STOPPED:
         printf("[APP] [EVT] AP STOP DONE %lld\r\n", aos_now_ms());
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP OK <<<<<<<<<<<<<<<<<<<<<\r\n");
-        set_is_config_ap(0);
+        //set_is_config_ap(0);
         reset_flag_ap(0); 
         break;
 
@@ -124,10 +124,10 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
     case CODE_WIFI_ON_INIT_DONE:
         printf("[APP] [EVT] INIT DONE %lld\r\n", aos_now_ms());
         wifi_mgmr_start_background(&conf);
-        // if(is_start){
-        //     read_ssid_password_from_flash();
-        //     is_start = 0;
-        // }
+        if(is_start){
+            read_ssid_password_from_flash();
+            is_start = 0;
+        }
 
         break;
 
