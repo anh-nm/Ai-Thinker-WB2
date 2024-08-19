@@ -5,6 +5,8 @@
 
 extern int get_g_wifi_sta_is_connected(void);
 extern void wifi_stop_connect(void);
+extern void read_ssid_password_from_flash(void);
+extern void set_stop_http_server(uint8_t value);
 extern void listTask(void);
 
 static uint8_t led_status = LED_OFF;
@@ -22,12 +24,12 @@ static uint8_t flag_ble = 0;
 //     IS_CONFIG_BLE = value;
 // }
 
-void reset_flag_ap(uint8_t value){
-    flag_ap = 0;
+void set_flag_ap(uint8_t value){
+    flag_ap = value;
 }
 
-void reset_flag_ble(uint8_t value){
-    flag_ble = 0;
+void set_flag_ble(uint8_t value){
+    flag_ble = value;
 }
 
 uint8_t get_led_status(void){
@@ -154,6 +156,8 @@ static void check_stop_all_before_ap(void){
     if(get_stop_ble()){
         apps_ble_stop();
         set_stop_ble(0);
+        set_start_stop(0);
+        flag_ble = 0;
     }
     if(get_g_wifi_sta_is_connected()){
         mqtt_stop();
@@ -162,7 +166,9 @@ static void check_stop_all_before_ap(void){
 }
 
 static void check_stop_all_before_ble(void){
+    blog_info("get flag stop ap: %d", get_flag_stop_ap())
     if(get_flag_stop_ap()){
+        set_stop_http_server(1);
         wifi_ap_stop();
     }
     if(get_g_wifi_sta_is_connected()){
@@ -188,6 +194,8 @@ void button_manual_task(void *param){
             apps_ble_stop();
             set_stop_ble(0);
             set_start_stop(0);
+            flag_ble = 0;
+            read_ssid_password_from_flash();
         }
         button_status = button_state();
         switch(button_status){
@@ -197,7 +205,7 @@ void button_manual_task(void *param){
                 blog_info(" click ");
                 led_status = !led_status;
                 bl_gpio_output_set(LED3, led_status);
-                listTask();
+                //listTask();
                 break;
             }
             case CONFIG_AP:
@@ -205,7 +213,7 @@ void button_manual_task(void *param){
                 //printf("\r\nGET CONFIG\r\n");
                 blog_info(" ap config ");
                 //IS_CONFIG_AP = 1;
-                blink_led_200();
+                //blink_led_200();
                 if(flag_ap == 0){
                     check_stop_all_before_ap();
                     wifi_ap_start();
@@ -217,7 +225,8 @@ void button_manual_task(void *param){
             case CONFIG_BLE:
             {
                 //IS_CONFIG_BLE = 1;
-                blink_led_100();
+                blog_info(" ble config ");
+                //blink_led_100();
                 if(!flag_ble){
                     //wifi_stop_connect();
                     check_stop_all_before_ble();

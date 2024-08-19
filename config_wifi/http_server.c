@@ -1,9 +1,12 @@
 #include "http_server.h"
 
 //extern void set_is_config(uint8_t value);
-//extern TaskHandle_t mainTaskHandle;
 
 static uint8_t IS_HTTP_DONE = 0;
+void set_stop_http_server(uint8_t value){
+    IS_HTTP_DONE = value;
+}
+
 
 const static char http_html_hdr[] =
     "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
@@ -45,10 +48,7 @@ void web_http_server(struct netconn *conn){
                         if (ssid && password) {
                             printf("Received SSID: %s\r\n", ssid->valuestring);
                             printf("Received Password: %s\r\n", password->valuestring);
-                            printf("\r\n        ");
                             write_ssid_password_from_flash(ssid->valuestring, password->valuestring);
-                            read_ssid_password_from_flash();
-
                             wifi_ap_stop();
                             wifi_sta_connect(ssid->valuestring, password->valuestring);
             
@@ -91,25 +91,30 @@ void http_server_start(void *param){
     netconn_listen(conn);
 
     while (1){
+
+        if(IS_HTTP_DONE == 1){
+            blog_info("[HTTP_SERVER] STOP");
+            http_server_stop(conn);
+            IS_HTTP_DONE = 0;
+            vTaskDelete(NULL);
+        }
         err = netconn_accept(conn, &newconn);
         if (err == ERR_OK)
         {
             web_http_server(newconn);
             netconn_delete(newconn);
-            if(IS_HTTP_DONE == 1){
-                netconn_close(conn);
-                netconn_delete(conn);
-                IS_HTTP_DONE = 0;
-                vTaskDelete(NULL);
-            }
         }
         else
         {
             printf("\r\n Error accepting connection \r\n");
-            netconn_close(conn);
-            netconn_delete(conn);
+            http_server_stop(conn);
         }
     }
 
+}
+
+void http_server_stop(struct netconn *conn){
+    netconn_close(conn);
+    netconn_delete(conn);
 }
 

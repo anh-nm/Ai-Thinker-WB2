@@ -107,7 +107,7 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
         printf("[APP] [EVT] AP STOP DONE %lld\r\n", aos_now_ms());
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< STOP SOFT AP OK <<<<<<<<<<<<<<<<<<<<<\r\n");
         //set_is_config_ap(0);
-        reset_flag_ap(0); 
+        set_flag_ap(0); 
         break;
 
     case CODE_WIFI_ON_AP_STA_ADD:

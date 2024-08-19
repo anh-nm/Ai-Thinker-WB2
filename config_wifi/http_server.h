@@ -18,5 +18,7 @@
 
 #define SERVER_PORT 1880
 void http_server_start(void *pvParameters);
+void http_server_stop(struct netconn *conn);
+void set_stop_http_server(uint8_t value);
 
 #endif /*_HTTP_SERVER_H_*/

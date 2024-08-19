@@ -2,8 +2,31 @@
 
 #include "ble.h"
 
-extern void set_is_config_ble(uint8_t value);
-extern void reset_flag_ble(uint8_t value);
+
+extern void write_ssid_password_from_flash(char* ssid, char* password);
+extern void wifi_sta_connect(char* re_ssid, char* re_password);
+extern void set_flag_ble(uint8_t value);
+
+extern void blink_led_100(void);
+
+static uint8_t s_flag_stop_ble = 0;
+static uint8_t s_flag_start_stop = 0;
+uint8_t get_stop_ble(void)
+{
+    return s_flag_stop_ble;
+}
+uint8_t get_start_stop(void){
+
+    return s_flag_start_stop;
+}
+void set_stop_ble(uint8_t value)
+{
+    s_flag_stop_ble = value;
+}
+void set_start_stop(uint8_t value)
+{
+    s_flag_start_stop = value;
+}
 
 
 
@@ -81,9 +104,56 @@ static ssize_t ble_uuid1_write_val(struct bt_conn *conn, const struct bt_gatt_at
         printf("%c", recv_buffer[i]);
     }
     printf("\r\n");
-    handle_data(recv_buffer);
+    if(handle_data(recv_buffer)){
+        s_flag_start_stop = 1;
+        //set_flag_ble(0);
+    }
     vPortFree(recv_buffer);
     return len;
+}
+
+
+uint8_t handle_data(uint8_t *recv_buffer){
+
+    char ssid[34];
+    char password[67];
+    uint8_t ssid_found = 0; 
+    uint8_t password_found = 0;
+
+    /* Tach ssid */
+    char *ssid_start = strstr((char*)recv_buffer, "ssid:");
+    if (ssid_start != NULL) {
+        ssid_start += 5; // Bỏ qua "ssid:"
+        char *ssid_end = strchr(ssid_start, ';');
+        if (ssid_end != NULL) {
+            int ssid_len = ssid_end - ssid_start;
+            if (ssid_len > 0 && ssid_len < sizeof(ssid)) {
+                strncpy(ssid, ssid_start, ssid_len);
+                ssid[ssid_len] = '\0';
+                ssid_found = 1;
+            }
+        }
+    }
+
+    char *pwd_start = strstr((char*)recv_buffer, "password:");
+    if (pwd_start != NULL) {
+        pwd_start += 9; // Bỏ qua "password:"
+        strncpy(password, pwd_start, sizeof(password) - 1);
+        password[sizeof(password) - 1] = '\0';
+        password_found = 1;
+    }
+
+    if(ssid_found != 1 || password_found != 1){
+        printf("[BLE] SSID & PASSWORD FAILED");
+        return 0;
+    }else{
+        printf("[BLE] READ SSID: %s\r\n", ssid);
+        printf("[BLE] READ PASSWORD: %s\r\n", password);
+        write_ssid_password_from_flash(ssid, password);
+        //wifi_sta_connect(ssid, password);
+        return 1;
+    }
+    return 0;
 }
 
 // static ssize_t ble_uuid2_write_val(struct bt_conn *conn, const struct bt_gatt_attr *attr,
@@ -451,7 +521,7 @@ int ble_slave_deinit(void)
     ble_regist_conn(NULL);
     ble_regist_disconn(NULL);
 
-    //ble_server_deinit();
+    ble_server_deinit();
 
     return 0;
 }
@@ -493,26 +563,6 @@ void ble_stack_start(void)
 
 
 
-static uint8_t s_flag_stop_ble = 0;
-static uint8_t s_flag_start_stop = 0;
-uint8_t get_stop_ble(void)
-{
-    return s_flag_stop_ble;
-}
-uint8_t get_start_stop(void){
-
-    return s_flag_start_stop;
-}
-void set_stop_ble(uint8_t value)
-{
-    s_flag_stop_ble = value;
-}
-void set_start_stop(uint8_t value)
-{
-    s_flag_start_stop = value;
-}
-
-
 
 // start ble
 void apps_ble_start()
@@ -545,7 +595,7 @@ void apps_ble_stop()
     if(le_check_valid_conn()){
         printf("Valid conn still active\r\n");
     }else{
-        printf("Valid conn has beeb stopped\r\n");
+        printf("Valid conn has been stopped\r\n");
     }
 
     if (atomic_test_bit(bt_dev.flags, BT_DEV_ADVERTISING)) {
@@ -561,57 +611,11 @@ void apps_ble_stop()
 
 void BLE_Task(void *param){
     printf("[BLE] start task BLE\r\n");
+    blink_led_100();
     apps_ble_start();
     vTaskDelete(NULL);
 }
 
-void handle_data(uint8_t *recv_buffer){
-
-    char ssid[34];
-    char password[67];
-    uint8_t ssid_found = 0; 
-    uint8_t password_found = 0;
-
-    /* Tach ssid */
-    char *ssid_start = strstr((char*)recv_buffer, "ssid:");
-    if (ssid_start != NULL) {
-        ssid_start += 5; // Bỏ qua "ssid:"
-        char *ssid_end = strchr(ssid_start, ';');
-        if (ssid_end != NULL) {
-            int ssid_len = ssid_end - ssid_start;
-            if (ssid_len > 0 && ssid_len < sizeof(ssid)) {
-                strncpy(ssid, ssid_start, ssid_len);
-                ssid[ssid_len] = '\0';
-                ssid_found = 1;
-            }
-        }
-    }
-
-    char *pwd_start = strstr((char*)recv_buffer, "password:");
-    if (pwd_start != NULL) {
-        pwd_start += 9; // Bỏ qua "password:"
-        strncpy(password, pwd_start, sizeof(password) - 1);
-        password[sizeof(password) - 1] = '\0';
-        password_found = 1;
-    }
-
-    if(ssid_found != 1 || password_found != 1){
-        printf("[BLE] SSID & PASSWORD FAILED");
-    }else{
-        printf("[BLE] READ SSID: %s\r\n", ssid);
-        printf("[BLE] READ PASSWORD: %s\r\n", password);
-        //s_time_connect = aos_now_ms();
-
-        /* stop ble */
-        s_flag_start_stop = 1;
-        //s_flag_stop_ble = 1;
-
-        
-        /* set flags */
-        //set_is_config_ble(0);
-        reset_flag_ble(0);
-    }
-}
 
 
 

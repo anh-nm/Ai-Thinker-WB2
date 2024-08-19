@@ -11,7 +11,7 @@ static wifi_interface_t ap_interface;
  * @param gw DNS
  */
 
-//static TaskHandle_t xHandle = NULL;
+extern void blink_led_200(void);
 
 static void wifi_ap_ip_set(char* ip_addr, char* netmask, char* gw)
 {
@@ -78,6 +78,7 @@ void wifi_ap_start()
                                                                         //for example, gateway ip:"192.168.4.1" , change DHCPD_SERVER_IP to "192.168.4.1"  :
                                                                         //wifi_ap_ip_set("192.168.4.1", "255.255.255.0", "192.168.4.1");
                                                                         //components/network/lwip_dhcpd/dhcp_server_raw.c：42   #define DHCPD_SERVER_IP "192.168.4.1"
+    blink_led_200();
     s_flag_stop_ap = 1;
 }
 
