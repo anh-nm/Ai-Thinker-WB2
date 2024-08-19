@@ -37,8 +37,8 @@ uint8_t get_led_status(void);
 button_states button_state(void);
 void button_manual_task(void *param);
 
-void set_is_config_ap(uint8_t value);
-void set_is_config_ble(uint8_t value);
+void set_is_config(uint8_t value);
+
 void set_flag_ap(uint8_t value);
 void set_flag_ble(uint8_t value);
 

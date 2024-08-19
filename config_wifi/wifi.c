@@ -72,10 +72,10 @@ void wifi_stop_connect(void){
         g_wifi_sta_interface = NULL;
         // g_wifi_sta_is_connected = 0;
     }
-    listTask();
+    //listTask();
 }
 
-void wifi_reconnect(void);
+//void wifi_reconnect(void);
 
 
 

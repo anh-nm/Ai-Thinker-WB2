@@ -7,10 +7,11 @@ extern void write_ssid_password_from_flash(char* ssid, char* password);
 extern void wifi_sta_connect(char* re_ssid, char* re_password);
 extern void set_flag_ble(uint8_t value);
 
-extern void blink_led_100(void);
 
 static uint8_t s_flag_stop_ble = 0;
 static uint8_t s_flag_start_stop = 0;
+
+
 uint8_t get_stop_ble(void)
 {
     return s_flag_stop_ble;
@@ -149,7 +150,9 @@ uint8_t handle_data(uint8_t *recv_buffer){
     }else{
         printf("[BLE] READ SSID: %s\r\n", ssid);
         printf("[BLE] READ PASSWORD: %s\r\n", password);
+
         write_ssid_password_from_flash(ssid, password);
+        vTaskDelay(500);
         //wifi_sta_connect(ssid, password);
         return 1;
     }
@@ -517,11 +520,12 @@ int ble_slave_init()
 int ble_slave_deinit(void)
 {
     /* comment out gatt server deinit as it may cause crash */
+    blog_info(" START DEINIT ");
     bt_le_adv_stop();
     ble_regist_conn(NULL);
     ble_regist_disconn(NULL);
 
-    ble_server_deinit();
+    //ble_server_deinit();
 
     return 0;
 }
@@ -611,7 +615,6 @@ void apps_ble_stop()
 
 void BLE_Task(void *param){
     printf("[BLE] start task BLE\r\n");
-    blink_led_100();
     apps_ble_start();
     vTaskDelete(NULL);
 }

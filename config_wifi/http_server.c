@@ -1,11 +1,12 @@
 #include "http_server.h"
 
-//extern void set_is_config(uint8_t value);
+extern void set_is_config(uint8_t value);
 
 static uint8_t IS_HTTP_DONE = 0;
 void set_stop_http_server(uint8_t value){
     IS_HTTP_DONE = value;
 }
+
 
 
 const static char http_html_hdr[] =
@@ -52,7 +53,8 @@ void web_http_server(struct netconn *conn){
                             wifi_ap_stop();
                             wifi_sta_connect(ssid->valuestring, password->valuestring);
             
-                            IS_HTTP_DONE = 1;               
+                            IS_HTTP_DONE = 1;
+                            set_is_config(0);
                         }
 
                         cJSON_Delete(json);
@@ -65,6 +67,7 @@ void web_http_server(struct netconn *conn){
     netconn_close(conn);
     netbuf_delete(inputbuf);
 }
+
 
 
 void http_server_start(void *param){
@@ -91,6 +94,8 @@ void http_server_start(void *param){
     netconn_listen(conn);
 
     while (1){
+
+        blog_info("*");
 
         if(IS_HTTP_DONE == 1){
             blog_info("[HTTP_SERVER] STOP");
