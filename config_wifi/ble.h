@@ -15,6 +15,7 @@
 #include "conn.h"
 #include "conn_internal.h"
 #include "gatt.h"
+#include "flash.h"
 
 #include <aos/kernel.h>
 #include <blog.h>
@@ -58,7 +59,7 @@ uint8_t get_stop_ble(void);
 uint8_t get_start_stop(void);
 void set_stop_ble(uint8_t time);
 void set_start_stop(uint8_t value);
-uint8_t handle_data(uint8_t *recv_buffer);
+//uint8_t handle_data(uint8_t *recv_buffer);
 
 
 #endif /*_BLE_H_*/

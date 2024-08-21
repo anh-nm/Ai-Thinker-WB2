@@ -203,8 +203,10 @@ void button_manual_task(void *param){
                 if(!flag_ble){
                     check_stop_all_before_ble();
                     blog_info(" create ble task ");
-                    xTaskCreate(BLE_Task, (char *)"BLE_Task", 1024 * 3, NULL, 15, NULL);
-                    flag_ble = 1;
+                    if(get_g_wifi_sta_is_connected() == 0 && get_flag_stop_ap() == 0){
+                        xTaskCreate(BLE_Task, (char *)"BLE_Task", 1024 * 3, NULL, 15, NULL);
+                        flag_ble = 1;
+                    }
                 }
                 break;
 

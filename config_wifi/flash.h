@@ -11,8 +11,15 @@
 //#define DEMO_HOSAL_FLASH_TEST_LEN  1024
 //#define DEMO_HOSAL_FLASH_TEST_BLOCK 1024
 
-void write_ssid_password_from_flash(char* ssid, char* password);
+typedef struct{
+
+    char ssid[34];
+    char password[67];
+
+}wifi_config;
+
+void write_ssid_password_to_flash(wifi_config *config);
 void read_ssid_password_from_flash(void);
-void ssid_and_password_handler(char data_read[128]);
+//void ssid_and_password_handler(char data_read[128]);
 
 #endif /*_FLASH_H_*/

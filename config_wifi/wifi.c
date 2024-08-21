@@ -11,20 +11,20 @@ static wifi_conf_t conf =
     .country_code = "CN",
 };
 
-static char* ssid[SSID_LEN];
-static char* password[PASSWORD_LEN];
+// static char* ssid[SSID_LEN];
+// static char* password[PASSWORD_LEN];
 
 int get_g_wifi_sta_is_connected(void){
     return g_wifi_sta_is_connected;
 }
 
-void get_ssid_password(char* re_ssid, char* re_password){
-    memset(ssid, 0, SSID_LEN);
-    memset(password, 0, PASSWORD_LEN);
+// void get_ssid_password(char* re_ssid, char* re_password){
+//     memset(ssid, 0, SSID_LEN);
+//     memset(password, 0, PASSWORD_LEN);
 
-    memcpy(ssid, re_ssid, strlen(re_ssid));
-    memcpy(password, re_password, strlen(re_password));
-}
+//     memcpy(ssid, re_ssid, strlen(re_ssid));
+//     memcpy(password, re_password, strlen(re_password));
+// }
 
 
 int wifi_sta_connect(char* re_ssid, char* re_password){
@@ -33,7 +33,7 @@ int wifi_sta_connect(char* re_ssid, char* re_password){
     g_wifi_sta_interface = wifi_mgmr_sta_enable();
     wifi_mgmr_sta_connect(g_wifi_sta_interface, re_ssid, re_password, NULL, NULL, 0, 0);
     g_wifi_sta_is_connected = 1;
-    printf("\r\n<<<<<<<<<<<<<<<<<<<<<<<< CONNECTED SUCCESSFULLY <<<<<<<<<<<<<<<<<<<<<<<<<<<\r\n");
+    printf("\r\n<<<<<<<<<<<<<<< WIFI CONNECT SUCCESSFULLY <<<<<<<<<<<<<<<<\r\n");
     return 0;
 }
 
@@ -70,7 +70,7 @@ void wifi_stop_connect(void){
 
         printf("\r\n                DONE                \r\n");
         g_wifi_sta_interface = NULL;
-        // g_wifi_sta_is_connected = 0;
+        g_wifi_sta_is_connected = 0;
     }
     //listTask();
 }
@@ -144,7 +144,9 @@ void event_cb_wifi_event(input_event_t* event, void* private_data)
         //g_wifi_sta_is_connected = 0;
         printf("\r\n<<<<<<<<<<<<<<<<<<<<<< wifi sta disconnected <<<<<<<<<<<<<<<<<<<<<\r\n");
         printf("[APP] [EVT] disconnect %lld\r\n", aos_now_ms());
-        mqtt_stop();
+
+        //mqtt_stop();
+
         break;
 
     case CODE_WIFI_ON_CONNECTING:

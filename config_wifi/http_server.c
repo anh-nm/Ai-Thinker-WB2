@@ -12,6 +12,46 @@ void set_stop_http_server(uint8_t value){
 const static char http_html_hdr[] =
     "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
 
+
+
+static void handle_data_and_write(char *json_start){
+    cJSON *json = cJSON_Parse(json_start);
+    if (json) {
+
+        cJSON *rece_ssid = cJSON_GetObjectItem(json, "ssid");
+        cJSON *rece_password = cJSON_GetObjectItem(json, "password");
+
+        if (rece_ssid && rece_password) {
+            /*  */
+            wifi_config *config = (wifi_config *)malloc(sizeof(wifi_config));
+
+            /*  */
+            printf("Received SSID: %s\r\n", rece_ssid->valuestring);
+            printf("Received Password: %s\r\n", rece_password->valuestring);
+
+            snprintf(config->ssid, sizeof(config->ssid), "%s", rece_ssid->valuestring);
+            snprintf(config->password, sizeof(config->password), "%s", rece_password->valuestring);
+
+            /*  */
+            write_ssid_password_to_flash(config);
+
+            /* Dừng Wi-Fi AP và kết nối Wi-Fi Station */
+            wifi_ap_stop();
+            wifi_sta_connect(config->ssid, config->password);
+
+            IS_HTTP_DONE = 1;
+            set_is_config(0);
+
+            /*  */
+            free(config);
+        }
+
+        cJSON_Delete(json);
+    }
+}
+
+
+
 void web_http_server(struct netconn *conn){
 
     struct netbuf *inputbuf;
@@ -39,26 +79,8 @@ void web_http_server(struct netconn *conn){
                 char *json_start = strstr(buf, "\r\n\r\n");
                 if (json_start) {
                     json_start += 4; /*Bỏ qua ký tự xuống dòng kép*/
-
-                    cJSON *json = cJSON_Parse(json_start);
-                    if (json) {
-
-                        cJSON *ssid = cJSON_GetObjectItem(json, "ssid");
-                        cJSON *password = cJSON_GetObjectItem(json, "password");
-
-                        if (ssid && password) {
-                            printf("Received SSID: %s\r\n", ssid->valuestring);
-                            printf("Received Password: %s\r\n", password->valuestring);
-                            write_ssid_password_from_flash(ssid->valuestring, password->valuestring);
-                            wifi_ap_stop();
-                            wifi_sta_connect(ssid->valuestring, password->valuestring);
-            
-                            IS_HTTP_DONE = 1;
-                            set_is_config(0);
-                        }
-
-                        cJSON_Delete(json);
-                    }
+                    handle_data_and_write(json_start);
+                    //cJSON *json = cJSON_Parse(json_start);                 
                 }
             }
         }

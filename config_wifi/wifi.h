@@ -27,6 +27,12 @@
 #define SSID_LEN        34
 #define PASSWORD_LEN    67
 
+// typedef struct{
+
+//     char ssid[SSID_LEN];
+//     char password[PASSWORD_LEN];
+// } wifi_config;
+
 typedef struct
 {
     uint16_t interval_second;
