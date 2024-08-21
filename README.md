@@ -24,27 +24,7 @@ Dùng BUTTON 3 điều khiển LED 3, Khi kết nối thành công mqtt điều 
 
 ## Cụ thể
 
-### --Start
-###     |_ Wifi task
-###     |   |_ Wifi init done
-###     |       |_ Read flash
-###     |           |_ flash != NULL
-###     |               |_ Connect wifi
-###     |               |_ Start mqtt
-###     |
-###     |_ Button task
-###     |   |_ ON, OFF LED
-###     |   |_ IS_CONFIG_AP
-###     |   |   |_ (Blink LED, Stop mqtt, stop wifi) Start AP
-###     |   |       |_ Receive ssid, password
-###     |   |           |_ Write flash
-###     |   |           |_ stop AP
-###     |   |           |_ connect wifi
-###     |   |           |_ start mqtt
-###     |   |_ IS_CONFIG_BLE
-###     |       |_
-###     |           |_
-###     |_ END
+![alt text](image-1.png)
 
 ## Các trạng thái chính của hệ thống
 
