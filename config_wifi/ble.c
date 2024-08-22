@@ -36,14 +36,14 @@ ble_gatt_conn_cb_t conn_cb;
 ble_gatt_conn_cb_t disconn_cb;
 
 char ADV_data[]={
-    0x0B,
+    0x0C,
     0xFF,
     0x43, 0x4F, 0x4E, 0x4E, 0x45, 0x43, 0x54, 0x20, 0x4D, 0x45    /* "CONNECT ME" */
 };
 
 static const struct bt_data salve_adv[] = {
     BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
-    BT_DATA(BT_DATA_MANUFACTURER_DATA, ADV_data, sizeof(ADV_data) - 1),
+    BT_DATA(BT_DATA_MANUFACTURER_DATA, ADV_data, sizeof(ADV_data)),
 
 };
 
@@ -308,28 +308,15 @@ static int ble_salve_disconn_cb(struct bt_conn *conn, uint8_t code)
 
 int ble_salve_adv()
 {
-    // int err = -1;
-    // err = bt_le_adv_start(BT_LE_ADV_CONN, salve_adv, ARRAY_SIZE(salve_adv), NULL, 0);
-    // //bt_set_name(BLE_SLAVE_NAME);
-    // if (err)
-    // {
-    //     printf("[BLE] adv fail(err %d) \r\n", err);
-    //     return -1;
-    // }
-
-    // return 0;
-    struct bt_le_adv_param param;
-    param.id = BT_ID_DEFAULT;
-    param.interval_min = BT_GAP_ADV_FAST_INT_MIN_2;
-    param.interval_max = BT_GAP_ADV_FAST_INT_MAX_2;
-    param.options = BT_LE_ADV_OPT_CONNECTABLE | BT_LE_ADV_OPT_USE_NAME;
     int err = -1;
-    err = bt_le_adv_start(&param, salve_adv, ARRAY_SIZE(salve_adv), NULL, 0);
-    if(err){
+    err = bt_le_adv_start(BT_LE_ADV_CONN, salve_adv, ARRAY_SIZE(salve_adv), NULL, 0);
+    //bt_set_name(BLE_SLAVE_NAME);
+    if (err)
+    {
         printf("[BLE] adv fail(err %d) \r\n", err);
         return -1;
     }
-    bt_set_name(BLE_SLAVE_NAME);
+
     return 0;
 }
 
